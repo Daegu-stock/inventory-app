@@ -1,270 +1,546 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="theme-color" content="#2563eb">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  >
+
+  <meta
+    name="theme-color"
+    content="#2563eb"
+  >
 
   <title>부품 재고 관리</title>
 
+
   <!-- 바코드 / QR 스캐너 -->
-  <script src="https://cdn.jsdelivr.net/npm/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/html5-qrcode@2.3.8/html5-qrcode.min.js"
+  ></script>
+
 
   <style>
+
     * {
       box-sizing: border-box;
     }
 
+
     body {
+
       margin: 0;
+
       background: #f4f5f7;
+
       color: #1d1d1f;
+
       font-family:
         -apple-system,
         BlinkMacSystemFont,
         "Apple SD Gothic Neo",
         "Malgun Gothic",
         sans-serif;
+
     }
+
 
     button,
     input {
+
       font: inherit;
+
     }
+
 
     .container {
+
       width: 100%;
+
       max-width: 480px;
+
       margin: 0 auto;
+
       padding: 18px;
+
     }
+
 
     h1 {
+
       font-size: 22px;
-      margin: 4px 0 6px;
+
+      margin:
+        4px 0 6px;
+
     }
+
 
     .sub {
+
       color: #666;
+
       font-size: 13px;
+
       line-height: 1.5;
+
       margin-bottom: 18px;
+
     }
+
 
     .card {
+
       background: #fff;
+
       border-radius: 16px;
+
       padding: 18px;
+
       margin-bottom: 14px;
-      box-shadow: 0 1px 5px rgba(0,0,0,.08);
+
+      box-shadow:
+        0 1px 5px rgba(0,0,0,.08);
+
     }
+
 
     label {
+
       display: block;
+
       margin-top: 13px;
+
       font-size: 13px;
+
       color: #555;
+
       font-weight: 700;
+
     }
+
 
     label:first-child {
+
       margin-top: 0;
+
     }
+
 
     input {
+
       width: 100%;
+
       min-height: 48px;
+
       margin-top: 7px;
-      padding: 12px 13px;
-      border: 1px solid #d9d9d9;
+
+      padding:
+        12px 13px;
+
+      border:
+        1px solid #d9d9d9;
+
       border-radius: 11px;
+
       background: #fff;
+
       color: #111;
+
       outline: none;
+
     }
+
 
     input:focus {
+
       border-color: #2563eb;
-      box-shadow: 0 0 0 3px rgba(37,99,235,.12);
+
+      box-shadow:
+        0 0 0 3px
+        rgba(37,99,235,.12);
+
     }
+
 
     button {
+
       width: 100%;
+
       min-height: 50px;
+
       margin-top: 11px;
-      padding: 12px 14px;
+
+      padding:
+        12px 14px;
+
       border: 0;
+
       border-radius: 11px;
+
       background: #2563eb;
+
       color: #fff;
+
       font-weight: 700;
+
       cursor: pointer;
-      -webkit-tap-highlight-color: transparent;
+
+      -webkit-tap-highlight-color:
+        transparent;
+
     }
+
 
     button:active {
-      transform: scale(.99);
+
+      transform:
+        scale(.99);
+
       opacity: .88;
+
     }
+
 
     button.secondary {
+
       background: #ececef;
+
       color: #333;
+
     }
+
 
     button.danger {
+
       background: #f3f3f3;
+
       color: #b42318;
+
     }
+
 
     button:disabled {
+
       opacity: .5;
+
       cursor: default;
+
     }
+
 
     .top-bar {
+
       display: flex;
+
       align-items: center;
-      justify-content: space-between;
+
+      justify-content:
+        space-between;
+
       gap: 12px;
-      margin: 3px 2px 14px;
+
+      margin:
+        3px 2px 14px;
+
     }
+
 
     .welcome {
+
       font-size: 14px;
+
       font-weight: 700;
+
     }
+
 
     .switch-user {
+
       border: 0;
-      background: transparent;
+
+      background:
+        transparent;
+
       color: #777;
+
       font-size: 12px;
+
       padding: 4px;
+
       min-height: auto;
+
       width: auto;
+
       margin: 0;
-      text-decoration: underline;
+
+      text-decoration:
+        underline;
+
     }
+
+
+    .menu-title {
+
+      font-size: 16px;
+
+      font-weight: 700;
+
+      margin-bottom: 14px;
+
+    }
+
+
+    .menu-button {
+
+      min-height: 62px;
+
+      font-size: 16px;
+
+    }
+
+
+    .menu-button.manual {
+
+      background: #111827;
+
+    }
+
 
     #reader {
+
       width: 100%;
+
       margin-top: 13px;
+
       overflow: hidden;
+
       border-radius: 13px;
+
       background: #111;
+
       min-height: 180px;
+
     }
+
 
     #reader video {
+
       width: 100% !important;
+
       height: auto !important;
+
       display: block;
+
       border-radius: 13px;
+
       object-fit: cover;
+
     }
+
 
     .scan-guide {
+
       margin-top: 10px;
-      padding: 10px 12px;
+
+      padding:
+        10px 12px;
+
       border-radius: 10px;
+
       background: #f5f7fa;
+
       color: #666;
+
       font-size: 12px;
+
       line-height: 1.5;
+
       text-align: center;
+
     }
+
 
     .barcode-badge {
+
       margin-top: 6px;
-      padding: 10px 12px;
+
+      padding:
+        10px 12px;
+
       background: #f5f5f7;
+
       border-radius: 9px;
+
       font-family: monospace;
+
       font-size: 13px;
+
       word-break: break-all;
+
     }
+
 
     .status {
+
       margin-top: 10px;
-      padding: 10px 12px;
+
+      padding:
+        10px 12px;
+
       border-radius: 9px;
+
       font-size: 13px;
+
       line-height: 1.45;
+
       display: none;
+
+      white-space: pre-line;
+
     }
+
 
     .status.info {
+
       display: block;
+
       background: #eef5ff;
+
       color: #175cd3;
+
     }
+
 
     .status.success {
+
       display: block;
+
       background: #ecfdf3;
+
       color: #027a48;
+
     }
+
 
     .status.error {
+
       display: block;
+
       background: #fef3f2;
+
       color: #b42318;
+
     }
+
 
     .hidden {
+
       display: none !important;
+
     }
+
 
     .toast {
+
       position: fixed;
+
       left: 50%;
+
       bottom: 24px;
-      transform: translateX(-50%);
+
+      transform:
+        translateX(-50%);
+
       z-index: 1000;
-      max-width: calc(100vw - 40px);
-      padding: 12px 18px;
+
+      max-width:
+        calc(100vw - 40px);
+
+      padding:
+        12px 18px;
+
       border-radius: 24px;
+
       background: #111;
+
       color: #fff;
+
       font-size: 14px;
+
       text-align: center;
+
       opacity: 0;
+
       pointer-events: none;
-      transition: opacity .2s;
+
+      transition:
+        opacity .2s;
+
     }
 
+
     .toast.show {
+
       opacity: .95;
+
     }
+
   </style>
+
 </head>
+
 
 <body>
 
+
 <div class="container">
 
-  <!-- 로그인 -->
-  <section id="loginScreen">
+
+  <!-- ======================================================
+       로그인 화면
+       ====================================================== -->
+
+  <section
+    id="loginScreen"
+  >
 
     <div class="card">
 
-      <h1>부품 재고 관리</h1>
+      <h1>
+        부품 재고 관리
+      </h1>
 
       <div class="sub">
-        이름을 입력하면 다음부터 자동으로 로그인됩니다.
+
+        이름을 입력하면
+        다음부터 자동으로 로그인됩니다.
+
       </div>
 
-      <label for="nameInput">
+
+      <label
+        for="nameInput"
+      >
         이름 (사번)
       </label>
+
 
       <input
         id="nameInput"
         autocomplete="name"
         placeholder="예: 김현로"
-        onkeydown="if(event.key==='Enter') login();"
+        onkeydown="
+          if(event.key==='Enter')
+          login();
+        "
       >
+
 
       <button
         id="loginBtn"
@@ -278,11 +554,16 @@
   </section>
 
 
-  <!-- 메인 -->
+
+  <!-- ======================================================
+       메인 화면
+       ====================================================== -->
+
   <section
     id="mainScreen"
     class="hidden"
   >
+
 
     <div class="top-bar">
 
@@ -290,6 +571,7 @@
         class="welcome"
         id="welcomeText"
       ></div>
+
 
       <button
         class="switch-user"
@@ -301,125 +583,300 @@
     </div>
 
 
-    <!-- 스캔 -->
-    <div class="card">
 
-      <button
-        id="scanBtn"
-        onclick="startScan()"
-      >
-        📷 바코드 스캔하기
-      </button>
+    <!-- ====================================================
+         메뉴
+         ==================================================== -->
+
+    <section
+      id="menuScreen"
+    >
+
+      <div class="card">
+
+        <div class="menu-title">
+          입력 방법을 선택해주세요
+        </div>
 
 
-      <div
-        id="reader"
-        class="hidden"
-      ></div>
+        <button
+          class="menu-button"
+          onclick="showScanScreen()"
+        >
+          📷 바코드 스캔하기
+        </button>
 
 
-      <div
-        id="scanGuide"
-        class="scan-guide hidden"
-      >
-        바코드를 화면 가운데 맞춰주세요.<br>
-        인식되면 자동으로 다음 단계로 넘어갑니다.
+        <button
+          class="menu-button manual"
+          onclick="showManualScreen()"
+        >
+          ✏️ 수동으로 입력하기
+        </button>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ====================================================
+         바코드 스캔 화면
+         ==================================================== -->
+
+    <section
+      id="scanScreen"
+      class="hidden"
+    >
+
+      <div class="card">
+
+        <button
+          id="scanBtn"
+          onclick="startScan()"
+        >
+          📷 바코드 스캔하기
+        </button>
+
+
+        <div
+          id="reader"
+          class="hidden"
+        ></div>
+
+
+        <div
+          id="scanGuide"
+          class="scan-guide hidden"
+        >
+          바코드를 화면 가운데 맞춰주세요.<br>
+          인식되면 자동으로 다음 단계로 넘어갑니다.
+        </div>
+
+
+        <button
+          id="stopScanBtn"
+          class="secondary hidden"
+          onclick="stopScan()"
+        >
+          스캔 취소
+        </button>
+
+
+        <div
+          id="cameraStatus"
+          class="status"
+        ></div>
+
+
+        <button
+          class="secondary"
+          onclick="showMenuScreen()"
+        >
+          ← 입력 방법 선택
+        </button>
+
       </div>
 
 
-      <button
-        id="stopScanBtn"
-        class="secondary hidden"
-        onclick="stopScan()"
-      >
-        스캔 취소
-      </button>
-
+      <!-- 스캔 결과 -->
 
       <div
-        id="cameraStatus"
-        class="status"
-      ></div>
+        class="card hidden"
+        id="resultCard"
+      >
 
-    </div>
+        <label>
+          바코드
+        </label>
 
 
-    <!-- 결과 -->
-    <div
-      class="card hidden"
-      id="resultCard"
+        <div
+          class="barcode-badge"
+          id="barcodeText"
+        ></div>
+
+
+        <label
+          for="partNo"
+        >
+          Part No
+        </label>
+
+
+        <input
+          id="partNo"
+          placeholder="Part No"
+        >
+
+
+        <label
+          for="partName"
+        >
+          부품명
+        </label>
+
+
+        <input
+          id="partName"
+          placeholder="부품명"
+        >
+
+
+        <label
+          for="quantity"
+        >
+          수량
+        </label>
+
+
+        <input
+          id="quantity"
+          type="number"
+          inputmode="numeric"
+          min="1"
+          step="1"
+          value="1"
+        >
+
+
+        <div
+          id="lookupStatus"
+          class="status"
+        ></div>
+
+
+        <button
+          id="saveBtn"
+          onclick="saveRecord()"
+        >
+          저장
+        </button>
+
+
+        <button
+          class="secondary"
+          onclick="resetForm()"
+        >
+          취소
+        </button>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ====================================================
+         수동 입력 화면
+         ==================================================== -->
+
+    <section
+      id="manualScreen"
+      class="hidden"
     >
 
-      <label>
-        바코드
-      </label>
+      <div class="card">
 
-      <div
-        class="barcode-badge"
-        id="barcodeText"
-      ></div>
+        <div class="menu-title">
+          수동으로 입력
+        </div>
 
 
-      <label for="partNo">
-        Part No
-      </label>
-
-      <input
-        id="partNo"
-        placeholder="Part No"
-      >
+        <label
+          for="manualPartNo"
+        >
+          Part No
+        </label>
 
 
-      <label for="partName">
-        부품명
-      </label>
-
-      <input
-        id="partName"
-        placeholder="부품명"
-      >
-
-
-      <label for="quantity">
-        수량
-      </label>
-
-      <input
-        id="quantity"
-        type="number"
-        inputmode="numeric"
-        min="1"
-        step="1"
-        value="1"
-      >
+        <input
+          id="manualPartNo"
+          placeholder="Part No를 입력해주세요"
+          autocomplete="off"
+          onkeydown="
+            if(event.key==='Enter')
+            lookupManualPart();
+          "
+        >
 
 
-      <div
-        id="lookupStatus"
-        class="status"
-      ></div>
+        <button
+          id="findPartBtn"
+          onclick="lookupManualPart()"
+        >
+          🔍 찾기
+        </button>
 
 
-      <button
-        id="saveBtn"
-        onclick="saveRecord()"
-      >
-        저장
-      </button>
+        <div
+          id="manualLookupStatus"
+          class="status"
+        ></div>
 
 
-      <button
-        class="secondary"
-        onclick="resetForm()"
-      >
-        취소
-      </button>
+        <label
+          for="manualPartName"
+        >
+          부품명
+        </label>
 
-    </div>
+
+        <input
+          id="manualPartName"
+          placeholder="찾기 버튼을 누르면 자동으로 표시됩니다"
+          readonly
+        >
+
+
+        <label
+          for="manualQuantity"
+        >
+          수량
+        </label>
+
+
+        <input
+          id="manualQuantity"
+          type="number"
+          inputmode="numeric"
+          min="1"
+          step="1"
+          value="1"
+        >
+
+
+        <button
+          id="manualSaveBtn"
+          onclick="saveManualRecord()"
+        >
+          저장
+        </button>
+
+
+        <button
+          class="secondary"
+          onclick="resetManualForm()"
+        >
+          취소
+        </button>
+
+
+        <button
+          class="secondary"
+          onclick="showMenuScreen()"
+        >
+          ← 입력 방법 선택
+        </button>
+
+      </div>
+
+    </section>
 
   </section>
 
 </div>
+
 
 
 <div
@@ -428,270 +885,413 @@
 ></div>
 
 
+
 <script>
 
-  /* ==========================================================
-     설정
-     ========================================================== */
 
-  const APPS_SCRIPT_URL =
-    'https://script.google.com/macros/s/AKfycbx9LCuPz6c07KDJWNnv7xwl-VQIjj4tV_p62K6dF-SNYj5KWR-glgdfO4gP6IP32-Y6/exec';
+// ============================================================
+// 1. 설정
+// ============================================================
 
-
-  const API_TOKEN = '';
+const APPS_SCRIPT_URL =
+  'https://script.google.com/macros/s/AKfycbx9LCuPz6c07KDJWNnv7xwl-VQIjj4tV_p62K6dF-SNYj5KWR-glgdfO4gP6IP32-Y6/exec';
 
 
-  const STORAGE_KEY =
-    'inventoryEmployeeName';
+const API_TOKEN = '';
 
 
-  let html5QrCode = null;
-
-  let isScanning = false;
-
-  let currentBarcode = '';
-
-  let selectedCameraId = null;
-
-  let jsonpCounter = 0;
+const STORAGE_KEY =
+  'inventoryEmployeeName';
 
 
 
-  /* ==========================================================
-     초기화
-     ========================================================== */
+let html5QrCode = null;
 
-  window.addEventListener(
-    'load',
-    () => {
+let isScanning = false;
 
-      const savedName =
-        localStorage.getItem(STORAGE_KEY);
+let currentBarcode = '';
+
+let selectedCameraId = null;
+
+let jsonpCounter = 0;
 
 
-      if (savedName) {
 
-        showMain(savedName);
+// ============================================================
+// 2. 초기화
+// ============================================================
 
-      } else {
+window.addEventListener(
+  'load',
+  function() {
 
-        document
-          .getElementById('nameInput')
-          .focus();
+    const savedName =
+      localStorage.getItem(
+        STORAGE_KEY
+      );
 
-      }
+
+    if (savedName) {
+
+      showMain(
+        savedName
+      );
+
+    } else {
+
+      document
+        .getElementById(
+          'nameInput'
+        )
+        .focus();
 
     }
+
+  }
+);
+
+
+
+// ============================================================
+// 3. 로그인
+// ============================================================
+
+function login() {
+
+  const name =
+    document
+      .getElementById(
+        'nameInput'
+      )
+      .value
+      .trim();
+
+
+  if (!name) {
+
+    alert(
+      '이름을 입력해주세요.'
+    );
+
+    return;
+
+  }
+
+
+  localStorage.setItem(
+    STORAGE_KEY,
+    name
   );
 
 
+  showMain(
+    name
+  );
 
-  /* ==========================================================
-     로그인
-     ========================================================== */
-
-  function login() {
-
-    const name =
-      document
-        .getElementById('nameInput')
-        .value
-        .trim();
+}
 
 
-    if (!name) {
 
-      alert('이름을 입력해주세요.');
+function logout() {
 
-      return;
+  stopScan();
+
+
+  localStorage.removeItem(
+    STORAGE_KEY
+  );
+
+
+  document
+    .getElementById(
+      'mainScreen'
+    )
+    .classList
+    .add('hidden');
+
+
+  document
+    .getElementById(
+      'loginScreen'
+    )
+    .classList
+    .remove('hidden');
+
+
+  document
+    .getElementById(
+      'nameInput'
+    )
+    .value = '';
+
+
+  resetForm();
+
+  resetManualForm();
+
+}
+
+
+
+function showMain(
+  name
+) {
+
+  document
+    .getElementById(
+      'loginScreen'
+    )
+    .classList
+    .add('hidden');
+
+
+  document
+    .getElementById(
+      'mainScreen'
+    )
+    .classList
+    .remove('hidden');
+
+
+  document
+    .getElementById(
+      'welcomeText'
+    )
+    .textContent =
+    name +
+    '님 안녕하세요';
+
+
+  showMenuScreen();
+
+}
+
+
+
+// ============================================================
+// 4. 화면 전환
+// ============================================================
+
+function hideAllScreens() {
+
+  document
+    .getElementById(
+      'menuScreen'
+    )
+    .classList
+    .add('hidden');
+
+
+  document
+    .getElementById(
+      'scanScreen'
+    )
+    .classList
+    .add('hidden');
+
+
+  document
+    .getElementById(
+      'manualScreen'
+    )
+    .classList
+    .add('hidden');
+
+}
+
+
+
+function showMenuScreen() {
+
+  stopScan();
+
+  hideAllScreens();
+
+
+  document
+    .getElementById(
+      'menuScreen'
+    )
+    .classList
+    .remove('hidden');
+
+
+  resetForm();
+
+  resetManualForm();
+
+}
+
+
+
+function showScanScreen() {
+
+  hideAllScreens();
+
+
+  document
+    .getElementById(
+      'scanScreen'
+    )
+    .classList
+    .remove('hidden');
+
+}
+
+
+
+function showManualScreen() {
+
+  hideAllScreens();
+
+
+  document
+    .getElementById(
+      'manualScreen'
+    )
+    .classList
+    .remove('hidden');
+
+
+  document
+    .getElementById(
+      'manualPartNo'
+    )
+    .focus();
+
+}
+
+
+
+// ============================================================
+// 5. 카메라 시작
+// ============================================================
+
+async function startScan() {
+
+  if (isScanning) {
+
+    return;
+
+  }
+
+
+  clearStatus(
+    'cameraStatus'
+  );
+
+
+  document
+    .getElementById(
+      'resultCard'
+    )
+    .classList
+    .add('hidden');
+
+
+  document
+    .getElementById(
+      'reader'
+    )
+    .classList
+    .remove('hidden');
+
+
+  document
+    .getElementById(
+      'scanGuide'
+    )
+    .classList
+    .remove('hidden');
+
+
+  document
+    .getElementById(
+      'stopScanBtn'
+    )
+    .classList
+    .remove('hidden');
+
+
+  setCameraStatus(
+    'info',
+    '카메라를 준비하고 있습니다...'
+  );
+
+
+  try {
+
+
+    // --------------------------------------------------------
+    // HTTPS 확인
+    // --------------------------------------------------------
+
+    if (
+
+      location.protocol !== 'https:' &&
+
+      location.hostname !== 'localhost' &&
+
+      location.hostname !== '127.0.0.1'
+
+    ) {
+
+      throw new Error(
+        '카메라를 사용하려면 HTTPS 주소로 접속해야 합니다.'
+      );
 
     }
 
 
-    localStorage.setItem(
-      STORAGE_KEY,
-      name
-    );
 
+    // --------------------------------------------------------
+    // 카메라 API 확인
+    // --------------------------------------------------------
 
-    showMain(name);
+    if (
 
-  }
+      !navigator.mediaDevices ||
 
+      !navigator.mediaDevices.getUserMedia
 
+    ) {
 
-  function logout() {
+      throw new Error(
+        '현재 브라우저에서 카메라 기능을 사용할 수 없습니다.'
+      );
 
-    stopScan();
-
-
-    localStorage.removeItem(
-      STORAGE_KEY
-    );
-
-
-    document
-      .getElementById('mainScreen')
-      .classList
-      .add('hidden');
-
-
-    document
-      .getElementById('loginScreen')
-      .classList
-      .remove('hidden');
-
-
-    document
-      .getElementById('nameInput')
-      .value = '';
-
-
-    resetForm();
-
-  }
-
-
-
-  function showMain(name) {
-
-    document
-      .getElementById('loginScreen')
-      .classList
-      .add('hidden');
-
-
-    document
-      .getElementById('mainScreen')
-      .classList
-      .remove('hidden');
-
-
-    document
-      .getElementById('welcomeText')
-      .textContent =
-      name + '님 안녕하세요';
-
-  }
-
-
-
-  /* ==========================================================
-     카메라 시작
-     ========================================================== */
-
-  async function startScan() {
-
-    if (isScanning) {
-      return;
     }
 
 
-    clearStatus(
-      'cameraStatus'
-    );
 
-
-    document
-      .getElementById('resultCard')
-      .classList
-      .add('hidden');
-
-
-    document
-      .getElementById('reader')
-      .classList
-      .remove('hidden');
-
-
-    document
-      .getElementById('scanGuide')
-      .classList
-      .remove('hidden');
-
-
-    document
-      .getElementById('stopScanBtn')
-      .classList
-      .remove('hidden');
-
+    // --------------------------------------------------------
+    // 카메라 권한 확인
+    // --------------------------------------------------------
 
     setCameraStatus(
       'info',
-      '카메라를 준비하고 있습니다...'
+      '카메라 권한을 확인하고 있습니다...'
     );
+
+
+    let permissionStream =
+      null;
 
 
     try {
 
-      /*
-       * ------------------------------------------------------
-       * 1. HTTPS 확인
-       * ------------------------------------------------------
-       */
-
-      if (
-        location.protocol !== 'https:' &&
-        location.hostname !== 'localhost' &&
-        location.hostname !== '127.0.0.1'
-      ) {
-
-        throw new Error(
-          '카메라를 사용하려면 HTTPS 주소로 접속해야 합니다.'
-        );
-
-      }
-
-
-
-      /*
-       * ------------------------------------------------------
-       * 2. 브라우저 카메라 API 확인
-       * ------------------------------------------------------
-       */
-
-      if (
-        !navigator.mediaDevices ||
-        !navigator.mediaDevices.getUserMedia
-      ) {
-
-        throw new Error(
-          '현재 브라우저에서 카메라 기능을 사용할 수 없습니다.'
-        );
-
-      }
-
-
-
-      /*
-       * ------------------------------------------------------
-       * 3. 직접 카메라 권한 요청
-       *
-       * 이 부분이 중요합니다.
-       *
-       * html5-qrcode에게 바로 카메라를 맡기지 않고
-       * 먼저 브라우저에게 카메라 접근을 요청합니다.
-       * ------------------------------------------------------
-       */
-
-      setCameraStatus(
-        'info',
-        '카메라 권한을 확인하고 있습니다...'
-      );
-
-
-      let permissionStream = null;
-
-
-      try {
-
-        permissionStream =
-          await navigator.mediaDevices.getUserMedia({
+      permissionStream =
+        await navigator
+          .mediaDevices
+          .getUserMedia({
 
             video: {
 
               facingMode: {
-                ideal: 'environment'
+
+                ideal:
+                  'environment'
+
               }
 
             },
@@ -701,70 +1301,66 @@
           });
 
 
-      } finally {
-
-        /*
-         * 권한 확인용으로 열었던 카메라는
-         * 바로 종료합니다.
-         */
-
-        if (permissionStream) {
-
-          permissionStream
-            .getTracks()
-            .forEach(
-              track => track.stop()
-            );
-
-        }
-
-      }
-
-
-
-      /*
-       * ------------------------------------------------------
-       * 4. 실제 카메라 목록 확인
-       * ------------------------------------------------------
-       */
-
-      setCameraStatus(
-        'info',
-        '사용 가능한 카메라를 확인하고 있습니다...'
-      );
-
-
-      const cameras =
-        await Html5Qrcode.getCameras();
-
+    } finally {
 
       if (
-        !cameras ||
-        cameras.length === 0
+        permissionStream
       ) {
 
-        throw new Error(
-          '사용 가능한 카메라를 찾을 수 없습니다.'
-        );
+        permissionStream
+          .getTracks()
+          .forEach(
+            function(track) {
+
+              track.stop();
+
+            }
+          );
 
       }
 
+    }
 
 
-      /*
-       * ------------------------------------------------------
-       * 5. 후면 카메라 선택
-       *
-       * Android에서는 보통
-       *
-       * back / rear / environment
-       *
-       * 등의 이름으로 표시됩니다.
-       * ------------------------------------------------------
-       */
 
-      const backCamera =
-        cameras.find(camera => {
+    // --------------------------------------------------------
+    // 카메라 목록 확인
+    // --------------------------------------------------------
+
+    setCameraStatus(
+      'info',
+      '사용 가능한 카메라를 확인하고 있습니다...'
+    );
+
+
+    const cameras =
+      await Html5Qrcode
+        .getCameras();
+
+
+    if (
+
+      !cameras ||
+
+      cameras.length === 0
+
+    ) {
+
+      throw new Error(
+        '사용 가능한 카메라를 찾을 수 없습니다.'
+      );
+
+    }
+
+
+
+    // --------------------------------------------------------
+    // 후면 카메라 선택
+    // --------------------------------------------------------
+
+    const backCamera =
+      cameras.find(
+        function(camera) {
 
           const label =
             String(
@@ -773,1078 +1369,1629 @@
 
 
           return (
-            label.includes('back') ||
-            label.includes('rear') ||
-            label.includes('environment') ||
-            label.includes('후면')
+
+            label.includes(
+              'back'
+            ) ||
+
+            label.includes(
+              'rear'
+            ) ||
+
+            label.includes(
+              'environment'
+            ) ||
+
+            label.includes(
+              '후면'
+            )
+
           );
-
-        });
-
-
-      selectedCameraId =
-        backCamera
-          ? backCamera.id
-          : cameras[0].id;
-
-
-
-      /*
-       * ------------------------------------------------------
-       * 6. html5-qrcode 생성
-       * ------------------------------------------------------
-       */
-
-      html5QrCode =
-        new Html5Qrcode(
-          'reader'
-        );
-
-
-      isScanning = true;
-
-
-
-      /*
-       * ------------------------------------------------------
-       * 7. 실제 스캐너 시작
-       * ------------------------------------------------------
-       */
-
-      setCameraStatus(
-        'info',
-        '카메라를 시작하고 있습니다...'
-      );
-
-
-      await html5QrCode.start(
-
-        selectedCameraId,
-
-        {
-
-          fps: 10,
-
-          qrbox:
-            function(
-              viewfinderWidth,
-              viewfinderHeight
-            ) {
-
-              const width =
-                Math.floor(
-                  viewfinderWidth * 0.86
-                );
-
-
-              const height =
-                Math.floor(
-                  viewfinderHeight * 0.28
-                );
-
-
-              return {
-
-                width:
-                  Math.max(
-                    220,
-                    Math.min(
-                      width,
-                      360
-                    )
-                  ),
-
-                height:
-                  Math.max(
-                    100,
-                    Math.min(
-                      height,
-                      180
-                    )
-                  )
-
-              };
-
-            },
-
-          aspectRatio: 1.777778,
-
-          disableFlip: false
-
-        },
-
-        function(decodedText) {
-
-          if (!isScanning) {
-            return;
-          }
-
-
-          onScanSuccess(
-            decodedText
-          );
-
-        },
-
-        function(errorMessage) {
-
-          /*
-           * 스캔 실패는 정상적인 동작입니다.
-           *
-           * 모든 프레임에서 오류가 발생하기 때문에
-           * 화면에는 표시하지 않습니다.
-           */
 
         }
-
       );
 
 
-      setCameraStatus(
-        'success',
-        '카메라가 실행되었습니다. 바코드를 맞춰주세요.'
+    selectedCameraId =
+      backCamera
+        ? backCamera.id
+        : cameras[0].id;
+
+
+
+    // --------------------------------------------------------
+    // 스캐너 생성
+    // --------------------------------------------------------
+
+    html5QrCode =
+      new Html5Qrcode(
+        'reader'
       );
 
 
-    } catch (err) {
+    isScanning = true;
 
-      console.error(
-        'CAMERA ERROR:',
-        err
-      );
 
 
-      isScanning = false;
+    // --------------------------------------------------------
+    // 스캐너 시작
+    // --------------------------------------------------------
 
-
-      cleanupScanner();
-
-
-      let message =
-        '카메라를 시작할 수 없습니다.';
-
-
-      const errorName =
-        err && err.name
-          ? err.name
-          : '';
-
-
-      const errorText =
-        String(
-          err && err.message
-            ? err.message
-            : err
-        );
-
-
-      /*
-       * 권한 거부
-       */
-
-      if (
-        errorName ===
-        'NotAllowedError' ||
-        errorText.includes(
-          'NotAllowedError'
-        )
-      ) {
-
-        message =
-          '카메라 권한이 차단되어 있습니다.\n' +
-          'Chrome의 사이트 권한에서 카메라를 허용해주세요.';
-
-      }
-
-
-      /*
-       * 카메라 없음
-       */
-
-      else if (
-        errorName ===
-        'NotFoundError' ||
-        errorText.includes(
-          'NotFoundError'
-        )
-      ) {
-
-        message =
-          '사용 가능한 카메라를 찾을 수 없습니다.';
-
-      }
-
-
-      /*
-       * 다른 앱에서 카메라 사용
-       */
-
-      else if (
-        errorName ===
-        'NotReadableError' ||
-        errorText.includes(
-          'NotReadableError'
-        )
-      ) {
-
-        message =
-          '카메라가 다른 앱에서 사용 중일 수 있습니다.\n' +
-          '카메라를 사용하는 앱을 종료한 후 다시 시도해주세요.';
-
-      }
-
-
-      /*
-       * 보안 정책
-       */
-
-      else if (
-        errorName ===
-        'SecurityError'
-      ) {
-
-        message =
-          '브라우저 보안 설정 때문에 카메라에 접근할 수 없습니다.';
-
-      }
-
-
-      /*
-       * HTTPS가 아닌 경우
-       */
-
-      else if (
-        errorText.includes(
-          'HTTPS'
-        )
-      ) {
-
-        message =
-          '카메라를 사용하려면 HTTPS 주소로 접속해야 합니다.';
-
-      }
-
-
-      /*
-       * 그 외
-       */
-
-      else if (
-        errorText &&
-        errorText !== 'undefined'
-      ) {
-
-        message =
-          '카메라 오류: ' +
-          errorText;
-
-      }
-
-
-      setCameraStatus(
-        'error',
-        message
-      );
-
-
-      showToast(
-        message
-      );
-
-    }
-
-  }
-
-
-
-  /* ==========================================================
-     카메라 종료
-     ========================================================== */
-
-  async function stopScan() {
-
-    isScanning = false;
-
-
-    if (html5QrCode) {
-
-      try {
-
-        await html5QrCode.stop();
-
-      } catch (err) {
-
-        console.log(
-          '카메라 stop:',
-          err
-        );
-
-      }
-
-
-      try {
-
-        html5QrCode.clear();
-
-      } catch (err) {
-
-        console.log(
-          'reader clear:',
-          err
-        );
-
-      }
-
-
-      html5QrCode = null;
-
-    }
-
-
-    cleanupScanner();
-
-  }
-
-
-
-  function cleanupScanner() {
-
-    document
-      .getElementById('reader')
-      .classList
-      .add('hidden');
-
-
-    document
-      .getElementById('scanGuide')
-      .classList
-      .add('hidden');
-
-
-    document
-      .getElementById('stopScanBtn')
-      .classList
-      .add('hidden');
-
-  }
-
-
-
-  /* ==========================================================
-     스캔 성공
-     ========================================================== */
-
-  async function onScanSuccess(
-    barcode
-  ) {
-
-    if (!isScanning) {
-      return;
-    }
-
-
-    isScanning = false;
-
-
-    currentBarcode =
-      String(
-        barcode || ''
-      ).trim();
-
-
-    /*
-     * 카메라를 먼저 완전히 종료합니다.
-     */
-
-    await stopScan();
-
-
-    /*
-     * 결과 표시
-     */
-
-    document
-      .getElementById('barcodeText')
-      .textContent =
-      currentBarcode;
-
-
-    document
-      .getElementById('quantity')
-      .value = 1;
-
-
-    document
-      .getElementById('partNo')
-      .value = '';
-
-
-    document
-      .getElementById('partName')
-      .value = '';
-
-
-    document
-      .getElementById('resultCard')
-      .classList
-      .remove('hidden');
-
-
-    setLookupStatus(
+    setCameraStatus(
       'info',
-      '부품 정보를 조회하고 있습니다...'
+      '카메라를 시작하고 있습니다...'
     );
 
 
-    lookupPart(
-      currentBarcode
-    );
+    await html5QrCode.start(
 
-  }
-
-
-
-  /* ==========================================================
-     Apps Script - 부품 조회
-     ========================================================== */
-
-  function lookupPart(
-    barcode
-  ) {
-
-    jsonpRequest(
+      selectedCameraId,
 
       {
 
-        action:
-          'lookup',
+        fps: 10,
 
-        barcode:
-          barcode,
+        qrbox:
+          function(
+            viewfinderWidth,
+            viewfinderHeight
+          ) {
 
-        token:
-          API_TOKEN
+            const width =
+              Math.floor(
+                viewfinderWidth *
+                0.86
+              );
+
+
+            const height =
+              Math.floor(
+                viewfinderHeight *
+                0.28
+              );
+
+
+            return {
+
+              width:
+                Math.max(
+                  220,
+                  Math.min(
+                    width,
+                    360
+                  )
+                ),
+
+              height:
+                Math.max(
+                  100,
+                  Math.min(
+                    height,
+                    180
+                  )
+                )
+
+            };
+
+          },
+
+
+        aspectRatio:
+          1.777778,
+
+
+        disableFlip:
+          false
 
       },
 
 
-      function(data) {
+      function(decodedText) {
 
-        if (
-          !data ||
-          data.success === false
-        ) {
-
-          setLookupStatus(
-            'error',
-            '부품 조회에 실패했습니다.'
-          );
+        if (!isScanning) {
 
           return;
 
         }
 
 
-        if (data.found) {
-
-          document
-            .getElementById('partName')
-            .value =
-            data.name || '';
-
-
-          document
-            .getElementById('partNo')
-            .value =
-            data.partNo || '';
-
-
-          setLookupStatus(
-            'success',
-            '등록된 부품을 찾았습니다.'
-          );
-
-
-          document
-            .getElementById('quantity')
-            .focus();
-
-        } else {
-
-          document
-            .getElementById('partName')
-            .value = '';
-
-
-          document
-            .getElementById('partNo')
-            .value = '';
-
-
-          setLookupStatus(
-            'error',
-            '등록되지 않은 바코드입니다. 부품명과 Part No를 직접 입력해주세요.'
-          );
-
-
-          document
-            .getElementById('partName')
-            .focus();
-
-        }
+        onScanSuccess(
+          decodedText
+        );
 
       },
 
 
-      function() {
+      function(errorMessage) {
 
-        setLookupStatus(
-          'error',
-          '부품명 조회에 실패했습니다. 네트워크를 확인해주세요.'
-        );
+        // 스캔 실패는 정상 동작
 
       }
 
     );
 
-  }
+
+    setCameraStatus(
+      'success',
+      '카메라가 실행되었습니다. 바코드를 맞춰주세요.'
+    );
 
 
-
-  /* ==========================================================
-     저장
-     ========================================================== */
-
-  function saveRecord() {
-
-    const employee =
-      localStorage.getItem(
-        STORAGE_KEY
-      ) || '';
+  } catch (err) {
 
 
-    const name =
-      document
-        .getElementById('partName')
-        .value
-        .trim();
+    console.error(
+      'CAMERA ERROR:',
+      err
+    );
 
 
-    const partNo =
-      document
-        .getElementById('partNo')
-        .value
-        .trim();
+    isScanning = false;
 
 
-    const quantity =
-      Number(
-        document
-          .getElementById('quantity')
-          .value
+    cleanupScanner();
+
+
+    let message =
+      '카메라를 시작할 수 없습니다.';
+
+
+    const errorName =
+      err && err.name
+        ? err.name
+        : '';
+
+
+    const errorText =
+      String(
+        err && err.message
+          ? err.message
+          : err
       );
 
-
-    if (!employee) {
-
-      alert(
-        '로그인 정보가 없습니다. 다시 로그인해주세요.'
-      );
-
-      return;
-
-    }
-
-
-    if (!currentBarcode) {
-
-      alert(
-        '바코드가 없습니다. 다시 스캔해주세요.'
-      );
-
-      return;
-
-    }
-
-
-    if (!name) {
-
-      alert(
-        '부품명을 입력해주세요.'
-      );
-
-      document
-        .getElementById('partName')
-        .focus();
-
-      return;
-
-    }
 
 
     if (
-      !Number.isInteger(quantity) ||
-      quantity <= 0
+
+      errorName ===
+      'NotAllowedError' ||
+
+      errorText.includes(
+        'NotAllowedError'
+      )
+
     ) {
 
-      alert(
-        '수량은 1 이상의 정수로 입력해주세요.'
-      );
-
-      document
-        .getElementById('quantity')
-        .focus();
-
-      return;
+      message =
+        '카메라 권한이 차단되어 있습니다.\n' +
+        'Chrome의 사이트 권한에서 카메라를 허용해주세요.';
 
     }
 
 
-    const saveBtn =
-      document
-        .getElementById('saveBtn');
+    else if (
+
+      errorName ===
+      'NotFoundError' ||
+
+      errorText.includes(
+        'NotFoundError'
+      )
+
+    ) {
+
+      message =
+        '사용 가능한 카메라를 찾을 수 없습니다.';
+
+    }
 
 
-    saveBtn.disabled = true;
+    else if (
 
-    saveBtn.textContent =
-      '저장 중...';
+      errorName ===
+      'NotReadableError' ||
 
+      errorText.includes(
+        'NotReadableError'
+      )
 
-    jsonpRequest(
+    ) {
 
-      {
+      message =
+        '카메라가 다른 앱에서 사용 중일 수 있습니다.\n' +
+        '카메라를 사용하는 앱을 종료한 후 다시 시도해주세요.';
 
-        action:
-          'save',
-
-        employee:
-          employee,
-
-        barcode:
-          currentBarcode,
-
-        name:
-          name,
-
-        partNo:
-          partNo,
-
-        quantity:
-          quantity,
-
-        token:
-          API_TOKEN
-
-      },
+    }
 
 
-      function(data) {
+    else if (
 
-        saveBtn.disabled = false;
+      errorName ===
+      'SecurityError'
 
-        saveBtn.textContent =
-          '저장';
+    ) {
 
+      message =
+        '브라우저 보안 설정 때문에 카메라에 접근할 수 없습니다.';
 
-        if (
-          data &&
-          data.success
-        ) {
-
-          showToast(
-            '저장되었습니다 ✓'
-          );
+    }
 
 
-          resetForm();
+    else if (
+
+      errorText.includes(
+        'HTTPS'
+      )
+
+    ) {
+
+      message =
+        '카메라를 사용하려면 HTTPS 주소로 접속해야 합니다.';
+
+    }
 
 
-        } else {
+    else if (
 
-          const message =
-            data &&
-            data.message
-              ? data.message
-              : '저장에 실패했습니다.';
+      errorText &&
 
+      errorText !==
+        'undefined'
 
-          setLookupStatus(
-            'error',
-            message
-          );
+    ) {
 
+      message =
+        '카메라 오류: ' +
+        errorText;
 
-          showToast(
-            message
-          );
-
-        }
-
-      },
+    }
 
 
-      function() {
-
-        saveBtn.disabled = false;
-
-        saveBtn.textContent =
-          '저장';
+    setCameraStatus(
+      'error',
+      message
+    );
 
 
-        showToast(
-          '저장 요청에 실패했습니다. 네트워크를 확인해주세요.'
-        );
-
-      }
-
+    showToast(
+      message
     );
 
   }
 
+}
 
 
-  /* ==========================================================
-     JSONP
-     ========================================================== */
 
-  function jsonpRequest(
-    params,
-    onSuccess,
-    onError
+// ============================================================
+// 6. 카메라 종료
+// ============================================================
+
+async function stopScan() {
+
+  isScanning = false;
+
+
+  if (html5QrCode) {
+
+    try {
+
+      await html5QrCode.stop();
+
+    } catch (err) {
+
+      console.log(
+        '카메라 stop:',
+        err
+      );
+
+    }
+
+
+    try {
+
+      html5QrCode.clear();
+
+    } catch (err) {
+
+      console.log(
+        'reader clear:',
+        err
+      );
+
+    }
+
+
+    html5QrCode =
+      null;
+
+  }
+
+
+  cleanupScanner();
+
+}
+
+
+
+function cleanupScanner() {
+
+  document
+    .getElementById(
+      'reader'
+    )
+    .classList
+    .add('hidden');
+
+
+  document
+    .getElementById(
+      'scanGuide'
+    )
+    .classList
+    .add('hidden');
+
+
+  document
+    .getElementById(
+      'stopScanBtn'
+    )
+    .classList
+    .add('hidden');
+
+}
+
+
+
+// ============================================================
+// 7. 바코드 스캔 성공
+// ============================================================
+
+async function onScanSuccess(
+  barcode
+) {
+
+  if (!isScanning) {
+
+    return;
+
+  }
+
+
+  isScanning = false;
+
+
+  currentBarcode =
+    String(
+      barcode || ''
+    ).trim();
+
+
+  await stopScan();
+
+
+  document
+    .getElementById(
+      'barcodeText'
+    )
+    .textContent =
+    currentBarcode;
+
+
+  document
+    .getElementById(
+      'quantity'
+    )
+    .value = 1;
+
+
+  document
+    .getElementById(
+      'partNo'
+    )
+    .value = '';
+
+
+  document
+    .getElementById(
+      'partName'
+    )
+    .value = '';
+
+
+  document
+    .getElementById(
+      'resultCard'
+    )
+    .classList
+    .remove('hidden');
+
+
+  setLookupStatus(
+    'info',
+    '부품 정보를 조회하고 있습니다...'
+  );
+
+
+  lookupPart(
+    currentBarcode
+  );
+
+}
+
+
+
+// ============================================================
+// 8. 바코드 조회
+// ============================================================
+
+function lookupPart(
+  barcode
+) {
+
+  jsonpRequest(
+
+    {
+
+      action:
+        'lookup',
+
+      barcode:
+        barcode,
+
+      token:
+        API_TOKEN
+
+    },
+
+
+    function(data) {
+
+
+      if (
+
+        !data ||
+
+        data.success === false
+
+      ) {
+
+        setLookupStatus(
+          'error',
+          '부품 조회에 실패했습니다.'
+        );
+
+        return;
+
+      }
+
+
+      if (data.found) {
+
+
+        document
+          .getElementById(
+            'partName'
+          )
+          .value =
+          data.name || '';
+
+
+        document
+          .getElementById(
+            'partNo'
+          )
+          .value =
+          data.partNo || '';
+
+
+        setLookupStatus(
+          'success',
+          '등록된 부품을 찾았습니다.'
+        );
+
+
+        document
+          .getElementById(
+            'quantity'
+          )
+          .focus();
+
+
+      } else {
+
+
+        document
+          .getElementById(
+            'partName'
+          )
+          .value = '';
+
+
+        document
+          .getElementById(
+            'partNo'
+          )
+          .value = '';
+
+
+        setLookupStatus(
+          'error',
+          '등록되지 않은 바코드입니다.'
+        );
+
+      }
+
+    },
+
+
+    function() {
+
+      setLookupStatus(
+        'error',
+        '부품명 조회에 실패했습니다. 네트워크를 확인해주세요.'
+      );
+
+    }
+
+  );
+
+}
+
+
+
+// ============================================================
+// 9. 바코드 저장
+// ============================================================
+
+function saveRecord() {
+
+
+  const employee =
+    localStorage.getItem(
+      STORAGE_KEY
+    ) || '';
+
+
+  const name =
+    document
+      .getElementById(
+        'partName'
+      )
+      .value
+      .trim();
+
+
+  const partNo =
+    document
+      .getElementById(
+        'partNo'
+      )
+      .value
+      .trim();
+
+
+  const quantity =
+    Number(
+      document
+        .getElementById(
+          'quantity'
+        )
+        .value
+    );
+
+
+  if (!employee) {
+
+    alert(
+      '로그인 정보가 없습니다. 다시 로그인해주세요.'
+    );
+
+    return;
+
+  }
+
+
+  if (!currentBarcode) {
+
+    alert(
+      '바코드가 없습니다. 다시 스캔해주세요.'
+    );
+
+    return;
+
+  }
+
+
+  if (!name) {
+
+    alert(
+      '부품명을 입력해주세요.'
+    );
+
+    return;
+
+  }
+
+
+  if (
+
+    !Number.isInteger(
+      quantity
+    ) ||
+
+    quantity <= 0
+
   ) {
 
-    const callbackName =
-      '__inventory_jsonp_' +
-      Date.now() +
-      '_' +
-      (++jsonpCounter);
-
-
-    const script =
-      document.createElement(
-        'script'
-      );
-
-
-    let finished = false;
-
-
-    const timeout =
-      setTimeout(
-        function() {
-
-          finish();
-
-          if (onError) {
-            onError(
-              new Error(
-                'API timeout'
-              )
-            );
-          }
-
-        },
-        15000
-      );
-
-
-    window[callbackName] =
-      function(data) {
-
-        finish();
-
-        if (onSuccess) {
-          onSuccess(data);
-        }
-
-      };
-
-
-    const query =
-      new URLSearchParams();
-
-
-    Object.keys(params)
-      .forEach(
-        function(key) {
-
-          const value =
-            params[key];
-
-
-          if (
-            value !== undefined &&
-            value !== null
-          ) {
-
-            query.set(
-              key,
-              String(value)
-            );
-
-          }
-
-        }
-      );
-
-
-    query.set(
-      'callback',
-      callbackName
+    alert(
+      '수량은 1 이상의 정수로 입력해주세요.'
     );
 
+    return;
 
-    query.set(
-      '_',
-      String(
-        Date.now()
+  }
+
+
+  const saveBtn =
+    document
+      .getElementById(
+        'saveBtn'
+      );
+
+
+  saveBtn.disabled =
+    true;
+
+
+  saveBtn.textContent =
+    '저장 중...';
+
+
+
+  jsonpRequest(
+
+    {
+
+      action:
+        'save',
+
+      employee:
+        employee,
+
+      barcode:
+        currentBarcode,
+
+      name:
+        name,
+
+      partNo:
+        partNo,
+
+      quantity:
+        quantity,
+
+      token:
+        API_TOKEN
+
+    },
+
+
+    function(data) {
+
+
+      saveBtn.disabled =
+        false;
+
+
+      saveBtn.textContent =
+        '저장';
+
+
+      if (
+
+        data &&
+
+        data.success
+
+      ) {
+
+        showToast(
+          '저장되었습니다 ✓'
+        );
+
+
+        resetForm();
+
+
+      } else {
+
+
+        const message =
+          data &&
+          data.message
+            ? data.message
+            : '저장에 실패했습니다.';
+
+
+        setLookupStatus(
+          'error',
+          message
+        );
+
+
+        showToast(
+          message
+        );
+
+      }
+
+    },
+
+
+    function() {
+
+
+      saveBtn.disabled =
+        false;
+
+
+      saveBtn.textContent =
+        '저장';
+
+
+      showToast(
+        '저장 요청에 실패했습니다. 네트워크를 확인해주세요.'
+      );
+
+    }
+
+  );
+
+}
+
+
+
+// ============================================================
+// 10. 수동 Part No 조회
+// ============================================================
+
+function lookupManualPart() {
+
+
+  const partNo =
+    document
+      .getElementById(
+        'manualPartNo'
       )
+      .value
+      .trim();
+
+
+  if (!partNo) {
+
+    setManualLookupStatus(
+      'error',
+      'Part No를 입력해주세요.'
+    );
+
+    return;
+
+  }
+
+
+  const findBtn =
+    document
+      .getElementById(
+        'findPartBtn'
+      );
+
+
+  findBtn.disabled =
+    true;
+
+
+  findBtn.textContent =
+    '찾는 중...';
+
+
+  document
+    .getElementById(
+      'manualPartName'
+    )
+    .value = '';
+
+
+  setManualLookupStatus(
+    'info',
+    '부품 정보를 조회하고 있습니다...'
+  );
+
+
+  jsonpRequest(
+
+    {
+
+      action:
+        'lookupPartNo',
+
+      partNo:
+        partNo,
+
+      token:
+        API_TOKEN
+
+    },
+
+
+    function(data) {
+
+
+      findBtn.disabled =
+        false;
+
+
+      findBtn.textContent =
+        '🔍 찾기';
+
+
+      if (
+
+        !data ||
+
+        data.success === false
+
+      ) {
+
+        setManualLookupStatus(
+          'error',
+          '부품 조회에 실패했습니다.'
+        );
+
+        return;
+
+      }
+
+
+      if (data.found) {
+
+
+        document
+          .getElementById(
+            'manualPartNo'
+          )
+          .value =
+          data.partNo || partNo;
+
+
+        document
+          .getElementById(
+            'manualPartName'
+          )
+          .value =
+          data.name || '';
+
+
+        setManualLookupStatus(
+          'success',
+          '등록된 부품을 찾았습니다.'
+        );
+
+
+        document
+          .getElementById(
+            'manualQuantity'
+          )
+          .focus();
+
+
+      } else {
+
+
+        document
+          .getElementById(
+            'manualPartName'
+          )
+          .value = '';
+
+
+        setManualLookupStatus(
+          'error',
+          '등록되지 않은 Part No입니다. 정확하게 입력했는지 확인해주세요.'
+        );
+
+      }
+
+    },
+
+
+    function() {
+
+
+      findBtn.disabled =
+        false;
+
+
+      findBtn.textContent =
+        '🔍 찾기';
+
+
+      setManualLookupStatus(
+        'error',
+        '부품 조회에 실패했습니다. 네트워크를 확인해주세요.'
+      );
+
+    }
+
+  );
+
+}
+
+
+
+// ============================================================
+// 11. 수동 입력 저장
+// ============================================================
+
+function saveManualRecord() {
+
+
+  const employee =
+    localStorage.getItem(
+      STORAGE_KEY
+    ) || '';
+
+
+  const partNo =
+    document
+      .getElementById(
+        'manualPartNo'
+      )
+      .value
+      .trim();
+
+
+  const name =
+    document
+      .getElementById(
+        'manualPartName'
+      )
+      .value
+      .trim();
+
+
+  const quantity =
+    Number(
+      document
+        .getElementById(
+          'manualQuantity'
+        )
+        .value
     );
 
 
-    script.src =
-      APPS_SCRIPT_URL +
-      '?' +
-      query.toString();
+  if (!employee) {
+
+    alert(
+      '로그인 정보가 없습니다. 다시 로그인해주세요.'
+    );
+
+    return;
+
+  }
 
 
-    script.onerror =
+  if (!partNo) {
+
+    alert(
+      'Part No를 입력해주세요.'
+    );
+
+    return;
+
+  }
+
+
+  if (!name) {
+
+    alert(
+      '먼저 Part No를 찾아주세요.'
+    );
+
+    return;
+
+  }
+
+
+  if (
+
+    !Number.isInteger(
+      quantity
+    ) ||
+
+    quantity <= 0
+
+  ) {
+
+    alert(
+      '수량은 1 이상의 정수로 입력해주세요.'
+    );
+
+    return;
+
+  }
+
+
+  const saveBtn =
+    document
+      .getElementById(
+        'manualSaveBtn'
+      );
+
+
+  saveBtn.disabled =
+    true;
+
+
+  saveBtn.textContent =
+    '저장 중...';
+
+
+
+  jsonpRequest(
+
+    {
+
+      action:
+        'save',
+
+      employee:
+        employee,
+
+      barcode:
+        '수동입력',
+
+      name:
+        name,
+
+      partNo:
+        partNo,
+
+      quantity:
+        quantity,
+
+      token:
+        API_TOKEN
+
+    },
+
+
+    function(data) {
+
+
+      saveBtn.disabled =
+        false;
+
+
+      saveBtn.textContent =
+        '저장';
+
+
+      if (
+
+        data &&
+
+        data.success
+
+      ) {
+
+        showToast(
+          '저장되었습니다 ✓'
+        );
+
+
+        resetManualForm();
+
+
+      } else {
+
+
+        const message =
+          data &&
+          data.message
+            ? data.message
+            : '저장에 실패했습니다.';
+
+
+        setManualLookupStatus(
+          'error',
+          message
+        );
+
+
+        showToast(
+          message
+        );
+
+      }
+
+    },
+
+
+    function() {
+
+
+      saveBtn.disabled =
+        false;
+
+
+      saveBtn.textContent =
+        '저장';
+
+
+      showToast(
+        '저장 요청에 실패했습니다. 네트워크를 확인해주세요.'
+      );
+
+    }
+
+  );
+
+}
+
+
+
+// ============================================================
+// 12. JSONP
+// ============================================================
+
+function jsonpRequest(
+  params,
+  onSuccess,
+  onError
+) {
+
+
+  const callbackName =
+    '__inventory_jsonp_' +
+    Date.now() +
+    '_' +
+    (++jsonpCounter);
+
+
+  const script =
+    document.createElement(
+      'script'
+    );
+
+
+  let finished =
+    false;
+
+
+  const timeout =
+    setTimeout(
       function() {
 
+
         finish();
+
 
         if (onError) {
 
           onError(
             new Error(
-              'API request failed'
+              'API timeout'
             )
           );
 
         }
 
-      };
+      },
+      15000
+    );
 
 
-    document
-      .body
-      .appendChild(
-        script
-      );
+  window[callbackName] =
+    function(data) {
 
 
-    function finish() {
-
-      if (finished) {
-        return;
-      }
+      finish();
 
 
-      finished = true;
+      if (onSuccess) {
 
-
-      clearTimeout(
-        timeout
-      );
-
-
-      try {
-
-        delete window[
-          callbackName
-        ];
-
-      } catch (e) {
-
-        window[
-          callbackName
-        ] = undefined;
+        onSuccess(
+          data
+        );
 
       }
 
+    };
 
-      if (
-        script.parentNode
-      ) {
 
-        script
-          .parentNode
-          .removeChild(
-            script
+  const query =
+    new URLSearchParams();
+
+
+  Object.keys(params)
+    .forEach(
+      function(key) {
+
+
+        const value =
+          params[key];
+
+
+        if (
+
+          value !== undefined &&
+
+          value !== null
+
+        ) {
+
+          query.set(
+            key,
+            String(value)
           );
 
+        }
+
       }
+    );
+
+
+  query.set(
+    'callback',
+    callbackName
+  );
+
+
+  query.set(
+    '_',
+    String(
+      Date.now()
+    )
+  );
+
+
+  script.src =
+    APPS_SCRIPT_URL +
+    '?' +
+    query.toString();
+
+
+  script.onerror =
+    function() {
+
+
+      finish();
+
+
+      if (onError) {
+
+        onError(
+          new Error(
+            'API request failed'
+          )
+        );
+
+      }
+
+    };
+
+
+  document
+    .body
+    .appendChild(
+      script
+    );
+
+
+
+  function finish() {
+
+
+    if (finished) {
+
+      return;
+
+    }
+
+
+    finished =
+      true;
+
+
+    clearTimeout(
+      timeout
+    );
+
+
+    try {
+
+      delete window[
+        callbackName
+      ];
+
+    } catch (e) {
+
+      window[
+        callbackName
+      ] =
+        undefined;
+
+    }
+
+
+    if (
+      script.parentNode
+    ) {
+
+      script
+        .parentNode
+        .removeChild(
+          script
+        );
 
     }
 
   }
 
+}
 
 
-  /* ==========================================================
-     초기화
-     ========================================================== */
 
-  function resetForm() {
+// ============================================================
+// 13. 바코드 입력 초기화
+// ============================================================
 
-    stopScan();
-
-
-    currentBarcode =
-      '';
+function resetForm() {
 
 
+  stopScan();
+
+
+  currentBarcode =
+    '';
+
+
+  document
+    .getElementById(
+      'barcodeText'
+    )
+    .textContent =
+    '';
+
+
+  document
+    .getElementById(
+      'partNo'
+    )
+    .value =
+    '';
+
+
+  document
+    .getElementById(
+      'partName'
+    )
+    .value =
+    '';
+
+
+  document
+    .getElementById(
+      'quantity'
+    )
+    .value =
+    1;
+
+
+  clearStatus(
+    'lookupStatus'
+  );
+
+
+  document
+    .getElementById(
+      'resultCard'
+    )
+    .classList
+    .add('hidden');
+
+}
+
+
+
+// ============================================================
+// 14. 수동 입력 초기화
+// ============================================================
+
+function resetManualForm() {
+
+
+  document
+    .getElementById(
+      'manualPartNo'
+    )
+    .value =
+    '';
+
+
+  document
+    .getElementById(
+      'manualPartName'
+    )
+    .value =
+    '';
+
+
+  document
+    .getElementById(
+      'manualQuantity'
+    )
+    .value =
+    1;
+
+
+  clearStatus(
+    'manualLookupStatus'
+  );
+
+}
+
+
+
+// ============================================================
+// 15. 상태 표시
+// ============================================================
+
+function setCameraStatus(
+  type,
+  message
+) {
+
+
+  const el =
     document
-      .getElementById('barcodeText')
-      .textContent =
-      '';
-
-
-    document
-      .getElementById('partNo')
-      .value =
-      '';
-
-
-    document
-      .getElementById('partName')
-      .value =
-      '';
-
-
-    document
-      .getElementById('quantity')
-      .value =
-      1;
-
-
-    clearStatus(
-      'lookupStatus'
-    );
-
-
-    document
-      .getElementById('resultCard')
-      .classList
-      .add('hidden');
-
-  }
-
-
-
-  /* ==========================================================
-     상태 표시
-     ========================================================== */
-
-  function setCameraStatus(
-    type,
-    message
-  ) {
-
-    const el =
-      document
-        .getElementById(
-          'cameraStatus'
-        );
-
-
-    el.className =
-      'status ' +
-      type;
-
-
-    el.textContent =
-      message;
-
-  }
-
-
-
-  function setLookupStatus(
-    type,
-    message
-  ) {
-
-    const el =
-      document
-        .getElementById(
-          'lookupStatus'
-        );
-
-
-    el.className =
-      'status ' +
-      type;
-
-
-    el.textContent =
-      message;
-
-  }
-
-
-
-  function clearStatus(
-    id
-  ) {
-
-    const el =
-      document
-        .getElementById(
-          id
-        );
-
-
-    el.className =
-      'status';
-
-
-    el.textContent =
-      '';
-
-  }
-
-
-
-  function showToast(
-    message
-  ) {
-
-    const el =
-      document
-        .getElementById(
-          'toast'
-        );
-
-
-    el.textContent =
-      message;
-
-
-    el.classList
-      .add('show');
-
-
-    clearTimeout(
-      window.__toastTimer
-    );
-
-
-    window.__toastTimer =
-      setTimeout(
-        function() {
-
-          el.classList
-            .remove('show');
-
-        },
-        2600
+      .getElementById(
+        'cameraStatus'
       );
 
-  }
+
+  el.className =
+    'status ' +
+    type;
+
+
+  el.textContent =
+    message;
+
+}
+
+
+
+function setLookupStatus(
+  type,
+  message
+) {
+
+
+  const el =
+    document
+      .getElementById(
+        'lookupStatus'
+      );
+
+
+  el.className =
+    'status ' +
+    type;
+
+
+  el.textContent =
+    message;
+
+}
+
+
+
+function setManualLookupStatus(
+  type,
+  message
+) {
+
+
+  const el =
+    document
+      .getElementById(
+        'manualLookupStatus'
+      );
+
+
+  el.className =
+    'status ' +
+    type;
+
+
+  el.textContent =
+    message;
+
+}
+
+
+
+function clearStatus(
+  id
+) {
+
+
+  const el =
+    document
+      .getElementById(
+        id
+      );
+
+
+  el.className =
+    'status';
+
+
+  el.textContent =
+    '';
+
+}
+
+
+
+// ============================================================
+// 16. Toast
+// ============================================================
+
+function showToast(
+  message
+) {
+
+
+  const el =
+    document
+      .getElementById(
+        'toast'
+      );
+
+
+  el.textContent =
+    message;
+
+
+  el.classList
+    .add('show');
+
+
+  clearTimeout(
+    window.__toastTimer
+  );
+
+
+  window.__toastTimer =
+    setTimeout(
+      function() {
+
+
+        el.classList
+          .remove('show');
+
+
+      },
+      2600
+    );
+
+}
 
 </script>
 
 </body>
+
 </html>
