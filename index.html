@@ -4,23 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="theme-color" content="#2563eb">
+
   <title>부품 재고 관리</title>
 
-  <!-- 바코드/QR 스캐너 -->
+  <!-- 바코드 / QR 스캐너 -->
   <script src="https://cdn.jsdelivr.net/npm/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
 
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
       background: #f4f5f7;
       color: #1d1d1f;
-      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
-                   "Malgun Gothic", sans-serif;
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Apple SD Gothic Neo",
+        "Malgun Gothic",
+        sans-serif;
     }
 
-    button, input {
+    button,
+    input {
       font: inherit;
     }
 
@@ -145,6 +153,7 @@
       overflow: hidden;
       border-radius: 13px;
       background: #111;
+      min-height: 180px;
     }
 
     #reader video {
@@ -152,6 +161,7 @@
       height: auto !important;
       display: block;
       border-radius: 13px;
+      object-fit: cover;
     }
 
     .scan-guide {
@@ -202,11 +212,6 @@
       color: #b42318;
     }
 
-    .loading {
-      opacity: .65;
-      pointer-events: none;
-    }
-
     .hidden {
       display: none !important;
     }
@@ -232,28 +237,28 @@
     .toast.show {
       opacity: .95;
     }
-
-    .small-note {
-      color: #888;
-      font-size: 11px;
-      margin-top: 8px;
-      line-height: 1.4;
-    }
   </style>
 </head>
 
 <body>
+
 <div class="container">
 
   <!-- 로그인 -->
   <section id="loginScreen">
+
     <div class="card">
+
       <h1>부품 재고 관리</h1>
+
       <div class="sub">
         이름을 입력하면 다음부터 자동으로 로그인됩니다.
       </div>
 
-      <label for="nameInput">이름 (사번)</label>
+      <label for="nameInput">
+        이름 (사번)
+      </label>
+
       <input
         id="nameInput"
         autocomplete="name"
@@ -261,28 +266,66 @@
         onkeydown="if(event.key==='Enter') login();"
       >
 
-      <button id="loginBtn" onclick="login()">로그인</button>
+      <button
+        id="loginBtn"
+        onclick="login()"
+      >
+        로그인
+      </button>
+
     </div>
+
   </section>
 
+
   <!-- 메인 -->
-  <section id="mainScreen" class="hidden">
+  <section
+    id="mainScreen"
+    class="hidden"
+  >
 
     <div class="top-bar">
-      <div class="welcome" id="welcomeText"></div>
-      <button class="switch-user" onclick="logout()">다른 사용자로 전환</button>
+
+      <div
+        class="welcome"
+        id="welcomeText"
+      ></div>
+
+      <button
+        class="switch-user"
+        onclick="logout()"
+      >
+        다른 사용자로 전환
+      </button>
+
     </div>
+
 
     <!-- 스캔 -->
     <div class="card">
-      <button id="scanBtn" onclick="startScan()">📷 바코드 스캔하기</button>
 
-      <div id="reader" class="hidden"></div>
+      <button
+        id="scanBtn"
+        onclick="startScan()"
+      >
+        📷 바코드 스캔하기
+      </button>
 
-      <div id="scanGuide" class="scan-guide hidden">
+
+      <div
+        id="reader"
+        class="hidden"
+      ></div>
+
+
+      <div
+        id="scanGuide"
+        class="scan-guide hidden"
+      >
         바코드를 화면 가운데 맞춰주세요.<br>
         인식되면 자동으로 다음 단계로 넘어갑니다.
       </div>
+
 
       <button
         id="stopScanBtn"
@@ -292,22 +335,55 @@
         스캔 취소
       </button>
 
-      <div id="cameraStatus" class="status"></div>
+
+      <div
+        id="cameraStatus"
+        class="status"
+      ></div>
+
     </div>
 
+
     <!-- 결과 -->
-    <div class="card hidden" id="resultCard">
+    <div
+      class="card hidden"
+      id="resultCard"
+    >
 
-      <label>바코드</label>
-      <div class="barcode-badge" id="barcodeText"></div>
+      <label>
+        바코드
+      </label>
 
-      <label for="partNo">Part No</label>
-      <input id="partNo" placeholder="Part No">
+      <div
+        class="barcode-badge"
+        id="barcodeText"
+      ></div>
 
-      <label for="partName">부품명</label>
-      <input id="partName" placeholder="부품명">
 
-      <label for="quantity">수량</label>
+      <label for="partNo">
+        Part No
+      </label>
+
+      <input
+        id="partNo"
+        placeholder="Part No"
+      >
+
+
+      <label for="partName">
+        부품명
+      </label>
+
+      <input
+        id="partName"
+        placeholder="부품명"
+      >
+
+
+      <label for="quantity">
+        수량
+      </label>
+
       <input
         id="quantity"
         type="number"
@@ -317,504 +393,1458 @@
         value="1"
       >
 
-      <div id="lookupStatus" class="status"></div>
 
-      <button id="saveBtn" onclick="saveRecord()">저장</button>
-      <button class="secondary" onclick="resetForm()">취소</button>
+      <div
+        id="lookupStatus"
+        class="status"
+      ></div>
+
+
+      <button
+        id="saveBtn"
+        onclick="saveRecord()"
+      >
+        저장
+      </button>
+
+
+      <button
+        class="secondary"
+        onclick="resetForm()"
+      >
+        취소
+      </button>
+
     </div>
 
   </section>
+
 </div>
 
-<div id="toast" class="toast"></div>
+
+<div
+  id="toast"
+  class="toast"
+></div>
+
 
 <script>
-  /*
-   * ==========================================================
-   * 설정
-   * ==========================================================
-   *
-   * 이 HTML은 Apps Script가 아닌 HTTPS 정적 웹사이트에서 실행해야 합니다.
-   *
-   * APPS_SCRIPT_URL:
-   * Google Apps Script [배포 → 웹 앱]에서 받은 /exec URL
-   */
+
+  /* ==========================================================
+     설정
+     ========================================================== */
+
   const APPS_SCRIPT_URL =
     'https://script.google.com/macros/s/AKfycbx9LCuPz6c07KDJWNnv7xwl-VQIjj4tV_p62K6dF-SNYj5KWR-glgdfO4gP6IP32-Y6/exec';
 
-  // Code.gs의 API_TOKEN을 사용한다면 여기도 동일하게 입력합니다.
+
   const API_TOKEN = '';
 
-  const STORAGE_KEY = 'inventoryEmployeeName';
+
+  const STORAGE_KEY =
+    'inventoryEmployeeName';
+
 
   let html5QrCode = null;
+
   let isScanning = false;
+
   let currentBarcode = '';
+
+  let selectedCameraId = null;
+
   let jsonpCounter = 0;
 
-  // ----------------------------------------------------------
-  // 초기화
-  // ----------------------------------------------------------
 
-  window.addEventListener('load', () => {
-    const savedName = localStorage.getItem(STORAGE_KEY);
 
-    if (savedName) {
-      showMain(savedName);
-    } else {
-      document.getElementById('nameInput').focus();
+  /* ==========================================================
+     초기화
+     ========================================================== */
+
+  window.addEventListener(
+    'load',
+    () => {
+
+      const savedName =
+        localStorage.getItem(STORAGE_KEY);
+
+
+      if (savedName) {
+
+        showMain(savedName);
+
+      } else {
+
+        document
+          .getElementById('nameInput')
+          .focus();
+
+      }
+
     }
-  });
+  );
 
-  // ----------------------------------------------------------
-  // 로그인
-  // ----------------------------------------------------------
+
+
+  /* ==========================================================
+     로그인
+     ========================================================== */
 
   function login() {
-    const name = document.getElementById('nameInput').value.trim();
+
+    const name =
+      document
+        .getElementById('nameInput')
+        .value
+        .trim();
+
 
     if (!name) {
+
       alert('이름을 입력해주세요.');
+
+      return;
+
+    }
+
+
+    localStorage.setItem(
+      STORAGE_KEY,
+      name
+    );
+
+
+    showMain(name);
+
+  }
+
+
+
+  function logout() {
+
+    stopScan();
+
+
+    localStorage.removeItem(
+      STORAGE_KEY
+    );
+
+
+    document
+      .getElementById('mainScreen')
+      .classList
+      .add('hidden');
+
+
+    document
+      .getElementById('loginScreen')
+      .classList
+      .remove('hidden');
+
+
+    document
+      .getElementById('nameInput')
+      .value = '';
+
+
+    resetForm();
+
+  }
+
+
+
+  function showMain(name) {
+
+    document
+      .getElementById('loginScreen')
+      .classList
+      .add('hidden');
+
+
+    document
+      .getElementById('mainScreen')
+      .classList
+      .remove('hidden');
+
+
+    document
+      .getElementById('welcomeText')
+      .textContent =
+      name + '님 안녕하세요';
+
+  }
+
+
+
+  /* ==========================================================
+     카메라 시작
+     ========================================================== */
+
+  async function startScan() {
+
+    if (isScanning) {
       return;
     }
 
-    localStorage.setItem(STORAGE_KEY, name);
-    showMain(name);
-  }
 
-  function logout() {
-    stopScan();
+    clearStatus(
+      'cameraStatus'
+    );
 
-    localStorage.removeItem(STORAGE_KEY);
 
-    document.getElementById('mainScreen').classList.add('hidden');
-    document.getElementById('loginScreen').classList.remove('hidden');
-    document.getElementById('nameInput').value = '';
+    document
+      .getElementById('resultCard')
+      .classList
+      .add('hidden');
 
-    document.getElementById('resultCard').classList.add('hidden');
-  }
 
-  function showMain(name) {
-    document.getElementById('loginScreen').classList.add('hidden');
-    document.getElementById('mainScreen').classList.remove('hidden');
-    document.getElementById('welcomeText').textContent =
-      name + '님 안녕하세요';
-  }
+    document
+      .getElementById('reader')
+      .classList
+      .remove('hidden');
 
-  // ----------------------------------------------------------
-  // 카메라 / 바코드 스캔
-  // ----------------------------------------------------------
 
-  async function startScan() {
-    if (isScanning) return;
+    document
+      .getElementById('scanGuide')
+      .classList
+      .remove('hidden');
 
-    clearStatus('cameraStatus');
 
-    document.getElementById('resultCard').classList.add('hidden');
-    document.getElementById('reader').classList.remove('hidden');
-    document.getElementById('scanGuide').classList.remove('hidden');
-    document.getElementById('stopScanBtn').classList.remove('hidden');
+    document
+      .getElementById('stopScanBtn')
+      .classList
+      .remove('hidden');
+
 
     setCameraStatus(
       'info',
-      '카메라를 준비하는 중입니다. 처음 실행하면 카메라 권한을 허용해주세요.'
+      '카메라를 준비하고 있습니다...'
     );
 
+
     try {
-      // HTTPS 여부를 먼저 확인
+
+      /*
+       * ------------------------------------------------------
+       * 1. HTTPS 확인
+       * ------------------------------------------------------
+       */
+
       if (
         location.protocol !== 'https:' &&
         location.hostname !== 'localhost' &&
         location.hostname !== '127.0.0.1'
       ) {
+
         throw new Error(
-          '카메라는 HTTPS 웹페이지에서만 사용할 수 있습니다.'
+          '카메라를 사용하려면 HTTPS 주소로 접속해야 합니다.'
         );
+
       }
 
-      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+
+
+      /*
+       * ------------------------------------------------------
+       * 2. 브라우저 카메라 API 확인
+       * ------------------------------------------------------
+       */
+
+      if (
+        !navigator.mediaDevices ||
+        !navigator.mediaDevices.getUserMedia
+      ) {
+
         throw new Error(
-          '이 브라우저에서 카메라 기능을 사용할 수 없습니다.'
+          '현재 브라우저에서 카메라 기능을 사용할 수 없습니다.'
         );
+
       }
 
-      html5QrCode = new Html5Qrcode('reader');
+
+
+      /*
+       * ------------------------------------------------------
+       * 3. 직접 카메라 권한 요청
+       *
+       * 이 부분이 중요합니다.
+       *
+       * html5-qrcode에게 바로 카메라를 맡기지 않고
+       * 먼저 브라우저에게 카메라 접근을 요청합니다.
+       * ------------------------------------------------------
+       */
+
+      setCameraStatus(
+        'info',
+        '카메라 권한을 확인하고 있습니다...'
+      );
+
+
+      let permissionStream = null;
+
+
+      try {
+
+        permissionStream =
+          await navigator.mediaDevices.getUserMedia({
+
+            video: {
+
+              facingMode: {
+                ideal: 'environment'
+              }
+
+            },
+
+            audio: false
+
+          });
+
+
+      } finally {
+
+        /*
+         * 권한 확인용으로 열었던 카메라는
+         * 바로 종료합니다.
+         */
+
+        if (permissionStream) {
+
+          permissionStream
+            .getTracks()
+            .forEach(
+              track => track.stop()
+            );
+
+        }
+
+      }
+
+
+
+      /*
+       * ------------------------------------------------------
+       * 4. 실제 카메라 목록 확인
+       * ------------------------------------------------------
+       */
+
+      setCameraStatus(
+        'info',
+        '사용 가능한 카메라를 확인하고 있습니다...'
+      );
+
+
+      const cameras =
+        await Html5Qrcode.getCameras();
+
+
+      if (
+        !cameras ||
+        cameras.length === 0
+      ) {
+
+        throw new Error(
+          '사용 가능한 카메라를 찾을 수 없습니다.'
+        );
+
+      }
+
+
+
+      /*
+       * ------------------------------------------------------
+       * 5. 후면 카메라 선택
+       *
+       * Android에서는 보통
+       *
+       * back / rear / environment
+       *
+       * 등의 이름으로 표시됩니다.
+       * ------------------------------------------------------
+       */
+
+      const backCamera =
+        cameras.find(camera => {
+
+          const label =
+            String(
+              camera.label || ''
+            ).toLowerCase();
+
+
+          return (
+            label.includes('back') ||
+            label.includes('rear') ||
+            label.includes('environment') ||
+            label.includes('후면')
+          );
+
+        });
+
+
+      selectedCameraId =
+        backCamera
+          ? backCamera.id
+          : cameras[0].id;
+
+
+
+      /*
+       * ------------------------------------------------------
+       * 6. html5-qrcode 생성
+       * ------------------------------------------------------
+       */
+
+      html5QrCode =
+        new Html5Qrcode(
+          'reader'
+        );
+
 
       isScanning = true;
 
-      await html5QrCode.start(
-        {
-          facingMode: { ideal: 'environment' }
-        },
-        {
-          fps: 10,
-          qrbox: function(viewfinderWidth, viewfinderHeight) {
-            const size = Math.min(
-              Math.floor(viewfinderWidth * 0.82),
-              Math.floor(viewfinderHeight * 0.45),
-              320
-            );
-            return {
-              width: Math.max(size, 180),
-              height: Math.max(size * 0.42, 90)
-            };
-          },
-          aspectRatio: 1.777778
-        },
-        (decodedText) => {
-          if (!isScanning) return;
-          onScanSuccess(decodedText);
-        },
-        () => {
-          // 스캔 실패 프레임은 무시
-        }
+
+
+      /*
+       * ------------------------------------------------------
+       * 7. 실제 스캐너 시작
+       * ------------------------------------------------------
+       */
+
+      setCameraStatus(
+        'info',
+        '카메라를 시작하고 있습니다...'
       );
 
-      setCameraStatus('success', '카메라가 실행되었습니다.');
+
+      await html5QrCode.start(
+
+        selectedCameraId,
+
+        {
+
+          fps: 10,
+
+          qrbox:
+            function(
+              viewfinderWidth,
+              viewfinderHeight
+            ) {
+
+              const width =
+                Math.floor(
+                  viewfinderWidth * 0.86
+                );
+
+
+              const height =
+                Math.floor(
+                  viewfinderHeight * 0.28
+                );
+
+
+              return {
+
+                width:
+                  Math.max(
+                    220,
+                    Math.min(
+                      width,
+                      360
+                    )
+                  ),
+
+                height:
+                  Math.max(
+                    100,
+                    Math.min(
+                      height,
+                      180
+                    )
+                  )
+
+              };
+
+            },
+
+          aspectRatio: 1.777778,
+
+          disableFlip: false
+
+        },
+
+        function(decodedText) {
+
+          if (!isScanning) {
+            return;
+          }
+
+
+          onScanSuccess(
+            decodedText
+          );
+
+        },
+
+        function(errorMessage) {
+
+          /*
+           * 스캔 실패는 정상적인 동작입니다.
+           *
+           * 모든 프레임에서 오류가 발생하기 때문에
+           * 화면에는 표시하지 않습니다.
+           */
+
+        }
+
+      );
+
+
+      setCameraStatus(
+        'success',
+        '카메라가 실행되었습니다. 바코드를 맞춰주세요.'
+      );
+
+
     } catch (err) {
-      console.error(err);
+
+      console.error(
+        'CAMERA ERROR:',
+        err
+      );
+
 
       isScanning = false;
 
-      document.getElementById('reader').classList.add('hidden');
-      document.getElementById('scanGuide').classList.add('hidden');
-      document.getElementById('stopScanBtn').classList.add('hidden');
 
-      let message = '카메라를 시작할 수 없습니다.';
+      cleanupScanner();
 
-      if (String(err).includes('NotAllowedError')) {
+
+      let message =
+        '카메라를 시작할 수 없습니다.';
+
+
+      const errorName =
+        err && err.name
+          ? err.name
+          : '';
+
+
+      const errorText =
+        String(
+          err && err.message
+            ? err.message
+            : err
+        );
+
+
+      /*
+       * 권한 거부
+       */
+
+      if (
+        errorName ===
+        'NotAllowedError' ||
+        errorText.includes(
+          'NotAllowedError'
+        )
+      ) {
+
         message =
-          '카메라 권한이 거부되었습니다. Chrome 설정에서 이 사이트의 카메라 권한을 허용해주세요.';
-      } else if (String(err).includes('NotFoundError')) {
-        message = '사용 가능한 카메라를 찾을 수 없습니다.';
-      } else if (err && err.message) {
-        message = err.message;
+          '카메라 권한이 차단되어 있습니다.\n' +
+          'Chrome의 사이트 권한에서 카메라를 허용해주세요.';
+
       }
 
-      setCameraStatus('error', message);
-      showToast(message);
+
+      /*
+       * 카메라 없음
+       */
+
+      else if (
+        errorName ===
+        'NotFoundError' ||
+        errorText.includes(
+          'NotFoundError'
+        )
+      ) {
+
+        message =
+          '사용 가능한 카메라를 찾을 수 없습니다.';
+
+      }
+
+
+      /*
+       * 다른 앱에서 카메라 사용
+       */
+
+      else if (
+        errorName ===
+        'NotReadableError' ||
+        errorText.includes(
+          'NotReadableError'
+        )
+      ) {
+
+        message =
+          '카메라가 다른 앱에서 사용 중일 수 있습니다.\n' +
+          '카메라를 사용하는 앱을 종료한 후 다시 시도해주세요.';
+
+      }
+
+
+      /*
+       * 보안 정책
+       */
+
+      else if (
+        errorName ===
+        'SecurityError'
+      ) {
+
+        message =
+          '브라우저 보안 설정 때문에 카메라에 접근할 수 없습니다.';
+
+      }
+
+
+      /*
+       * HTTPS가 아닌 경우
+       */
+
+      else if (
+        errorText.includes(
+          'HTTPS'
+        )
+      ) {
+
+        message =
+          '카메라를 사용하려면 HTTPS 주소로 접속해야 합니다.';
+
+      }
+
+
+      /*
+       * 그 외
+       */
+
+      else if (
+        errorText &&
+        errorText !== 'undefined'
+      ) {
+
+        message =
+          '카메라 오류: ' +
+          errorText;
+
+      }
+
+
+      setCameraStatus(
+        'error',
+        message
+      );
+
+
+      showToast(
+        message
+      );
+
     }
+
   }
+
+
+
+  /* ==========================================================
+     카메라 종료
+     ========================================================== */
 
   async function stopScan() {
+
     isScanning = false;
 
+
     if (html5QrCode) {
-      try {
-        const state = html5QrCode.getState();
 
-        // Html5QrcodeScannerState:
-        // 2 = SCANNING
-        // 실제 라이브러리 상태에 따라 stop 호출이 실패할 수 있어 catch 처리
-        if (state === 2) {
-          await html5QrCode.stop();
-        }
+      try {
+
+        await html5QrCode.stop();
+
       } catch (err) {
-        console.log('카메라 종료:', err);
+
+        console.log(
+          '카메라 stop:',
+          err
+        );
+
       }
 
+
       try {
+
         html5QrCode.clear();
+
       } catch (err) {
-        console.log('reader clear:', err);
+
+        console.log(
+          'reader clear:',
+          err
+        );
+
       }
+
 
       html5QrCode = null;
+
     }
 
-    document.getElementById('reader').classList.add('hidden');
-    document.getElementById('scanGuide').classList.add('hidden');
-    document.getElementById('stopScanBtn').classList.add('hidden');
+
+    cleanupScanner();
+
   }
 
-  function onScanSuccess(barcode) {
-    if (!isScanning) return;
 
-    currentBarcode = String(barcode).trim();
 
-    stopScan();
+  function cleanupScanner() {
 
-    document.getElementById('barcodeText').textContent = currentBarcode;
-    document.getElementById('quantity').value = 1;
-    document.getElementById('partNo').value = '';
-    document.getElementById('partName').value = '';
+    document
+      .getElementById('reader')
+      .classList
+      .add('hidden');
 
-    document.getElementById('resultCard').classList.remove('hidden');
+
+    document
+      .getElementById('scanGuide')
+      .classList
+      .add('hidden');
+
+
+    document
+      .getElementById('stopScanBtn')
+      .classList
+      .add('hidden');
+
+  }
+
+
+
+  /* ==========================================================
+     스캔 성공
+     ========================================================== */
+
+  async function onScanSuccess(
+    barcode
+  ) {
+
+    if (!isScanning) {
+      return;
+    }
+
+
+    isScanning = false;
+
+
+    currentBarcode =
+      String(
+        barcode || ''
+      ).trim();
+
+
+    /*
+     * 카메라를 먼저 완전히 종료합니다.
+     */
+
+    await stopScan();
+
+
+    /*
+     * 결과 표시
+     */
+
+    document
+      .getElementById('barcodeText')
+      .textContent =
+      currentBarcode;
+
+
+    document
+      .getElementById('quantity')
+      .value = 1;
+
+
+    document
+      .getElementById('partNo')
+      .value = '';
+
+
+    document
+      .getElementById('partName')
+      .value = '';
+
+
+    document
+      .getElementById('resultCard')
+      .classList
+      .remove('hidden');
+
 
     setLookupStatus(
       'info',
-      '바코드를 확인하고 부품 정보를 조회하는 중입니다...'
+      '부품 정보를 조회하고 있습니다...'
     );
 
-    lookupPart(currentBarcode);
+
+    lookupPart(
+      currentBarcode
+    );
+
   }
 
-  // ----------------------------------------------------------
-  // Apps Script API - JSONP 조회
-  // ----------------------------------------------------------
 
-  function lookupPart(barcode) {
+
+  /* ==========================================================
+     Apps Script - 부품 조회
+     ========================================================== */
+
+  function lookupPart(
+    barcode
+  ) {
+
     jsonpRequest(
+
       {
-        action: 'lookup',
-        barcode: barcode,
-        token: API_TOKEN
+
+        action:
+          'lookup',
+
+        barcode:
+          barcode,
+
+        token:
+          API_TOKEN
+
       },
-      (data) => {
-        if (!data || data.success === false) {
+
+
+      function(data) {
+
+        if (
+          !data ||
+          data.success === false
+        ) {
+
           setLookupStatus(
             'error',
-            '부품 조회에 실패했습니다. 잠시 후 다시 시도해주세요.'
+            '부품 조회에 실패했습니다.'
           );
+
           return;
+
         }
 
+
         if (data.found) {
-          document.getElementById('partName').value = data.name || '';
-          document.getElementById('partNo').value = data.partNo || '';
+
+          document
+            .getElementById('partName')
+            .value =
+            data.name || '';
+
+
+          document
+            .getElementById('partNo')
+            .value =
+            data.partNo || '';
+
 
           setLookupStatus(
             'success',
             '등록된 부품을 찾았습니다.'
           );
 
-          document.getElementById('quantity').focus();
+
+          document
+            .getElementById('quantity')
+            .focus();
+
         } else {
-          document.getElementById('partName').value = '';
-          document.getElementById('partNo').value = '';
+
+          document
+            .getElementById('partName')
+            .value = '';
+
+
+          document
+            .getElementById('partNo')
+            .value = '';
+
 
           setLookupStatus(
             'error',
             '등록되지 않은 바코드입니다. 부품명과 Part No를 직접 입력해주세요.'
           );
 
-          document.getElementById('partName').focus();
+
+          document
+            .getElementById('partName')
+            .focus();
+
         }
+
       },
-      () => {
+
+
+      function() {
+
         setLookupStatus(
           'error',
           '부품명 조회에 실패했습니다. 네트워크를 확인해주세요.'
         );
+
       }
+
     );
+
   }
 
-  // ----------------------------------------------------------
-  // 저장
-  // ----------------------------------------------------------
+
+
+  /* ==========================================================
+     저장
+     ========================================================== */
 
   function saveRecord() {
+
     const employee =
-      localStorage.getItem(STORAGE_KEY) || '';
+      localStorage.getItem(
+        STORAGE_KEY
+      ) || '';
+
 
     const name =
-      document.getElementById('partName').value.trim();
+      document
+        .getElementById('partName')
+        .value
+        .trim();
+
 
     const partNo =
-      document.getElementById('partNo').value.trim();
+      document
+        .getElementById('partNo')
+        .value
+        .trim();
+
 
     const quantity =
-      Number(document.getElementById('quantity').value);
+      Number(
+        document
+          .getElementById('quantity')
+          .value
+      );
+
 
     if (!employee) {
-      alert('로그인 정보가 없습니다. 다시 로그인해주세요.');
+
+      alert(
+        '로그인 정보가 없습니다. 다시 로그인해주세요.'
+      );
+
       return;
+
     }
+
 
     if (!currentBarcode) {
-      alert('바코드가 없습니다. 다시 스캔해주세요.');
+
+      alert(
+        '바코드가 없습니다. 다시 스캔해주세요.'
+      );
+
       return;
+
     }
+
 
     if (!name) {
-      alert('부품명을 입력해주세요.');
-      document.getElementById('partName').focus();
+
+      alert(
+        '부품명을 입력해주세요.'
+      );
+
+      document
+        .getElementById('partName')
+        .focus();
+
       return;
+
     }
 
-    if (!Number.isInteger(quantity) || quantity <= 0) {
-      alert('수량은 1 이상의 정수로 입력해주세요.');
-      document.getElementById('quantity').focus();
+
+    if (
+      !Number.isInteger(quantity) ||
+      quantity <= 0
+    ) {
+
+      alert(
+        '수량은 1 이상의 정수로 입력해주세요.'
+      );
+
+      document
+        .getElementById('quantity')
+        .focus();
+
       return;
+
     }
 
-    const saveBtn = document.getElementById('saveBtn');
+
+    const saveBtn =
+      document
+        .getElementById('saveBtn');
+
 
     saveBtn.disabled = true;
-    saveBtn.textContent = '저장 중...';
 
-    /*
-     * JSONP GET 방식으로 저장합니다.
-     *
-     * 이유:
-     * 이 페이지는 Apps Script와 다른 도메인에서 실행되므로
-     * 일반 fetch POST는 CORS 정책에 영향을 받을 수 있습니다.
-     * JSONP는 script 태그 방식이라 브라우저 CORS 제한을 피할 수 있습니다.
-     */
+    saveBtn.textContent =
+      '저장 중...';
+
+
     jsonpRequest(
-      {
-        action: 'save',
-        employee: employee,
-        barcode: currentBarcode,
-        name: name,
-        partNo: partNo,
-        quantity: quantity,
-        token: API_TOKEN
-      },
-      (data) => {
-        saveBtn.disabled = false;
-        saveBtn.textContent = '저장';
 
-        if (data && data.success) {
-          showToast('저장되었습니다 ✓');
+      {
+
+        action:
+          'save',
+
+        employee:
+          employee,
+
+        barcode:
+          currentBarcode,
+
+        name:
+          name,
+
+        partNo:
+          partNo,
+
+        quantity:
+          quantity,
+
+        token:
+          API_TOKEN
+
+      },
+
+
+      function(data) {
+
+        saveBtn.disabled = false;
+
+        saveBtn.textContent =
+          '저장';
+
+
+        if (
+          data &&
+          data.success
+        ) {
+
+          showToast(
+            '저장되었습니다 ✓'
+          );
+
+
           resetForm();
+
+
         } else {
+
           const message =
-            data && data.message
+            data &&
+            data.message
               ? data.message
               : '저장에 실패했습니다.';
 
-          setLookupStatus('error', message);
-          showToast(message);
+
+          setLookupStatus(
+            'error',
+            message
+          );
+
+
+          showToast(
+            message
+          );
+
         }
+
       },
-      () => {
+
+
+      function() {
+
         saveBtn.disabled = false;
-        saveBtn.textContent = '저장';
+
+        saveBtn.textContent =
+          '저장';
+
 
         showToast(
           '저장 요청에 실패했습니다. 네트워크를 확인해주세요.'
         );
+
       }
+
     );
+
   }
 
-  // ----------------------------------------------------------
-  // JSONP 공통 함수
-  // ----------------------------------------------------------
 
-  function jsonpRequest(params, onSuccess, onError) {
+
+  /* ==========================================================
+     JSONP
+     ========================================================== */
+
+  function jsonpRequest(
+    params,
+    onSuccess,
+    onError
+  ) {
+
     const callbackName =
-      '__inventory_jsonp_' + Date.now() + '_' + (++jsonpCounter);
+      '__inventory_jsonp_' +
+      Date.now() +
+      '_' +
+      (++jsonpCounter);
 
-    const script = document.createElement('script');
+
+    const script =
+      document.createElement(
+        'script'
+      );
+
 
     let finished = false;
 
-    const timeout = setTimeout(() => {
-      finish();
-      if (onError) onError(new Error('API timeout'));
-    }, 15000);
 
-    window[callbackName] = function(data) {
-      finish();
+    const timeout =
+      setTimeout(
+        function() {
 
-      if (onSuccess) {
-        onSuccess(data);
-      }
-    };
+          finish();
 
-    const query = new URLSearchParams();
+          if (onError) {
+            onError(
+              new Error(
+                'API timeout'
+              )
+            );
+          }
 
-    Object.keys(params).forEach((key) => {
-      const value = params[key];
+        },
+        15000
+      );
 
-      if (value !== undefined && value !== null) {
-        query.set(key, String(value));
-      }
-    });
 
-    query.set('callback', callbackName);
-    query.set('_', String(Date.now()));
+    window[callbackName] =
+      function(data) {
 
-    script.src = APPS_SCRIPT_URL + '?' + query.toString();
+        finish();
 
-    script.onerror = function() {
-      finish();
+        if (onSuccess) {
+          onSuccess(data);
+        }
 
-      if (onError) {
-        onError(new Error('API request failed'));
-      }
-    };
+      };
 
-    document.body.appendChild(script);
+
+    const query =
+      new URLSearchParams();
+
+
+    Object.keys(params)
+      .forEach(
+        function(key) {
+
+          const value =
+            params[key];
+
+
+          if (
+            value !== undefined &&
+            value !== null
+          ) {
+
+            query.set(
+              key,
+              String(value)
+            );
+
+          }
+
+        }
+      );
+
+
+    query.set(
+      'callback',
+      callbackName
+    );
+
+
+    query.set(
+      '_',
+      String(
+        Date.now()
+      )
+    );
+
+
+    script.src =
+      APPS_SCRIPT_URL +
+      '?' +
+      query.toString();
+
+
+    script.onerror =
+      function() {
+
+        finish();
+
+        if (onError) {
+
+          onError(
+            new Error(
+              'API request failed'
+            )
+          );
+
+        }
+
+      };
+
+
+    document
+      .body
+      .appendChild(
+        script
+      );
+
 
     function finish() {
-      if (finished) return;
+
+      if (finished) {
+        return;
+      }
+
 
       finished = true;
 
-      clearTimeout(timeout);
+
+      clearTimeout(
+        timeout
+      );
+
 
       try {
-        delete window[callbackName];
+
+        delete window[
+          callbackName
+        ];
+
       } catch (e) {
-        window[callbackName] = undefined;
+
+        window[
+          callbackName
+        ] = undefined;
+
       }
 
-      if (script.parentNode) {
-        script.parentNode.removeChild(script);
+
+      if (
+        script.parentNode
+      ) {
+
+        script
+          .parentNode
+          .removeChild(
+            script
+          );
+
       }
+
     }
+
   }
 
-  // ----------------------------------------------------------
-  // 화면 초기화
-  // ----------------------------------------------------------
+
+
+  /* ==========================================================
+     초기화
+     ========================================================== */
 
   function resetForm() {
+
     stopScan();
 
-    currentBarcode = '';
 
-    document.getElementById('barcodeText').textContent = '';
-    document.getElementById('partNo').value = '';
-    document.getElementById('partName').value = '';
-    document.getElementById('quantity').value = 1;
+    currentBarcode =
+      '';
 
-    clearStatus('lookupStatus');
 
-    document.getElementById('resultCard').classList.add('hidden');
+    document
+      .getElementById('barcodeText')
+      .textContent =
+      '';
+
+
+    document
+      .getElementById('partNo')
+      .value =
+      '';
+
+
+    document
+      .getElementById('partName')
+      .value =
+      '';
+
+
+    document
+      .getElementById('quantity')
+      .value =
+      1;
+
+
+    clearStatus(
+      'lookupStatus'
+    );
+
+
+    document
+      .getElementById('resultCard')
+      .classList
+      .add('hidden');
+
   }
 
-  // ----------------------------------------------------------
-  // 상태 메시지
-  // ----------------------------------------------------------
 
-  function setCameraStatus(type, message) {
-    const el = document.getElementById('cameraStatus');
 
-    el.className = 'status ' + type;
-    el.textContent = message;
+  /* ==========================================================
+     상태 표시
+     ========================================================== */
+
+  function setCameraStatus(
+    type,
+    message
+  ) {
+
+    const el =
+      document
+        .getElementById(
+          'cameraStatus'
+        );
+
+
+    el.className =
+      'status ' +
+      type;
+
+
+    el.textContent =
+      message;
+
   }
 
-  function setLookupStatus(type, message) {
-    const el = document.getElementById('lookupStatus');
 
-    el.className = 'status ' + type;
-    el.textContent = message;
+
+  function setLookupStatus(
+    type,
+    message
+  ) {
+
+    const el =
+      document
+        .getElementById(
+          'lookupStatus'
+        );
+
+
+    el.className =
+      'status ' +
+      type;
+
+
+    el.textContent =
+      message;
+
   }
 
-  function clearStatus(id) {
-    const el = document.getElementById(id);
 
-    el.className = 'status';
-    el.textContent = '';
+
+  function clearStatus(
+    id
+  ) {
+
+    const el =
+      document
+        .getElementById(
+          id
+        );
+
+
+    el.className =
+      'status';
+
+
+    el.textContent =
+      '';
+
   }
 
-  function showToast(message) {
-    const el = document.getElementById('toast');
 
-    el.textContent = message;
-    el.classList.add('show');
 
-    clearTimeout(window.__toastTimer);
+  function showToast(
+    message
+  ) {
 
-    window.__toastTimer = setTimeout(() => {
-      el.classList.remove('show');
-    }, 2600);
+    const el =
+      document
+        .getElementById(
+          'toast'
+        );
+
+
+    el.textContent =
+      message;
+
+
+    el.classList
+      .add('show');
+
+
+    clearTimeout(
+      window.__toastTimer
+    );
+
+
+    window.__toastTimer =
+      setTimeout(
+        function() {
+
+          el.classList
+            .remove('show');
+
+        },
+        2600
+      );
+
   }
+
 </script>
+
 </body>
 </html>
