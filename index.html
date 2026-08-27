@@ -18,7 +18,9 @@
 <title>부품 재고 관리</title>
 
 
-<script src="https://cdn.jsdelivr.net/npm/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/html5-qrcode@2.3.8/html5-qrcode.min.js"
+></script>
 
 
 <style>
@@ -26,6 +28,7 @@
 * {
   box-sizing: border-box;
 }
+
 
 body {
 
@@ -44,10 +47,14 @@ body {
 
 }
 
+
 button,
 input {
+
   font: inherit;
+
 }
+
 
 .container {
 
@@ -61,6 +68,7 @@ input {
 
 }
 
+
 h1 {
 
   font-size: 22px;
@@ -68,6 +76,7 @@ h1 {
   margin: 4px 0 6px;
 
 }
+
 
 .sub {
 
@@ -80,6 +89,7 @@ h1 {
   margin-bottom: 18px;
 
 }
+
 
 .card {
 
@@ -96,6 +106,7 @@ h1 {
 
 }
 
+
 label {
 
   display: block;
@@ -109,6 +120,14 @@ label {
   font-weight: 700;
 
 }
+
+
+label:first-child {
+
+  margin-top: 0;
+
+}
+
 
 input {
 
@@ -133,6 +152,7 @@ input {
 
 }
 
+
 input:focus {
 
   border-color: #2563eb;
@@ -142,6 +162,7 @@ input:focus {
     rgba(37,99,235,.12);
 
 }
+
 
 button {
 
@@ -165,10 +186,8 @@ button {
 
   cursor: pointer;
 
-  -webkit-tap-highlight-color:
-    transparent;
-
 }
+
 
 button:active {
 
@@ -178,6 +197,7 @@ button:active {
 
 }
 
+
 button.secondary {
 
   background: #ececef;
@@ -186,27 +206,27 @@ button.secondary {
 
 }
 
+
 button.manual {
 
   background: #111827;
 
 }
 
-button.add {
 
-  background: #16a34a;
+button.admin {
 
-}
+  background: #f3f3f3;
 
-button.save-all {
+  color: #555;
 
-  background: #2563eb;
+  border:
+    1px solid #ddd;
 
-  min-height: 56px;
-
-  font-size: 16px;
+  margin-top: 28px;
 
 }
+
 
 button.danger {
 
@@ -216,6 +236,7 @@ button.danger {
 
 }
 
+
 button:disabled {
 
   opacity: .5;
@@ -223,6 +244,7 @@ button:disabled {
   cursor: default;
 
 }
+
 
 .top-bar {
 
@@ -238,6 +260,7 @@ button:disabled {
 
 }
 
+
 .welcome {
 
   font-size: 14px;
@@ -245,6 +268,7 @@ button:disabled {
   font-weight: 700;
 
 }
+
 
 .switch-user {
 
@@ -268,6 +292,7 @@ button:disabled {
 
 }
 
+
 .menu-title {
 
   font-size: 16px;
@@ -278,6 +303,7 @@ button:disabled {
 
 }
 
+
 .menu-button {
 
   min-height: 62px;
@@ -285,6 +311,25 @@ button:disabled {
   font-size: 16px;
 
 }
+
+
+.admin-divider {
+
+  margin-top: 30px;
+
+  padding-top: 18px;
+
+  border-top:
+    1px solid #eee;
+
+  text-align: center;
+
+  color: #999;
+
+  font-size: 11px;
+
+}
+
 
 #reader {
 
@@ -302,6 +347,7 @@ button:disabled {
 
 }
 
+
 #reader video {
 
   width: 100% !important;
@@ -315,6 +361,7 @@ button:disabled {
   object-fit: cover;
 
 }
+
 
 .scan-guide {
 
@@ -336,6 +383,7 @@ button:disabled {
 
 }
 
+
 .barcode-badge {
 
   margin-top: 6px;
@@ -353,6 +401,7 @@ button:disabled {
   word-break: break-all;
 
 }
+
 
 .status {
 
@@ -372,6 +421,7 @@ button:disabled {
 
 }
 
+
 .status.info {
 
   display: block;
@@ -381,6 +431,7 @@ button:disabled {
   color: #175cd3;
 
 }
+
 
 .status.success {
 
@@ -392,6 +443,7 @@ button:disabled {
 
 }
 
+
 .status.error {
 
   display: block;
@@ -402,65 +454,41 @@ button:disabled {
 
 }
 
+
 .hidden {
+
   display: none !important;
-}
-
-
-/* 출고 목록 */
-
-.list-title {
-
-  font-size: 15px;
-
-  font-weight: 700;
-
-  margin-bottom: 10px;
 
 }
 
-.list-summary {
 
-  background: #f5f7fa;
+.batch-item {
 
-  padding: 10px 12px;
+  margin-top: 12px;
 
-  border-radius: 10px;
+  padding: 14px;
 
-  font-size: 13px;
-
-  margin-bottom: 10px;
-
-  color: #555;
-
-}
-
-.item-row {
-
-  border:
-    1px solid #e5e7eb;
+  background: #f7f7f8;
 
   border-radius: 12px;
 
-  padding: 12px;
-
-  margin-top: 9px;
-
-  background: #fff;
+  border: 1px solid #eee;
 
 }
 
-.item-name {
 
-  font-size: 15px;
+.batch-item-title {
 
   font-weight: 700;
 
+  font-size: 14px;
+
+  margin-bottom: 5px;
+
 }
 
-.item-info {
 
-  margin-top: 5px;
+.batch-item-info {
 
   font-size: 12px;
 
@@ -470,43 +498,45 @@ button:disabled {
 
 }
 
-.item-bottom {
 
-  display: flex;
+.batch-item-remove {
 
-  align-items: center;
+  margin-top: 8px;
 
-  justify-content: space-between;
+  min-height: 40px;
 
-  margin-top: 9px;
-
-}
-
-.item-quantity {
-
-  font-size: 14px;
-
-  font-weight: 700;
-
-}
-
-.remove-btn {
-
-  width: auto;
-
-  min-height: 34px;
-
-  margin: 0;
-
-  padding: 6px 10px;
-
-  background: #fef2f2;
+  background: #fff;
 
   color: #b42318;
 
-  font-size: 12px;
+  border: 1px solid #eee;
 
 }
+
+
+.admin-title {
+
+  font-size: 17px;
+
+  font-weight: 700;
+
+  margin-bottom: 6px;
+
+}
+
+
+.admin-sub {
+
+  font-size: 12px;
+
+  color: #777;
+
+  line-height: 1.5;
+
+  margin-bottom: 15px;
+
+}
+
 
 .toast {
 
@@ -520,7 +550,8 @@ button:disabled {
 
   z-index: 1000;
 
-  max-width: calc(100vw - 40px);
+  max-width:
+    calc(100vw - 40px);
 
   padding: 12px 18px;
 
@@ -542,8 +573,11 @@ button:disabled {
 
 }
 
+
 .toast.show {
+
   opacity: .95;
+
 }
 
 </style>
@@ -552,6 +586,7 @@ button:disabled {
 
 
 <body>
+
 
 <div class="container">
 
@@ -562,33 +597,37 @@ button:disabled {
 
 <section id="loginScreen">
 
-<div class="card">
+  <div class="card">
 
-<h1>부품 재고 관리</h1>
+    <h1>
+      부품 재고 관리
+    </h1>
 
-<div class="sub">
-이름을 입력하면 다음부터 자동으로 로그인됩니다.
-</div>
+    <div class="sub">
+      이름을 입력하면 다음부터 자동으로 로그인됩니다.
+    </div>
 
-<label for="nameInput">
-이름 (사번)
-</label>
+    <label>
+      이름 (사번)
+    </label>
 
-<input
-  id="nameInput"
-  autocomplete="name"
-  placeholder="예: 김현로"
-  onkeydown="if(event.key==='Enter') login();"
->
+    <input
+      id="nameInput"
+      autocomplete="name"
+      placeholder="예: 김현로"
+      onkeydown="
+        if(event.key==='Enter') login();
+      "
+    >
 
-<button
-  id="loginBtn"
-  onclick="login()"
->
-로그인
-</button>
+    <button
+      id="loginBtn"
+      onclick="login()"
+    >
+      로그인
+    </button>
 
-</div>
+  </div>
 
 </section>
 
@@ -606,17 +645,17 @@ button:disabled {
 
 <div class="top-bar">
 
-<div
-  class="welcome"
-  id="welcomeText"
-></div>
+  <div
+    class="welcome"
+    id="welcomeText"
+  ></div>
 
-<button
-  class="switch-user"
-  onclick="logout()"
->
-다른 사용자로 전환
-</button>
+  <button
+    class="switch-user"
+    onclick="logout()"
+  >
+    다른 사용자로 전환
+  </button>
 
 </div>
 
@@ -628,29 +667,42 @@ button:disabled {
 
 <section id="menuScreen">
 
-<div class="card">
+  <div class="card">
 
-<div class="menu-title">
-입력 방법을 선택해주세요
-</div>
-
-
-<button
-  class="menu-button"
-  onclick="showScanScreen()"
->
-📷 바코드 스캔하기
-</button>
+    <div class="menu-title">
+      입력 방법을 선택해주세요
+    </div>
 
 
-<button
-  class="menu-button manual"
-  onclick="showManualScreen()"
->
-✏️ 수동으로 입력하기
-</button>
+    <button
+      class="menu-button"
+      onclick="showScanScreen()"
+    >
+      📷 바코드 스캔하기
+    </button>
 
-</div>
+
+    <button
+      class="menu-button manual"
+      onclick="showManualScreen()"
+    >
+      ✏️ 수동으로 입력하기
+    </button>
+
+
+    <div class="admin-divider">
+      관리자 전용
+    </div>
+
+
+    <button
+      class="admin"
+      onclick="showAdminLoginScreen()"
+    >
+      🔐 바코드 등록하기
+    </button>
+
+  </div>
 
 </section>
 
@@ -667,168 +719,122 @@ button:disabled {
 
 <div class="card">
 
-<button
-  id="scanBtn"
-  onclick="startScan()"
->
-📷 바코드 스캔하기
-</button>
+  <button
+    onclick="startScan('normal')"
+  >
+    📷 바코드 스캔 시작
+  </button>
 
 
-<div
-  id="reader"
-  class="hidden"
-></div>
+  <div
+    id="reader"
+    class="hidden"
+  ></div>
 
 
-<div
-  id="scanGuide"
-  class="scan-guide hidden"
->
-바코드를 화면 가운데 맞춰주세요.<br>
-인식되면 부품 정보를 조회합니다.
+  <div
+    id="scanGuide"
+    class="scan-guide hidden"
+  >
+    바코드를 화면 가운데 맞춰주세요.<br>
+    인식되면 자동으로 다음 단계로 넘어갑니다.
+  </div>
+
+
+  <button
+    class="secondary hidden"
+    id="stopScanBtn"
+    onclick="stopScan()"
+  >
+    스캔 취소
+  </button>
+
+
+  <div
+    id="cameraStatus"
+    class="status"
+  ></div>
+
+
+  <button
+    class="secondary"
+    onclick="showMenuScreen()"
+  >
+    ← 입력 방법 선택
+  </button>
+
 </div>
 
 
-<button
-  id="stopScanBtn"
-  class="secondary hidden"
-  onclick="stopScan()"
->
-스캔 취소
-</button>
-
-
-<div
-  id="cameraStatus"
-  class="status"
-></div>
-
-
-<button
-  class="secondary"
-  onclick="showMenuScreen()"
->
-← 입력 방법 선택
-</button>
-
-</div>
-
-
-
-<!-- 스캔한 부품 입력 -->
 
 <div
   class="card hidden"
-  id="scanInputCard"
+  id="resultCard"
 >
 
-<label>
-바코드
-</label>
+  <label>
+    바코드
+  </label>
 
-<div
-  class="barcode-badge"
-  id="barcodeText"
-></div>
-
-
-<label>
-Part No
-</label>
-
-<input
-  id="scanPartNo"
-  readonly
->
+  <div
+    class="barcode-badge"
+    id="barcodeText"
+  ></div>
 
 
-<label>
-부품명
-</label>
+  <label>
+    Part No
+  </label>
 
-<input
-  id="scanPartName"
-  readonly
->
-
-
-<label>
-수량
-</label>
-
-<input
-  id="scanQuantity"
-  type="number"
-  inputmode="numeric"
-  min="1"
-  step="1"
-  value="1"
->
+  <input
+    id="partNo"
+    placeholder="Part No"
+  >
 
 
-<div
-  id="scanLookupStatus"
-  class="status"
-></div>
+  <label>
+    부품명
+  </label>
+
+  <input
+    id="partName"
+    placeholder="부품명"
+  >
 
 
-<button
-  class="add"
-  id="addScanBtn"
-  onclick="addScannedItem()"
->
-+ 부품 추가
-</button>
+  <label>
+    수량
+  </label>
+
+  <input
+    id="quantity"
+    type="number"
+    min="1"
+    step="1"
+    value="1"
+  >
 
 
-<button
-  class="secondary"
-  onclick="showScanScreen()"
->
-📷 다른 부품 스캔
-</button>
-
-</div>
+  <div
+    id="lookupStatus"
+    class="status"
+  ></div>
 
 
-
-<!-- 스캔 출고 목록 -->
-
-<div
-  class="card hidden"
-  id="scanListCard"
->
-
-<div class="list-title">
-📦 출고 예정 목록
-</div>
-
-<div
-  class="list-summary"
-  id="scanListSummary"
->
-0개 품목 / 총 0개
-</div>
-
-<div id="scanList"></div>
+  <button
+    id="saveBtn"
+    onclick="saveRecord()"
+  >
+    저장
+  </button>
 
 
-<button
-  class="save-all"
-  id="scanSaveAllBtn"
-  onclick="saveBatch(scanItems)"
->
-전체 저장
-</button>
-
-
-<button
-  class="danger"
-  onclick="clearScanItems()"
->
-전체 취소
-</button>
+  <button
+    class="secondary"
+    onclick="resetForm()"
+  >
+    취소
+  </button>
 
 </div>
 
@@ -847,126 +853,277 @@ Part No
 
 <div class="card">
 
-<div class="menu-title">
-수동으로 입력
-</div>
+  <div class="menu-title">
+    수동으로 입력
+  </div>
 
 
-<label for="manualPartNo">
-Part No
-</label>
+  <label>
+    Part No
+  </label>
 
-<input
-  id="manualPartNo"
-  placeholder="Part No를 입력해주세요"
-  autocomplete="off"
-  onkeydown="if(event.key==='Enter') lookupManualPart();"
->
-
-
-<button
-  id="findPartBtn"
-  onclick="lookupManualPart()"
->
-🔍 찾기
-</button>
+  <input
+    id="manualPartNo"
+    placeholder="Part No를 입력해주세요"
+    autocomplete="off"
+    onkeydown="
+      if(event.key==='Enter')
+      lookupManualPart();
+    "
+  >
 
 
-<div
-  id="manualLookupStatus"
-  class="status"
-></div>
+  <button
+    id="findPartBtn"
+    onclick="lookupManualPart()"
+  >
+    🔍 찾기
+  </button>
 
 
-<label for="manualPartName">
-부품명
-</label>
-
-<input
-  id="manualPartName"
-  placeholder="찾기 버튼을 누르면 자동으로 표시됩니다"
-  readonly
->
+  <div
+    id="manualLookupStatus"
+    class="status"
+  ></div>
 
 
-<label for="manualQuantity">
-수량
-</label>
+  <label>
+    부품명
+  </label>
 
-<input
-  id="manualQuantity"
-  type="number"
-  inputmode="numeric"
-  min="1"
-  step="1"
-  value="1"
->
+  <input
+    id="manualPartName"
+    readonly
+    placeholder="찾기 버튼을 누르면 표시됩니다"
+  >
 
 
-<button
-  class="add"
-  id="manualAddBtn"
-  onclick="addManualItem()"
->
-+ 부품 추가
-</button>
+  <label>
+    수량
+  </label>
+
+  <input
+    id="manualQuantity"
+    type="number"
+    min="1"
+    step="1"
+    value="1"
+  >
 
 
-<button
-  class="secondary"
-  onclick="showMenuScreen()"
->
-← 입력 방법 선택
-</button>
-
-</div>
+  <button
+    onclick="addManualItem()"
+  >
+    ➕ 출고 목록에 추가
+  </button>
 
 
-
-<!-- 수동 출고 목록 -->
-
-<div
-  class="card hidden"
-  id="manualListCard"
->
-
-<div class="list-title">
-📦 출고 예정 목록
-</div>
-
-<div
-  class="list-summary"
-  id="manualListSummary"
->
-0개 품목 / 총 0개
-</div>
-
-<div id="manualList"></div>
+  <div
+    id="batchList"
+  ></div>
 
 
-<button
-  class="save-all"
-  id="manualSaveAllBtn"
-  onclick="saveBatch(manualItems)"
->
-전체 저장
-</button>
+  <button
+    id="batchSaveBtn"
+    onclick="saveManualBatch()"
+    class="hidden"
+  >
+    📦 전체 저장
+  </button>
 
 
-<button
-  class="danger"
-  onclick="clearManualItems()"
->
-전체 취소
-</button>
+  <button
+    class="secondary"
+    onclick="resetManualForm()"
+  >
+    취소
+  </button>
+
+
+  <button
+    class="secondary"
+    onclick="showMenuScreen()"
+  >
+    ← 입력 방법 선택
+  </button>
 
 </div>
 
 </section>
 
+
+
+<!-- ====================================================
+     관리자 로그인
+     ==================================================== -->
+
+<section
+  id="adminLoginScreen"
+  class="hidden"
+>
+
+<div class="card">
+
+  <div class="admin-title">
+    관리자 인증
+  </div>
+
+  <div class="admin-sub">
+    바코드 등록은 관리자만 사용할 수 있습니다.
+  </div>
+
+
+  <label>
+    관리자 비밀번호
+  </label>
+
+  <input
+    id="adminPassword"
+    type="password"
+    inputmode="numeric"
+    placeholder="비밀번호 입력"
+    onkeydown="
+      if(event.key==='Enter')
+      adminLogin();
+    "
+  >
+
+
+  <button
+    onclick="adminLogin()"
+  >
+    확인
+  </button>
+
+
+  <div
+    id="adminLoginStatus"
+    class="status"
+  ></div>
+
+
+  <button
+    class="secondary"
+    onclick="showMenuScreen()"
+  >
+    ← 돌아가기
+  </button>
+
+</div>
+
+</section>
+
+
+
+<!-- ====================================================
+     관리자 바코드 등록
+     ==================================================== -->
+
+<section
+  id="adminRegisterScreen"
+  class="hidden"
+>
+
+<div class="card">
+
+  <div class="admin-title">
+    🔐 바코드 등록
+  </div>
+
+  <div class="admin-sub">
+    바코드를 스캔한 후 해당 부품의 Part No를 입력해주세요.
+  </div>
+
+
+  <button
+    onclick="startScan('admin')"
+  >
+    📷 바코드 스캔하기
+  </button>
+
+
+  <div
+    id="adminReader"
+    class="hidden"
+  ></div>
+
+
+  <div
+    id="adminBarcodeBadge"
+    class="barcode-badge hidden"
+  ></div>
+
+
+  <label>
+    Part No
+  </label>
+
+  <input
+    id="adminPartNo"
+    placeholder="Part No를 입력해주세요"
+    onkeydown="
+      if(event.key==='Enter')
+      lookupAdminPart();
+    "
+  >
+
+
+  <button
+    onclick="lookupAdminPart()"
+  >
+    🔍 Part No 확인
+  </button>
+
+
+  <div
+    id="adminLookupStatus"
+    class="status"
+  ></div>
+
+
+  <label>
+    부품명
+  </label>
+
+  <input
+    id="adminPartName"
+    readonly
+    placeholder="Part No 확인 후 표시됩니다"
+  >
+
+
+  <button
+    id="adminRegisterBtn"
+    onclick="registerBarcode()"
+  >
+    💾 바코드 등록하기
+  </button>
+
+
+  <button
+    class="secondary"
+    onclick="resetAdminForm()"
+  >
+    취소
+  </button>
+
+
+  <button
+    class="secondary"
+    onclick="showMenuScreen()"
+  >
+    ← 메인 메뉴
+  </button>
+
+</div>
+
+</section>
+
+
 </section>
 
 </div>
+
 
 
 <div
@@ -986,6 +1143,7 @@ Part No
 const APPS_SCRIPT_URL =
   'https://script.google.com/macros/s/AKfycbx9LCuPz6c07KDJWNnv7xwl-VQIjj4tV_p62K6dF-SNYj5KWR-glgdfO4gP6IP32-Y6/exec';
 
+
 const API_TOKEN = '';
 
 const STORAGE_KEY =
@@ -996,18 +1154,15 @@ let html5QrCode = null;
 
 let isScanning = false;
 
+let scanMode = 'normal';
+
 let currentBarcode = '';
 
-let jsonpCounter = 0;
-
-
-// ------------------------------------------------------------
-// 출고 목록
-// ------------------------------------------------------------
-
-let scanItems = [];
+let adminBarcode = '';
 
 let manualItems = [];
+
+let jsonpCounter = 0;
 
 
 
@@ -1090,6 +1245,7 @@ function logout() {
 
   stopScan();
 
+
   localStorage.removeItem(
     STORAGE_KEY
   );
@@ -1118,17 +1274,15 @@ function logout() {
     .value = '';
 
 
-  scanItems = [];
+  resetForm();
 
-  manualItems = [];
+  resetManualForm();
+
+  resetAdminForm();
 
 }
 
 
-
-// ============================================================
-// 4. 메인 화면
-// ============================================================
 
 function showMain(name) {
 
@@ -1164,33 +1318,36 @@ function showMain(name) {
 
 
 // ============================================================
-// 5. 화면 전환
+// 4. 화면 전환
 // ============================================================
 
 function hideAllScreens() {
 
-  document
-    .getElementById(
-      'menuScreen'
-    )
-    .classList
-    .add('hidden');
+  const ids = [
+
+    'menuScreen',
+
+    'scanScreen',
+
+    'manualScreen',
+
+    'adminLoginScreen',
+
+    'adminRegisterScreen'
+
+  ];
 
 
-  document
-    .getElementById(
-      'scanScreen'
-    )
-    .classList
-    .add('hidden');
+  ids.forEach(
+    function(id) {
 
+      document
+        .getElementById(id)
+        .classList
+        .add('hidden');
 
-  document
-    .getElementById(
-      'manualScreen'
-    )
-    .classList
-    .add('hidden');
+    }
+  );
 
 }
 
@@ -1209,6 +1366,11 @@ function showMenuScreen() {
     )
     .classList
     .remove('hidden');
+
+
+  resetForm();
+
+  resetManualForm();
 
 }
 
@@ -1232,8 +1394,6 @@ function showScanScreen() {
 
 function showManualScreen() {
 
-  stopScan();
-
   hideAllScreens();
 
 
@@ -1255,58 +1415,210 @@ function showManualScreen() {
 
 
 
+function showAdminLoginScreen() {
+
+  hideAllScreens();
+
+
+  document
+    .getElementById(
+      'adminLoginScreen'
+    )
+    .classList
+    .remove('hidden');
+
+
+  document
+    .getElementById(
+      'adminPassword'
+    )
+    .value = '';
+
+
+  clearStatus(
+    'adminLoginStatus'
+  );
+
+
+  document
+    .getElementById(
+      'adminPassword'
+    )
+    .focus();
+
+}
+
+
+
+// ============================================================
+// 5. 관리자 로그인
+// ============================================================
+
+function adminLogin() {
+
+  const password =
+    document
+      .getElementById(
+        'adminPassword'
+      )
+      .value;
+
+
+  if (!password) {
+
+    setStatus(
+      'adminLoginStatus',
+      'error',
+      '관리자 비밀번호를 입력해주세요.'
+    );
+
+    return;
+
+  }
+
+
+  setStatus(
+    'adminLoginStatus',
+    'info',
+    '관리자 인증 중...'
+  );
+
+
+  jsonpRequest(
+
+    {
+
+      action:
+        'adminLogin',
+
+      password:
+        password
+
+    },
+
+
+    function(data) {
+
+      if (
+        data &&
+        data.success
+      ) {
+
+        showToast(
+          '관리자 인증 성공'
+        );
+
+
+        showAdminRegisterScreen();
+
+      } else {
+
+        setStatus(
+          'adminLoginStatus',
+          'error',
+          data &&
+          data.message
+            ? data.message
+            : '비밀번호가 올바르지 않습니다.'
+        );
+
+      }
+
+    },
+
+
+    function() {
+
+      setStatus(
+        'adminLoginStatus',
+        'error',
+        '관리자 인증 요청에 실패했습니다.'
+      );
+
+    }
+
+  );
+
+}
+
+
+
+function showAdminRegisterScreen() {
+
+  hideAllScreens();
+
+  resetAdminForm();
+
+
+  document
+    .getElementById(
+      'adminRegisterScreen'
+    )
+    .classList
+    .remove('hidden');
+
+}
+
+
+
 // ============================================================
 // 6. 카메라 시작
 // ============================================================
 
-async function startScan() {
+async function startScan(mode) {
 
   if (isScanning) {
+
     return;
+
   }
 
 
-  clearStatus(
-    'cameraStatus'
-  );
+  scanMode =
+    mode || 'normal';
 
 
-  document
-    .getElementById(
-      'scanInputCard'
-    )
-    .classList
-    .add('hidden');
+  const readerId =
+    scanMode === 'admin'
+      ? 'adminReader'
+      : 'reader';
 
 
-  document
-    .getElementById(
-      'reader'
-    )
-    .classList
+  const reader =
+    document.getElementById(
+      readerId
+    );
+
+
+  reader.classList
     .remove('hidden');
 
 
-  document
-    .getElementById(
-      'scanGuide'
-    )
-    .classList
-    .remove('hidden');
+  if (scanMode === 'normal') {
+
+    document
+      .getElementById(
+        'scanGuide'
+      )
+      .classList
+      .remove('hidden');
 
 
-  document
-    .getElementById(
-      'stopScanBtn'
-    )
-    .classList
-    .remove('hidden');
+    document
+      .getElementById(
+        'stopScanBtn'
+      )
+      .classList
+      .remove('hidden');
 
 
-  setCameraStatus(
-    'info',
-    '카메라를 준비하고 있습니다...'
-  );
+    setStatus(
+      'cameraStatus',
+      'info',
+      '카메라를 준비하고 있습니다...'
+    );
+
+  }
 
 
   try {
@@ -1362,7 +1674,6 @@ async function startScan() {
             audio: false
 
           });
-
 
     } finally {
 
@@ -1432,11 +1743,22 @@ async function startScan() {
 
     html5QrCode =
       new Html5Qrcode(
-        'reader'
+        readerId
       );
 
 
     isScanning = true;
+
+
+    if (scanMode === 'normal') {
+
+      setStatus(
+        'cameraStatus',
+        'info',
+        '카메라를 시작하고 있습니다...'
+      );
+
+    }
 
 
     await html5QrCode.start(
@@ -1449,20 +1771,9 @@ async function startScan() {
 
         qrbox:
           function(
-            viewfinderWidth,
-            viewfinderHeight
+            width,
+            height
           ) {
-
-            const width =
-              Math.floor(
-                viewfinderWidth * 0.86
-              );
-
-            const height =
-              Math.floor(
-                viewfinderHeight * 0.28
-              );
-
 
             return {
 
@@ -1470,7 +1781,7 @@ async function startScan() {
                 Math.max(
                   220,
                   Math.min(
-                    width,
+                    Math.floor(width * .86),
                     360
                   )
                 ),
@@ -1479,7 +1790,7 @@ async function startScan() {
                 Math.max(
                   100,
                   Math.min(
-                    height,
+                    Math.floor(height * .28),
                     180
                   )
                 )
@@ -1496,11 +1807,15 @@ async function startScan() {
 
       },
 
+
       function(decodedText) {
 
         if (!isScanning) {
+
           return;
+
         }
+
 
         onScanSuccess(
           decodedText
@@ -1508,20 +1823,21 @@ async function startScan() {
 
       },
 
-      function() {
 
-        // 스캔 실패는 정상 동작
-
-      }
+      function() {}
 
     );
 
 
-    setCameraStatus(
-      'success',
-      '카메라가 실행되었습니다. 바코드를 맞춰주세요.'
-    );
+    if (scanMode === 'normal') {
 
+      setStatus(
+        'cameraStatus',
+        'success',
+        '카메라가 실행되었습니다. 바코드를 맞춰주세요.'
+      );
+
+    }
 
   } catch (err) {
 
@@ -1541,25 +1857,24 @@ async function startScan() {
 
 
     const errorName =
-      err && err.name
+      err &&
+      err.name
         ? err.name
         : '';
 
 
     const errorText =
       String(
-        err && err.message
+        err &&
+        err.message
           ? err.message
           : err
       );
 
 
     if (
-
       errorName === 'NotAllowedError' ||
-
       errorText.includes('NotAllowedError')
-
     ) {
 
       message =
@@ -1569,11 +1884,7 @@ async function startScan() {
     }
 
     else if (
-
-      errorName === 'NotFoundError' ||
-
-      errorText.includes('NotFoundError')
-
+      errorName === 'NotFoundError'
     ) {
 
       message =
@@ -1582,41 +1893,15 @@ async function startScan() {
     }
 
     else if (
-
-      errorName === 'NotReadableError' ||
-
-      errorText.includes('NotReadableError')
-
+      errorName === 'NotReadableError'
     ) {
 
       message =
-        '카메라가 다른 앱에서 사용 중일 수 있습니다.\n' +
-        '카메라를 사용하는 앱을 종료한 후 다시 시도해주세요.';
+        '카메라가 다른 앱에서 사용 중일 수 있습니다.';
 
     }
 
-    else if (
-      errorName === 'SecurityError'
-    ) {
-
-      message =
-        '브라우저 보안 설정 때문에 카메라에 접근할 수 없습니다.';
-
-    }
-
-    else if (
-      errorText.includes('HTTPS')
-    ) {
-
-      message =
-        '카메라를 사용하려면 HTTPS 주소로 접속해야 합니다.';
-
-    }
-
-    else if (
-      errorText &&
-      errorText !== 'undefined'
-    ) {
+    else {
 
       message =
         '카메라 오류: ' +
@@ -1625,15 +1910,21 @@ async function startScan() {
     }
 
 
-    setCameraStatus(
-      'error',
-      message
-    );
+    if (scanMode === 'normal') {
 
+      setStatus(
+        'cameraStatus',
+        'error',
+        message
+      );
 
-    showToast(
-      message
-    );
+    } else {
+
+      showToast(
+        message
+      );
+
+    }
 
   }
 
@@ -1659,7 +1950,7 @@ async function stopScan() {
     } catch (err) {
 
       console.log(
-        '카메라 stop:',
+        'camera stop',
         err
       );
 
@@ -1670,17 +1961,11 @@ async function stopScan() {
 
       html5QrCode.clear();
 
-    } catch (err) {
-
-      console.log(
-        'reader clear:',
-        err
-      );
-
-    }
+    } catch (err) {}
 
 
-    html5QrCode = null;
+    html5QrCode =
+      null;
 
   }
 
@@ -1693,35 +1978,57 @@ async function stopScan() {
 
 function cleanupScanner() {
 
-  document
-    .getElementById(
-      'reader'
-    )
-    .classList
-    .add('hidden');
+  [
+    'reader',
+    'adminReader'
+  ].forEach(
+    function(id) {
+
+      const el =
+        document.getElementById(id);
+
+      if (el) {
+
+        el.classList
+          .add('hidden');
+
+      }
+
+    }
+  );
 
 
-  document
-    .getElementById(
+  const guide =
+    document.getElementById(
       'scanGuide'
-    )
-    .classList
-    .add('hidden');
+    );
+
+  if (guide) {
+
+    guide.classList
+      .add('hidden');
+
+  }
 
 
-  document
-    .getElementById(
+  const stop =
+    document.getElementById(
       'stopScanBtn'
-    )
-    .classList
-    .add('hidden');
+    );
+
+  if (그만) {
+
+    stop.classList
+      .add('hidden');
+
+  }
 
 }
 
 
 
 // ============================================================
-// 8. 바코드 스캔 성공
+// 8. 스캔 성공
 // ============================================================
 
 async function onScanSuccess(
@@ -1729,7 +2036,9 @@ async function onScanSuccess(
 ) {
 
   if (!isScanning) {
+
     return;
+
   }
 
 
@@ -1740,6 +2049,50 @@ async function onScanSuccess(
     String(
       barcode || ''
     ).trim();
+
+
+  if (scanMode === 'admin') {
+
+    adminBarcode =
+      currentBarcode;
+
+
+    await stopScan();
+
+
+    document
+      .getElementById(
+        'adminBarcodeBadge'
+      )
+      .textContent =
+      currentBarcode;
+
+
+    document
+      .getElementById(
+        'adminBarcodeBadge'
+      )
+      .classList
+      .remove('hidden');
+
+
+    setStatus(
+      'adminLookupStatus',
+      'success',
+      '바코드가 입력되었습니다. Part No를 입력해주세요.'
+    );
+
+
+    document
+      .getElementById(
+        'adminPartNo'
+      )
+      .focus();
+
+
+    return;
+
+  }
 
 
   await stopScan();
@@ -1755,35 +2108,35 @@ async function onScanSuccess(
 
   document
     .getElementById(
-      'scanQuantity'
+      'quantity'
     )
     .value = 1;
 
 
   document
     .getElementById(
-      'scanPartNo'
+      'partNo'
     )
     .value = '';
 
 
   document
     .getElementById(
-      'scanPartName'
+      'partName'
     )
     .value = '';
 
 
   document
     .getElementById(
-      'scanInputCard'
+      'resultCard'
     )
     .classList
     .remove('hidden');
 
 
-  setLookupStatus(
-    'scanLookupStatus',
+  setStatus(
+    'lookupStatus',
     'info',
     '부품 정보를 조회하고 있습니다...'
   );
@@ -1798,7 +2151,7 @@ async function onScanSuccess(
 
 
 // ============================================================
-// 9. 바코드 조회
+// 9. 일반 바코드 조회
 // ============================================================
 
 function lookupPart(
@@ -1828,8 +2181,8 @@ function lookupPart(
         data.success === false
       ) {
 
-        setLookupStatus(
-          'scanLookupStatus',
+        setStatus(
+          'lookupStatus',
           'error',
           '부품 조회에 실패했습니다.'
         );
@@ -1843,7 +2196,7 @@ function lookupPart(
 
         document
           .getElementById(
-            'scanPartName'
+            'partName'
           )
           .value =
           data.name || '';
@@ -1851,14 +2204,14 @@ function lookupPart(
 
         document
           .getElementById(
-            'scanPartNo'
+            'partNo'
           )
           .value =
           data.partNo || '';
 
 
-        setLookupStatus(
-          'scanLookupStatus',
+        setStatus(
+          'lookupStatus',
           'success',
           '등록된 부품을 찾았습니다.'
         );
@@ -1866,29 +2219,14 @@ function lookupPart(
 
         document
           .getElementById(
-            'scanQuantity'
+            'quantity'
           )
           .focus();
 
-
       } else {
 
-        document
-          .getElementById(
-            'scanPartName'
-          )
-          .value = '';
-
-
-        document
-          .getElementById(
-            'scanPartNo'
-          )
-          .value = '';
-
-
-        setLookupStatus(
-          'scanLookupStatus',
+        setStatus(
+          'lookupStatus',
           'error',
           '등록되지 않은 바코드입니다.'
         );
@@ -1900,10 +2238,10 @@ function lookupPart(
 
     function() {
 
-      setLookupStatus(
-        'scanLookupStatus',
+      setStatus(
+        'lookupStatus',
         'error',
-        '부품명 조회에 실패했습니다. 네트워크를 확인해주세요.'
+        '부품 조회에 실패했습니다.'
       );
 
     }
@@ -1915,15 +2253,21 @@ function lookupPart(
 
 
 // ============================================================
-// 10. 스캔한 부품 추가
+// 10. 일반 바코드 저장
 // ============================================================
 
-function addScannedItem() {
+function saveRecord() {
+
+  const employee =
+    localStorage.getItem(
+      STORAGE_KEY
+    ) || '';
+
 
   const name =
     document
       .getElementById(
-        'scanPartName'
+        'partName'
       )
       .value
       .trim();
@@ -1932,7 +2276,7 @@ function addScannedItem() {
   const partNo =
     document
       .getElementById(
-        'scanPartNo'
+        'partNo'
       )
       .value
       .trim();
@@ -1942,10 +2286,21 @@ function addScannedItem() {
     Number(
       document
         .getElementById(
-          'scanQuantity'
+          'quantity'
         )
         .value
     );
+
+
+  if (!employee) {
+
+    alert(
+      '로그인 정보가 없습니다.'
+    );
+
+    return;
+
+  }
 
 
   if (!currentBarcode) {
@@ -1962,7 +2317,7 @@ function addScannedItem() {
   if (!name) {
 
     alert(
-      '등록된 부품이 아닙니다.'
+      '부품명이 없습니다.'
     );
 
     return;
@@ -1984,197 +2339,94 @@ function addScannedItem() {
   }
 
 
-  scanItems.push({
-
-    barcode:
-      currentBarcode,
-
-    name:
-      name,
-
-    partNo:
-      partNo,
-
-    quantity:
-      quantity
-
-  });
+  const btn =
+    document.getElementById(
+      'saveBtn'
+    );
 
 
-  renderScanList();
+  btn.disabled = true;
+
+  btn.textContent =
+    '저장 중...';
 
 
-  showToast(
-    '출고 목록에 추가되었습니다.'
-  );
+  jsonpRequest(
+
+    {
+
+      action:
+        'save',
+
+      employee:
+        employee,
+
+      barcode:
+        currentBarcode,
+
+      name:
+        name,
+
+      partNo:
+        partNo,
+
+      quantity:
+        quantity,
+
+      token:
+        API_TOKEN
+
+    },
 
 
-  document
-    .getElementById(
-      'scanInputCard'
-    )
-    .classList
-    .add('hidden');
+    function(data) {
+
+      btn.disabled = false;
+
+      btn.textContent =
+        '저장';
 
 
-  currentBarcode = '';
+      if (
+        data &&
+        data.success
+      ) {
 
-}
-
-
-
-// ============================================================
-// 11. 스캔 목록 표시
-// ============================================================
-
-function renderScanList() {
-
-  const card =
-    document
-      .getElementById(
-        'scanListCard'
-      );
-
-
-  const list =
-    document
-      .getElementById(
-        'scanList'
-      );
-
-
-  const summary =
-    document
-      .getElementById(
-        'scanListSummary'
-      );
-
-
-  list.innerHTML = '';
-
-
-  let total = 0;
-
-
-  scanItems.forEach(
-    function(item, index) {
-
-      total +=
-        item.quantity;
-
-
-      const row =
-        document.createElement(
-          'div'
+        showToast(
+          '저장되었습니다 ✓'
         );
 
 
-      row.className =
-        'item-row';
+        resetForm();
+
+      } else {
+
+        showToast(
+          data &&
+          data.message
+            ? data.message
+            : '저장에 실패했습니다.'
+        );
+
+      }
+
+    },
 
 
-      row.innerHTML =
+    function() {
 
-        '<div class="item-name">' +
-        escapeHtml(item.name) +
-        '</div>' +
+      btn.disabled = false;
 
-        '<div class="item-info">' +
-        'Part No: ' +
-        escapeHtml(item.partNo || '-') +
-        '<br>' +
-        '바코드: ' +
-        escapeHtml(item.barcode) +
-        '</div>' +
-
-        '<div class="item-bottom">' +
-
-        '<div class="item-quantity">' +
-        '수량 × ' +
-        item.quantity +
-        '</div>' +
-
-        '<button class="remove-btn" onclick="removeScanItem(' +
-        index +
-        ')">' +
-        '삭제' +
-        '</button>' +
-
-        '</div>';
+      btn.textContent =
+        '저장';
 
 
-      list.appendChild(
-        row
+      showToast(
+        '저장 요청에 실패했습니다.'
       );
 
     }
-  );
 
-
-  summary.textContent =
-    scanItems.length +
-    '개 품목 / 총 ' +
-    total +
-    '개';
-
-
-  if (scanItems.length > 0) {
-
-    card
-      .classList
-      .remove('hidden');
-
-  } else {
-
-    card
-      .classList
-      .add('hidden');
-
-  }
-
-}
-
-
-
-function removeScanItem(index) {
-
-  scanItems.splice(
-    index,
-    1
-  );
-
-  renderScanList();
-
-}
-
-
-
-function clearScanItems() {
-
-  if (
-    scanItems.length === 0
-  ) {
-    return;
-  }
-
-
-  if (
-    !confirm(
-      '출고 예정 목록을 모두 삭제할까요?'
-    )
-  ) {
-
-    return;
-
-  }
-
-
-  scanItems = [];
-
-  renderScanList();
-
-  showToast(
-    '목록을 초기화했습니다.'
   );
 
 }
@@ -2182,7 +2434,7 @@ function clearScanItems() {
 
 
 // ============================================================
-// 12. 수동 Part No 조회
+// 11. 수동 Part No 조회
 // ============================================================
 
 function lookupManualPart() {
@@ -2198,7 +2450,7 @@ function lookupManualPart() {
 
   if (!partNo) {
 
-    setLookupStatus(
+    setStatus(
       'manualLookupStatus',
       'error',
       'Part No를 입력해주세요.'
@@ -2209,29 +2461,19 @@ function lookupManualPart() {
   }
 
 
-  const findBtn =
-    document
-      .getElementById(
-        'findPartBtn'
-      );
+  const btn =
+    document.getElementById(
+      'findPartBtn'
+    );
 
 
-  findBtn.disabled =
-    true;
+  btn.disabled = true;
 
-
-  findBtn.textContent =
+  btn.textContent =
     '찾는 중...';
 
 
-  document
-    .getElementById(
-      'manualPartName'
-    )
-    .value = '';
-
-
-  setLookupStatus(
+  setStatus(
     'manualLookupStatus',
     'info',
     '부품 정보를 조회하고 있습니다...'
@@ -2256,38 +2498,23 @@ function lookupManualPart() {
 
     function(data) {
 
-      findBtn.disabled =
-        false;
+      btn.disabled = false;
 
-
-      findBtn.textContent =
+      btn.textContent =
         '🔍 찾기';
 
 
       if (
-        !data ||
-        data.success === false
+        data &&
+        data.found
       ) {
-
-        setLookupStatus(
-          'manualLookupStatus',
-          'error',
-          '부품 조회에 실패했습니다.'
-        );
-
-        return;
-
-      }
-
-
-      if (data.found) {
 
         document
           .getElementById(
             'manualPartNo'
           )
           .value =
-          data.partNo || partNo;
+          data.partNo;
 
 
         document
@@ -2298,7 +2525,7 @@ function lookupManualPart() {
           data.name || '';
 
 
-        setLookupStatus(
+        setStatus(
           'manualLookupStatus',
           'success',
           '등록된 부품을 찾았습니다.'
@@ -2311,7 +2538,6 @@ function lookupManualPart() {
           )
           .focus();
 
-
       } else {
 
         document
@@ -2321,10 +2547,10 @@ function lookupManualPart() {
           .value = '';
 
 
-        setLookupStatus(
+        setStatus(
           'manualLookupStatus',
           'error',
-          '등록되지 않은 Part No입니다. 정확하게 입력했는지 확인해주세요.'
+          '등록되지 않은 Part No입니다.'
         );
 
       }
@@ -2334,18 +2560,16 @@ function lookupManualPart() {
 
     function() {
 
-      findBtn.disabled =
-        false;
+      btn.disabled = false;
 
-
-      findBtn.textContent =
+      btn.textContent =
         '🔍 찾기';
 
 
-      setLookupStatus(
+      setStatus(
         'manualLookupStatus',
         'error',
-        '부품 조회에 실패했습니다. 네트워크를 확인해주세요.'
+        '부품 조회에 실패했습니다.'
       );
 
     }
@@ -2357,7 +2581,7 @@ function lookupManualPart() {
 
 
 // ============================================================
-// 13. 수동 부품 추가
+// 12. 수동입력 목록 추가
 // ============================================================
 
 function addManualItem() {
@@ -2393,7 +2617,7 @@ function addManualItem() {
   if (!partNo) {
 
     alert(
-      'Part No를 입력해주세요.'
+      '먼저 Part No를 입력해주세요.'
     );
 
     return;
@@ -2404,7 +2628,7 @@ function addManualItem() {
   if (!name) {
 
     alert(
-      '먼저 Part No를 찾아주세요.'
+      '먼저 찾기 버튼으로 부품을 조회해주세요.'
     );
 
     return;
@@ -2431,11 +2655,11 @@ function addManualItem() {
     barcode:
       '수동입력',
 
-    name:
-      name,
-
     partNo:
       partNo,
+
+    name:
+      name,
 
     quantity:
       quantity
@@ -2443,346 +2667,8 @@ function addManualItem() {
   });
 
 
-  renderManualList();
+  renderBatchList();
 
-
-  showToast(
-    '출고 목록에 추가되었습니다.'
-  );
-
-
-  resetManualInputOnly();
-
-}
-
-
-
-// ============================================================
-// 14. 수동 목록 표시
-// ============================================================
-
-function renderManualList() {
-
-  const card =
-    document
-      .getElementById(
-        'manualListCard'
-      );
-
-
-  const list =
-    document
-      .getElementById(
-        'manualList'
-      );
-
-
-  const summary =
-    document
-      .getElementById(
-        'manualListSummary'
-      );
-
-
-  list.innerHTML = '';
-
-
-  let total = 0;
-
-
-  manualItems.forEach(
-    function(item, index) {
-
-      total +=
-        item.quantity;
-
-
-      const row =
-        document.createElement(
-          'div'
-        );
-
-
-      row.className =
-        'item-row';
-
-
-      row.innerHTML =
-
-        '<div class="item-name">' +
-        escapeHtml(item.name) +
-        '</div>' +
-
-        '<div class="item-info">' +
-        'Part No: ' +
-        escapeHtml(item.partNo) +
-        '</div>' +
-
-        '<div class="item-bottom">' +
-
-        '<div class="item-quantity">' +
-        '수량 × ' +
-        item.quantity +
-        '</div>' +
-
-        '<button class="remove-btn" onclick="removeManualItem(' +
-        index +
-        ')">' +
-        '삭제' +
-        '</button>' +
-
-        '</div>';
-
-
-      list.appendChild(
-        row
-      );
-
-    }
-  );
-
-
-  summary.textContent =
-    manualItems.length +
-    '개 품목 / 총 ' +
-    total +
-    '개';
-
-
-  if (manualItems.length > 0) {
-
-    card
-      .classList
-      .remove('hidden');
-
-  } else {
-
-    card
-      .classList
-      .add('hidden');
-
-  }
-
-}
-
-
-
-function removeManualItem(index) {
-
-  manualItems.splice(
-    index,
-    1
-  );
-
-  renderManualList();
-
-}
-
-
-
-function clearManualItems() {
-
-  if (
-    manualItems.length === 0
-  ) {
-    return;
-  }
-
-
-  if (
-    !confirm(
-      '출고 예정 목록을 모두 삭제할까요?'
-    )
-  ) {
-
-    return;
-
-  }
-
-
-  manualItems = [];
-
-  renderManualList();
-
-  showToast(
-    '목록을 초기화했습니다.'
-  );
-
-}
-
-
-
-// ============================================================
-// 15. 전체 저장
-// ============================================================
-
-function saveBatch(items) {
-
-  const employee =
-    localStorage.getItem(
-      STORAGE_KEY
-    ) || '';
-
-
-  if (!employee) {
-
-    alert(
-      '로그인 정보가 없습니다.'
-    );
-
-    return;
-
-  }
-
-
-  if (
-    !items ||
-    items.length === 0
-  ) {
-
-    alert(
-      '저장할 부품이 없습니다.'
-    );
-
-    return;
-
-  }
-
-
-  const button =
-    items === scanItems
-
-      ? document.getElementById(
-          'scanSaveAllBtn'
-        )
-
-      : document.getElementById(
-          'manualSaveAllBtn'
-        );
-
-
-  button.disabled =
-    true;
-
-
-  button.textContent =
-    '전체 저장 중...';
-
-
-  jsonpRequest(
-
-    {
-
-      action:
-        'saveBatch',
-
-      employee:
-        employee,
-
-      items:
-        JSON.stringify(items),
-
-      token:
-        API_TOKEN
-
-    },
-
-
-    function(data) {
-
-      button.disabled =
-        false;
-
-
-      button.textContent =
-        '전체 저장';
-
-
-      if (
-        data &&
-        data.success
-      ) {
-
-        const count =
-          data.savedCount || items.length;
-
-
-        const total =
-          data.totalQuantity || 0;
-
-
-        showToast(
-          count +
-          '개 품목 / 총 ' +
-          total +
-          '개 저장 완료 ✓'
-        );
-
-
-        if (items === scanItems) {
-
-          scanItems = [];
-
-          renderScanList();
-
-        } else {
-
-          manualItems = [];
-
-          renderManualList();
-
-          resetManualInputOnly();
-
-        }
-
-
-      } else {
-
-        const message =
-          data &&
-          data.message
-
-            ? data.message
-
-            : '저장에 실패했습니다.';
-
-
-        alert(
-          message
-        );
-
-      }
-
-    },
-
-
-    function() {
-
-      button.disabled =
-        false;
-
-
-      button.textContent =
-        '전체 저장';
-
-
-      alert(
-        '저장 요청에 실패했습니다. 네트워크를 확인해주세요.'
-      );
-
-    }
-
-  );
-
-}
-
-
-
-// ============================================================
-// 16. 수동 입력창만 초기화
-// ============================================================
-
-function resetManualInputOnly() {
 
   document
     .getElementById(
@@ -2816,12 +2702,737 @@ function resetManualInputOnly() {
     )
     .focus();
 
+
+  showToast(
+    '출고 목록에 추가되었습니다.'
+  );
+
 }
 
 
 
 // ============================================================
-// 17. JSONP
+// 13. 일괄 목록 표시
+// ============================================================
+
+function renderBatchList() {
+
+  const list =
+    document.getElementById(
+      'batchList'
+    );
+
+
+  list.innerHTML = '';
+
+
+  manualItems.forEach(
+    function(item, index) {
+
+      const div =
+        document.createElement(
+          'div'
+        );
+
+
+      div.className =
+        'batch-item';
+
+
+      div.innerHTML =
+
+        '<div class="batch-item-title">' +
+
+        (index + 1) +
+        '. ' +
+        escapeHtml(item.name) +
+
+        '</div>' +
+
+        '<div class="batch-item-info">' +
+
+        'Part No: ' +
+        escapeHtml(item.partNo) +
+
+        '<br>' +
+
+        '수량: ' +
+        item.quantity +
+
+        '</div>' +
+
+        '<button class="batch-item-remove" ' +
+        'onclick="removeManualItem(' +
+        index +
+        ')">' +
+
+        '삭제' +
+
+        '</button>';
+
+
+      list.appendChild(
+        div
+      );
+
+    }
+  );
+
+
+  const saveBtn =
+    document.getElementById(
+      'batchSaveBtn'
+    );
+
+
+  if (
+    manualItems.length > 0
+  ) {
+
+    saveBtn.classList
+      .remove('hidden');
+
+    saveBtn.textContent =
+      '📦 전체 저장 (' +
+      manualItems.length +
+      '개)';
+
+  } else {
+
+    saveBtn.classList
+      .add('hidden');
+
+  }
+
+}
+
+
+
+// ============================================================
+// 14. 목록 삭제
+// ============================================================
+
+function removeManualItem(
+  index
+) {
+
+  manualItems.splice(
+    index,
+    1
+  );
+
+
+  renderBatchList();
+
+}
+
+
+
+// ============================================================
+// 15. 일괄 저장
+// ============================================================
+
+function saveManualBatch() {
+
+  const employee =
+    localStorage.getItem(
+      STORAGE_KEY
+    ) || '';
+
+
+  if (!employee) {
+
+    alert(
+      '로그인 정보가 없습니다.'
+    );
+
+    return;
+
+  }
+
+
+  if (
+    manualItems.length === 0
+  ) {
+
+    alert(
+      '출고 목록이 없습니다.'
+    );
+
+    return;
+
+  }
+
+
+  const btn =
+    document.getElementById(
+      'batchSaveBtn'
+    );
+
+
+  btn.disabled = true;
+
+  btn.textContent =
+    '전체 저장 중...';
+
+
+  jsonpRequest(
+
+    {
+
+      action:
+        'saveBatch',
+
+      employee:
+        employee,
+
+      items:
+        JSON.stringify(
+          manualItems
+        ),
+
+      token:
+        API_TOKEN
+
+    },
+
+
+    function(data) {
+
+      btn.disabled = false;
+
+
+      if (
+        data &&
+        data.success
+      ) {
+
+        showToast(
+          data.count +
+          '개 부품이 저장되었습니다 ✓'
+        );
+
+
+        resetManualForm();
+
+      } else {
+
+        btn.textContent =
+          '📦 전체 저장 (' +
+          manualItems.length +
+          '개)';
+
+
+        showToast(
+          data &&
+          data.message
+            ? data.message
+            : '저장에 실패했습니다.'
+        );
+
+      }
+
+    },
+
+
+    function() {
+
+      btn.disabled = false;
+
+      btn.textContent =
+        '📦 전체 저장 (' +
+        manualItems.length +
+        '개)';
+
+
+      showToast(
+        '저장 요청에 실패했습니다.'
+      );
+
+    }
+
+  );
+
+}
+
+
+
+// ============================================================
+// 16. 관리자 Part No 조회
+// ============================================================
+
+function lookupAdminPart() {
+
+  const partNo =
+    document
+      .getElementById(
+        'adminPartNo'
+      )
+      .value
+      .trim();
+
+
+  if (!adminBarcode) {
+
+    setStatus(
+      'adminLookupStatus',
+      'error',
+      '먼저 바코드를 스캔해주세요.'
+    );
+
+    return;
+
+  }
+
+
+  if (!partNo) {
+
+    setStatus(
+      'adminLookupStatus',
+      'error',
+      'Part No를 입력해주세요.'
+    );
+
+    return;
+
+  }
+
+
+  setStatus(
+    'adminLookupStatus',
+    'info',
+    'Part No를 확인하고 있습니다...'
+  );
+
+
+  jsonpRequest(
+
+    {
+
+      action:
+        'lookupPartNo',
+
+      partNo:
+        partNo,
+
+      token:
+        API_TOKEN
+
+    },
+
+
+    function(data) {
+
+      if (
+        data &&
+        data.found
+      ) {
+
+        document
+          .getElementById(
+            'adminPartName'
+          )
+          .value =
+          data.name || '';
+
+
+        setStatus(
+          'adminLookupStatus',
+          'success',
+          '부품을 찾았습니다. 등록 버튼을 눌러주세요.'
+        );
+
+      } else {
+
+        document
+          .getElementById(
+            'adminPartName'
+          )
+          .value = '';
+
+
+        setStatus(
+          'adminLookupStatus',
+          'error',
+          '부품마스터에서 해당 Part No를 찾을 수 없습니다.'
+        );
+
+      }
+
+    },
+
+
+    function() {
+
+      setStatus(
+        'adminLookupStatus',
+        'error',
+        'Part No 조회에 실패했습니다.'
+      );
+
+    }
+
+  );
+
+}
+
+
+
+// ============================================================
+// 17. 관리자 바코드 등록
+// ============================================================
+
+function registerBarcode() {
+
+  const password =
+    document
+      .getElementById(
+        'adminPassword'
+      )
+      .value;
+
+
+  const partNo =
+    document
+      .getElementById(
+        'adminPartNo'
+      )
+      .value
+      .trim();
+
+
+  const name =
+    document
+      .getElementById(
+        'adminPartName'
+      )
+      .value
+      .trim();
+
+
+  if (!password) {
+
+    alert(
+      '관리자 인증이 필요합니다.'
+    );
+
+    showAdminLoginScreen();
+
+    return;
+
+  }
+
+
+  if (!adminBarcode) {
+
+    alert(
+      '바코드를 먼저 스캔해주세요.'
+    );
+
+    return;
+
+  }
+
+
+  if (!partNo) {
+
+    alert(
+      'Part No를 입력해주세요.'
+    );
+
+    return;
+
+  }
+
+
+  if (!name) {
+
+    alert(
+      '먼저 Part No 확인을 해주세요.'
+    );
+
+    return;
+
+  }
+
+
+  const btn =
+    document.getElementById(
+      'adminRegisterBtn'
+    );
+
+
+  btn.disabled = true;
+
+  btn.textContent =
+    '등록 중...';
+
+
+  jsonpRequest(
+
+    {
+
+      action:
+        'registerBarcode',
+
+      password:
+        password,
+
+      barcode:
+        adminBarcode,
+
+      partNo:
+        partNo
+
+    },
+
+
+    function(data) {
+
+      btn.disabled = false;
+
+      btn.textContent =
+        '💾 바코드 등록하기';
+
+
+      if (
+        data &&
+        data.success
+      ) {
+
+        setStatus(
+          'adminLookupStatus',
+          'success',
+          '바코드 등록 완료!\n' +
+          'Part No: ' +
+          data.partNo +
+          '\n' +
+          '부품명: ' +
+          data.name
+        );
+
+
+        showToast(
+          '바코드가 등록되었습니다 ✓'
+        );
+
+
+        setTimeout(
+          function() {
+
+            resetAdminForm();
+
+          },
+          1200
+        );
+
+      } else {
+
+        setStatus(
+          'adminLookupStatus',
+          'error',
+          data &&
+          data.message
+            ? data.message
+            : '바코드 등록에 실패했습니다.'
+        );
+
+      }
+
+    },
+
+
+    function() {
+
+      btn.disabled = false;
+
+      btn.textContent =
+        '💾 바코드 등록하기';
+
+
+      setStatus(
+        'adminLookupStatus',
+        'error',
+        '바코드 등록 요청에 실패했습니다.'
+      );
+
+    }
+
+  );
+
+}
+
+
+
+// ============================================================
+// 18. 관리자 화면 초기화
+// ============================================================
+
+function resetAdminForm() {
+
+  stopScan();
+
+
+  adminBarcode =
+    '';
+
+
+  document
+    .getElementById(
+      'adminPassword'
+    )
+    .value = '';
+
+
+  document
+    .getElementById(
+      'adminPartNo'
+    )
+    .value = '';
+
+
+  document
+    .getElementById(
+      'adminPartName'
+    )
+    .value = '';
+
+
+  document
+    .getElementById(
+      'adminBarcodeBadge'
+    )
+    .textContent = '';
+
+
+  document
+    .getElementById(
+      'adminBarcodeBadge'
+    )
+    .classList
+    .add('hidden');
+
+
+  clearStatus(
+    'adminLookupStatus'
+  );
+
+}
+
+
+
+// ============================================================
+// 19. 일반 화면 초기화
+// ============================================================
+
+function resetForm() {
+
+  stopScan();
+
+
+  currentBarcode =
+    '';
+
+
+  document
+    .getElementById(
+      'barcodeText'
+    )
+    .textContent = '';
+
+
+  document
+    .getElementById(
+      'partNo'
+    )
+    .value = '';
+
+
+  document
+    .getElementById(
+      'partName'
+    )
+    .value = '';
+
+
+  document
+    .getElementById(
+      'quantity'
+    )
+    .value = 1;
+
+
+  clearStatus(
+    'lookupStatus'
+  );
+
+
+  document
+    .getElementById(
+      'resultCard'
+    )
+    .classList
+    .add('hidden');
+
+}
+
+
+
+// ============================================================
+// 20. 수동 화면 초기화
+// ============================================================
+
+function resetManualForm() {
+
+  manualItems = [];
+
+
+  document
+    .getElementById(
+      'manualPartNo'
+    )
+    .value = '';
+
+
+  document
+    .getElementById(
+      'manualPartName'
+    )
+    .value = '';
+
+
+  document
+    .getElementById(
+      'manualQuantity'
+    )
+    .value = 1;
+
+
+  document
+    .getElementById(
+      'batchList'
+    )
+    .innerHTML = '';
+
+
+  document
+    .getElementById(
+      'batchSaveBtn'
+    )
+    .classList
+    .add('hidden');
+
+
+  clearStatus(
+    'manualLookupStatus'
+  );
+
+}
+
+
+
+// ============================================================
+// 21. JSONP
 // ============================================================
 
 function jsonpRequest(
@@ -2853,7 +3464,6 @@ function jsonpRequest(
 
         finish();
 
-
         if (onError) {
 
           onError(
@@ -2873,7 +3483,6 @@ function jsonpRequest(
     function(data) {
 
       finish();
-
 
       if (onSuccess) {
 
@@ -2922,9 +3531,7 @@ function jsonpRequest(
 
   query.set(
     '_',
-    String(
-      Date.now()
-    )
+    String(Date.now())
   );
 
 
@@ -2939,7 +3546,6 @@ function jsonpRequest(
 
       finish();
 
-
       if (onError) {
 
         onError(
@@ -2953,8 +3559,7 @@ function jsonpRequest(
     };
 
 
-  document
-    .body
+  document.body
     .appendChild(
       script
     );
@@ -2963,7 +3568,9 @@ function jsonpRequest(
   function finish() {
 
     if (finished) {
+
       return;
+
     }
 
 
@@ -2994,8 +3601,7 @@ function jsonpRequest(
       script.parentNode
     ) {
 
-      script
-        .parentNode
+      script.parentNode
         .removeChild(
           script
         );
@@ -3009,44 +3615,19 @@ function jsonpRequest(
 
 
 // ============================================================
-// 18. 상태 표시
+// 22. 상태 표시
 // ============================================================
 
-function setCameraStatus(
-  type,
-  message
-) {
-
-  const el =
-    document
-      .getElementById(
-        'cameraStatus'
-      );
-
-
-  el.className =
-    'status ' +
-    type;
-
-
-  el.textContent =
-    message;
-
-}
-
-
-
-function setLookupStatus(
+function setStatus(
   id,
   type,
   message
 ) {
 
   const el =
-    document
-      .getElementById(
-        id
-      );
+    document.getElementById(
+      id
+    );
 
 
   el.className =
@@ -3061,13 +3642,14 @@ function setLookupStatus(
 
 
 
-function clearStatus(id) {
+function clearStatus(
+  id
+) {
 
   const el =
-    document
-      .getElementById(
-        id
-      );
+    document.getElementById(
+      id
+    );
 
 
   el.className =
@@ -3082,31 +3664,7 @@ function clearStatus(id) {
 
 
 // ============================================================
-// 19. HTML escape
-// ============================================================
-
-function escapeHtml(text) {
-
-  const div =
-    document.createElement(
-      'div'
-    );
-
-
-  div.textContent =
-    String(
-      text || ''
-    );
-
-
-  return div.innerHTML;
-
-}
-
-
-
-// ============================================================
-// 20. Toast
+// 23. Toast
 // ============================================================
 
 function showToast(
@@ -3114,10 +3672,9 @@ function showToast(
 ) {
 
   const el =
-    document
-      .getElementById(
-        'toast'
-      );
+    document.getElementById(
+      'toast'
+    );
 
 
   el.textContent =
@@ -3142,6 +3699,40 @@ function showToast(
 
       },
       2600
+    );
+
+}
+
+
+
+// ============================================================
+// 24. HTML escape
+// ============================================================
+
+function escapeHtml(
+  value
+) {
+
+  return String(value)
+    .replace(
+      /&/g,
+      '&amp;'
+    )
+    .replace(
+      /</g,
+      '&lt;'
+    )
+    .replace(
+      />/g,
+      '&gt;'
+    )
+    .replace(
+      /"/g,
+      '&quot;'
+    )
+    .replace(
+      /'/g,
+      '&#039;'
     );
 
 }
