@@ -2,7 +2,6 @@
 <html lang="ko">
 
 <head>
-
 <meta charset="UTF-8">
 
 <meta
@@ -28,733 +27,453 @@ box-sizing: border-box;
 }
 
 body {
-
 margin: 0;
-
 background: #f4f5f7;
-
 color: #1d1d1f;
-
 font-family:
 -apple-system,
 BlinkMacSystemFont,
 "Apple SD Gothic Neo",
 "Malgun Gothic",
 sans-serif;
-
 }
 
 button,
 input,
 select {
-
 font: inherit;
-
 }
 
 .container {
-
 width: 100%;
-
 max-width: 480px;
-
 margin: 0 auto;
-
 padding: 18px;
-
 }
 
 h1 {
-
 font-size: 22px;
-
-margin:
-4px 0 6px;
-
+margin: 4px 0 6px;
 }
 
 .sub {
-
 color: #666;
-
 font-size: 13px;
-
 line-height: 1.5;
-
 margin-bottom: 18px;
-
 }
 
 .card {
-
 background: #fff;
-
 border-radius: 16px;
-
 padding: 18px;
-
 margin-bottom: 14px;
-
-box-shadow:
-0 1px 5px rgba(0,0,0,.08);
-
+box-shadow: 0 1px 5px rgba(0,0,0,.08);
 }
 
 label {
-
 display: block;
-
 margin-top: 13px;
-
 font-size: 13px;
-
 color: #555;
-
 font-weight: 700;
-
 }
 
 label:first-child {
-
 margin-top: 0;
-
 }
 
 input,
 select {
-
 width: 100%;
-
 min-height: 48px;
-
 margin-top: 7px;
-
-padding:
-12px 13px;
-
-border:
-1px solid #d9d9d9;
-
+padding: 12px 13px;
+border: 1px solid #d9d9d9;
 border-radius: 11px;
-
 background: #fff;
-
 color: #111;
-
 outline: none;
-
 }
 
 input:focus,
 select:focus {
-
 border-color: #2563eb;
-
-box-shadow:
-0 0 0 3px
-rgba(37,99,235,.12);
-
+box-shadow: 0 0 0 3px rgba(37,99,235,.12);
 }
 
 button {
-
 width: 100%;
-
 min-height: 50px;
-
 margin-top: 11px;
-
-padding:
-12px 14px;
-
+padding: 12px 14px;
 border: 0;
-
 border-radius: 11px;
-
 background: #2563eb;
-
 color: #fff;
-
 font-weight: 700;
-
 cursor: pointer;
-
--webkit-tap-highlight-color:
-transparent;
-
+-webkit-tap-highlight-color: transparent;
 }
 
 button:active {
-
-transform:
-scale(.99);
-
+transform: scale(.99);
 opacity: .88;
-
 }
 
 button.secondary {
-
 background: #ececef;
-
 color: #333;
-
 }
 
 button.manual {
-
 background: #111827;
-
 }
 
 button.admin {
-
 background: #fff;
-
 color: #555;
-
-border:
-1px solid #d5d5d5;
-
+border: 1px solid #d5d5d5;
 }
 
 button.danger {
-
 background: #f3f3f3;
-
 color: #b42318;
-
 }
 
 button:disabled {
-
 opacity: .5;
-
 cursor: default;
-
 }
 
 .top-bar {
-
 display: flex;
-
 align-items: center;
-
-justify-content:
-space-between;
-
+justify-content: space-between;
 gap: 12px;
-
-margin:
-3px 2px 14px;
-
+margin: 3px 2px 14px;
 }
 
 .welcome {
-
 font-size: 14px;
-
 font-weight: 700;
-
 }
 
 .switch-user {
-
 border: 0;
-
-background:
-transparent;
-
+background: transparent;
 color: #777;
-
 font-size: 12px;
-
 padding: 4px;
-
 min-height: auto;
-
 width: auto;
-
 margin: 0;
-
-text-decoration:
-underline;
-
+text-decoration: underline;
 }
 
 .menu-title {
-
 font-size: 16px;
-
 font-weight: 700;
-
 margin-bottom: 14px;
-
 }
 
 .menu-button {
-
 min-height: 62px;
-
 font-size: 16px;
-
 }
 
 .admin-area {
-
 margin-top: 28px;
-
 padding-top: 18px;
-
-border-top:
-1px solid #eee;
-
+border-top: 1px solid #eee;
 }
 
 .admin-title {
-
 font-size: 12px;
-
 color: #999;
-
 text-align: center;
-
 margin-bottom: 8px;
-
 }
 
 #reader,
 #adminReader {
-
 width: 100%;
-
 margin-top: 13px;
-
 overflow: hidden;
-
 border-radius: 13px;
-
 background: #111;
-
 min-height: 180px;
-
 }
 
 #reader video,
 #adminReader video {
-
 width: 100% !important;
-
 height: auto !important;
-
 display: block;
-
 border-radius: 13px;
-
 object-fit: cover;
-
 }
 
 .scan-guide {
-
 margin-top: 10px;
-
-padding:
-10px 12px;
-
+padding: 10px 12px;
 border-radius: 10px;
-
 background: #f5f7fa;
-
 color: #666;
-
 font-size: 12px;
-
 line-height: 1.5;
-
 text-align: center;
-
 }
 
 .barcode-badge {
-
 margin-top: 6px;
-
-padding:
-12px;
-
+padding: 12px;
 background: #f5f5f7;
-
 border-radius: 9px;
-
 font-family: monospace;
-
 font-size: 13px;
-
 word-break: break-all;
-
 }
 
 .admin-barcode {
-
 margin-top: 8px;
-
-padding:
-14px;
-
+padding: 14px;
 border-radius: 10px;
-
 background: #eef5ff;
-
 color: #175cd3;
-
 font-family: monospace;
-
 font-size: 15px;
-
 font-weight: 700;
-
 word-break: break-all;
-
 text-align: center;
-
 }
 
 .status {
-
 margin-top: 10px;
-
-padding:
-10px 12px;
-
+padding: 10px 12px;
 border-radius: 9px;
-
 font-size: 13px;
-
 line-height: 1.45;
-
 display: none;
-
 white-space: pre-line;
-
 }
 
 .status.info {
-
 display: block;
-
 background: #eef5ff;
-
 color: #175cd3;
-
 }
 
 .status.success {
-
 display: block;
-
 background: #ecfdf3;
-
 color: #027a48;
-
 }
 
 .status.error {
-
 display: block;
-
 background: #fef3f2;
-
 color: #b42318;
-
 }
 
 .hidden {
-
 display: none !important;
-
 }
 
 .batch-item {
-
-border:
-1px solid #e5e5e5;
-
+border: 1px solid #e5e5e5;
 border-radius: 12px;
-
 padding: 13px;
-
 margin-top: 10px;
-
 background: #fafafa;
-
 }
 
 .batch-item-title {
-
 font-weight: 700;
-
 font-size: 14px;
-
 margin-bottom: 5px;
-
 }
 
 .batch-item-info {
-
 color: #666;
-
 font-size: 12px;
-
 line-height: 1.6;
-
 }
 
 .batch-remove {
-
 min-height: 38px;
-
 margin-top: 8px;
-
 background: #f3f3f3;
-
 color: #b42318;
-
 font-size: 12px;
-
 }
 
 .batch-empty {
-
 padding: 14px;
-
 text-align: center;
-
 color: #999;
-
 font-size: 13px;
-
 background: #f8f8f8;
-
 border-radius: 10px;
-
 }
 
 .batch-count {
-
 margin-top: 8px;
-
 font-size: 12px;
-
 color: #666;
-
 text-align: right;
-
 }
 
 .toast {
-
 position: fixed;
-
 left: 50%;
-
 bottom: 24px;
-
-transform:
-translateX(-50%);
-
+transform: translateX(-50%);
 z-index: 1000;
-
-max-width:
-calc(100vw - 40px);
-
-padding:
-12px 18px;
-
+max-width: calc(100vw - 40px);
+padding: 12px 18px;
 border-radius: 24px;
-
 background: #111;
-
 color: #fff;
-
 font-size: 14px;
-
 text-align: center;
-
 opacity: 0;
-
 pointer-events: none;
-
-transition:
-opacity .2s;
-
+transition: opacity .2s;
 }
 
 .toast.show {
-
 opacity: .95;
-
 }
 
-
 /* ============================================================
-   출고 내역
+출고 내역
 ============================================================ */
 
 .history-filter {
-
 display: grid;
-
-grid-template-columns:
-1fr 1fr;
-
+grid-template-columns: 1fr 1fr;
 gap: 8px;
-
 margin-top: 10px;
-
 }
 
-.history-filter select {
-
+.history-filter button {
 margin-top: 0;
+min-height: 42px;
+background: #ececef;
+color: #555;
+font-size: 13px;
+}
 
-min-height: 44px;
+.history-filter button.active {
+background: #2563eb;
+color: #fff;
+}
 
+.transfer-filter {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 8px;
+margin-top: 8px;
+}
+
+.transfer-filter button {
+margin-top: 0;
+min-height: 42px;
+background: #ececef;
+color: #555;
+font-size: 13px;
+}
+
+.transfer-filter button.active {
+background: #111827;
+color: #fff;
 }
 
 .history-summary {
-
 margin-top: 12px;
-
-padding:
-11px 12px;
-
-border-radius: 10px;
-
+padding: 12px;
 background: #f5f7fa;
-
+border-radius: 10px;
 font-size: 13px;
-
 color: #555;
-
-text-align: center;
-
+line-height: 1.6;
 }
 
 .history-item {
-
-margin-top: 10px;
-
-padding: 14px;
-
-border:
-1px solid #e5e5e5;
-
+border: 1px solid #e5e5e5;
 border-radius: 12px;
-
+padding: 13px;
+margin-top: 10px;
 background: #fff;
-
-}
-
-.history-item-date {
-
-font-size: 11px;
-
-color: #999;
-
-margin-bottom: 5px;
-
 }
 
 .history-item-title {
-
-font-size: 15px;
-
 font-weight: 700;
-
-margin-bottom: 6px;
-
+font-size: 14px;
+margin-bottom: 7px;
 }
 
-.history-item-info {
-
+.history-item-row {
 font-size: 12px;
-
-line-height: 1.7;
-
 color: #666;
-
+line-height: 1.65;
 }
 
 .transfer-badge {
-
 display: inline-block;
-
 margin-top: 8px;
-
-padding:
-5px 9px;
-
-border-radius: 20px;
-
+padding: 5px 9px;
+border-radius: 999px;
 font-size: 11px;
-
 font-weight: 700;
-
-background: #fff4e5;
-
-color: #b54708;
-
 }
 
 .transfer-badge.done {
-
 background: #ecfdf3;
-
 color: #027a48;
+}
 
+.transfer-badge.pending {
+background: #fef3f2;
+color: #b42318;
 }
 
 .history-empty {
-
-padding: 25px 10px;
-
+padding: 25px 12px;
 text-align: center;
-
 color: #999;
-
 font-size: 13px;
-
 background: #f8f8f8;
-
 border-radius: 10px;
-
 margin-top: 10px;
-
 }
 
 .history-loading {
-
 padding: 20px;
-
 text-align: center;
-
-color: #777;
-
+color: #666;
 font-size: 13px;
+}
 
+.admin-history-title {
+margin-top: 8px;
+}
+
+/* 관리자 메뉴 */
+
+.admin-menu-button {
+min-height: 58px;
+font-size: 15px;
 }
 
 </style>
 
 </head>
 
-
 <body>
 
-
 <div class="container">
-
 
 <!-- ======================================================
 로그인
@@ -825,7 +544,7 @@ onclick="logout()"
 
 
 <!-- ====================================================
-메뉴
+일반 사용자 메뉴
 ==================================================== -->
 
 <section id="menuScreen">
@@ -852,7 +571,7 @@ onclick="showManualScreen()"
 
 <button
 class="menu-button"
-onclick="showHistoryScreen(false)"
+onclick="showUserHistoryScreen()"
 >
 📋 출고 내역 확인하기
 </button>
@@ -1181,72 +900,86 @@ onclick="showMenuScreen()"
 
 
 <!-- ====================================================
-일반 사용자 출고 내역
+사용자 출고 내역
 ==================================================== -->
 
 <section
-id="historyScreen"
+id="userHistoryScreen"
 class="hidden"
 >
 
 <div class="card">
 
 <div class="menu-title">
-📋 출고 내역 확인
+📋 내 출고 내역
 </div>
 
 <div class="sub">
-현재 로그인한 이름의 출고 기록입니다.
+현재 로그인한 이름의 출고 기록만 표시됩니다.
 </div>
+
 
 <div class="history-filter">
 
-<select
-id="historyPeriod"
-onchange="loadHistory(false)"
+<button
+id="userHistoryTodayBtn"
+onclick="setUserHistoryPeriod('today')"
 >
-
-<option value="today">
 오늘
-</option>
+</button>
 
-<option value="week">
-일주일
-</option>
-
-<option value="all">
-전체
-</option>
-
-</select>
-
-
-<select
-id="historyTransfer"
-onchange="loadHistory(false)"
+<button
+id="userHistoryWeekBtn"
+onclick="setUserHistoryPeriod('week')"
 >
+일주일
+</button>
 
-<option value="pending">
-Transfer 미처리
-</option>
-
-<option value="all">
+<button
+id="userHistoryAllBtn"
+onclick="setUserHistoryPeriod('all')"
+>
 전체
-</option>
-
-</select>
+</button>
 
 </div>
 
+
+<div class="transfer-filter">
+
+<button
+id="userHistoryTransferAllBtn"
+onclick="setUserHistoryTransferFilter('all')"
+>
+전체
+</button>
+
+<button
+id="userHistoryTransferDoneBtn"
+onclick="setUserHistoryTransferFilter('done')"
+>
+Transfer O
+</button>
+
+<button
+id="userHistoryTransferPendingBtn"
+onclick="setUserHistoryTransferFilter('pending')"
+>
+미처리
+</button>
+
+</div>
+
+
 <div
-id="historySummary"
+id="userHistorySummary"
 class="history-summary"
 >
-조회 중...
+조회 준비 중...
 </div>
 
 <div
-id="historyList"
+id="userHistoryList"
 >
 <div class="history-loading">
 조회 중...
@@ -1277,11 +1010,11 @@ class="hidden"
 <div class="card">
 
 <div class="menu-title">
-🔐 관리자 확인
+🔐 관리자 모드
 </div>
 
 <div class="sub">
-관리자 모드에 들어가려면 비밀번호를 입력해주세요.
+관리자 기능을 사용하려면 비밀번호를 입력해주세요.
 </div>
 
 <label for="adminPasswordInput">
@@ -1326,7 +1059,7 @@ onclick="showMenuScreen()"
 ==================================================== -->
 
 <section
-id="adminModeScreen"
+id="adminMenuScreen"
 class="hidden"
 >
 
@@ -1337,19 +1070,19 @@ class="hidden"
 </div>
 
 <div class="sub">
-관리자 기능을 선택해주세요.
+관리자 전용 기능입니다.
 </div>
 
 <button
-class="menu-button"
+class="admin-menu-button"
 onclick="showAdminBarcodeScreen()"
 >
 📷 바코드 등록하기
 </button>
 
 <button
-class="menu-button"
-onclick="showHistoryScreen(true)"
+class="admin-menu-button"
+onclick="showAdminHistoryScreen()"
 >
 📋 재고기록
 </button>
@@ -1462,7 +1195,7 @@ onclick="resetAdminBarcodeForm()"
 
 <button
 class="secondary"
-onclick="showAdminModeScreen()"
+onclick="showAdminMenuScreen()"
 >
 ⬅️ 관리자 모드
 </button>
@@ -1484,57 +1217,71 @@ class="hidden"
 <div class="card">
 
 <div class="menu-title">
-📋 관리자 재고기록
+📋 재고기록
 </div>
 
 <div class="sub">
-전체 사용자의 출고 기록을 확인합니다.
+전체 직원의 재고 출고 기록을 확인합니다.
 </div>
+
 
 <div class="history-filter">
 
-<select
-id="adminHistoryPeriod"
-onchange="loadHistory(true)"
+<button
+id="adminHistoryTodayBtn"
+onclick="setAdminHistoryPeriod('today')"
 >
-
-<option value="today">
 오늘
-</option>
+</button>
 
-<option value="week">
-일주일
-</option>
-
-<option value="all">
-전체
-</option>
-
-</select>
-
-
-<select
-id="adminHistoryTransfer"
-onchange="loadHistory(true)"
+<button
+id="adminHistoryWeekBtn"
+onclick="setAdminHistoryPeriod('week')"
 >
+일주일
+</button>
 
-<option value="pending">
-Transfer 미처리
-</option>
-
-<option value="all">
+<button
+id="adminHistoryAllBtn"
+onclick="setAdminHistoryPeriod('all')"
+>
 전체
-</option>
-
-</select>
+</button>
 
 </div>
+
+
+<div class="transfer-filter">
+
+<button
+id="adminHistoryTransferAllBtn"
+onclick="setAdminHistoryTransferFilter('all')"
+>
+전체
+</button>
+
+<button
+id="adminHistoryTransferDoneBtn"
+onclick="setAdminHistoryTransferFilter('done')"
+>
+Transfer O
+</button>
+
+<button
+id="adminHistoryTransferPendingBtn"
+onclick="setAdminHistoryTransferFilter('pending')"
+>
+미처리
+</button>
+
+</div>
+
 
 <div
 id="adminHistorySummary"
 class="history-summary"
 >
-조회 중...
+조회 준비 중...
 </div>
 
 <div
@@ -1547,7 +1294,7 @@ id="adminHistoryList"
 
 <button
 class="secondary"
-onclick="showAdminModeScreen()"
+onclick="showAdminMenuScreen()"
 >
 ⬅️ 관리자 모드
 </button>
@@ -1569,7 +1316,6 @@ class="toast"
 
 
 <script>
-
 
 // ============================================================
 // 1. 설정
@@ -1615,6 +1361,19 @@ let scanBatchItems = [];
 // 관리자 비밀번호 세션
 
 let adminPasswordSession = '';
+
+
+// ============================================================
+// 출고 내역 조회 상태
+// ============================================================
+
+let userHistoryPeriod = 'today';
+
+let userHistoryTransferFilter = 'all';
+
+let adminHistoryPeriod = 'today';
+
+let adminHistoryTransferFilter = 'all';
 
 
 // ============================================================
@@ -1767,19 +1526,12 @@ function hideAllScreens() {
 const screens = [
 
 'menuScreen',
-
 'scanScreen',
-
 'manualScreen',
-
-'historyScreen',
-
+'userHistoryScreen',
 'adminPasswordScreen',
-
-'adminModeScreen',
-
+'adminMenuScreen',
 'adminBarcodeScreen',
-
 'adminHistoryScreen'
 
 ];
@@ -1792,13 +1544,12 @@ document.getElementById(id);
 
 if (el) {
 
-el.classList.add(
-'hidden'
-);
+el.classList.add('hidden');
 
 }
 
-});
+}
+);
 
 }
 
@@ -1820,7 +1571,7 @@ document
 
 resetForm();
 
-resetManualInputOnly();
+resetManualForm();
 
 resetAdminBarcodeForm();
 
@@ -1874,52 +1625,10 @@ document
 
 
 // ============================================================
-// ★ 출고 내역 화면
+// 사용자 출고 내역 화면
 // ============================================================
 
-function showHistoryScreen(
-adminMode
-) {
-
-stopScan();
-
-stopAdminScan();
-
-hideAllScreens();
-
-
-if (adminMode) {
-
-document
-.getElementById(
-'adminHistoryScreen'
-)
-.classList
-.remove('hidden');
-
-loadHistory(true);
-
-} else {
-
-document
-.getElementById(
-'historyScreen'
-)
-.classList
-.remove('hidden');
-
-loadHistory(false);
-
-}
-
-}
-
-
-// ============================================================
-// ★ 관리자 모드 화면
-// ============================================================
-
-function showAdminModeScreen() {
+function showUserHistoryScreen() {
 
 stopScan();
 
@@ -1929,10 +1638,107 @@ hideAllScreens();
 
 document
 .getElementById(
-'adminModeScreen'
+'userHistoryScreen'
 )
 .classList
 .remove('hidden');
+
+setUserHistoryPeriod(
+userHistoryPeriod
+);
+
+}
+
+
+// ============================================================
+// 관리자 비밀번호
+// ============================================================
+
+function openAdminPassword() {
+
+stopScan();
+
+stopAdminScan();
+
+hideAllScreens();
+
+document
+.getElementById(
+'adminPasswordScreen'
+)
+.classList
+.remove('hidden');
+
+document
+.getElementById(
+'adminPasswordInput'
+)
+.value = '';
+
+clearStatus(
+'adminPasswordStatus'
+);
+
+document
+.getElementById(
+'adminPasswordInput'
+)
+.focus();
+
+}
+
+
+// ============================================================
+// 관리자 모드
+// ============================================================
+
+function showAdminMenuScreen() {
+
+stopScan();
+
+stopAdminScan();
+
+hideAllScreens();
+
+document
+.getElementById(
+'adminMenuScreen'
+)
+.classList
+.remove('hidden');
+
+}
+
+
+function checkAdminPassword() {
+
+const password =
+document
+.getElementById(
+'adminPasswordInput'
+)
+.value
+.trim();
+
+if (!password) {
+
+setAdminPasswordStatus(
+'error',
+'관리자 비밀번호를 입력해주세요.'
+);
+
+return;
+
+}
+
+adminPasswordSession =
+password;
+
+showAdminMenuScreen();
+
+showToast(
+'관리자 모드로 진입했습니다.'
+);
 
 }
 
@@ -2059,6 +1865,7 @@ function(track) {
 track.stop();
 
 }
+
 );
 
 }
@@ -2194,6 +2001,8 @@ decodedText
 
 function(errorMessage) {
 
+// 정상적인 스캔 실패는 무시
+
 }
 
 );
@@ -2233,9 +2042,7 @@ if (
 
 errorName === 'NotAllowedError' ||
 
-errorText.includes(
-'NotAllowedError'
-)
+errorText.includes('NotAllowedError')
 
 ) {
 
@@ -2248,9 +2055,7 @@ else if (
 
 errorName === 'NotFoundError' ||
 
-errorText.includes(
-'NotFoundError'
-)
+errorText.includes('NotFoundError')
 
 ) {
 
@@ -2263,9 +2068,7 @@ else if (
 
 errorName === 'NotReadableError' ||
 
-errorText.includes(
-'NotReadableError'
-)
+errorText.includes('NotReadableError')
 
 ) {
 
@@ -2286,7 +2089,9 @@ message =
 }
 
 else if (
+
 errorText.includes('HTTPS')
+
 ) {
 
 message =
@@ -2464,9 +2269,7 @@ currentBarcode
 // 9. 바코드 조회
 // ============================================================
 
-function lookupPart(
-barcode
-) {
+function lookupPart(barcode) {
 
 jsonpRequest(
 
@@ -3145,7 +2948,7 @@ renderScanBatchList();
 
 
 // ============================================================
-// 16. 스캔 결과 초기화
+// 16. 스캔 결과만 초기화
 // ============================================================
 
 function resetScanResult() {
@@ -3707,7 +3510,7 @@ showToast(
 
 
 // ============================================================
-// 22. 수동 입력값 초기화
+// 22. 수동 입력값만 초기화
 // ============================================================
 
 function resetManualInputOnly() {
@@ -3775,113 +3578,7 @@ renderManualBatchList();
 
 
 // ============================================================
-// 25. 관리자 비밀번호 화면
-// ============================================================
-
-function openAdminPassword() {
-
-stopScan();
-
-stopAdminScan();
-
-hideAllScreens();
-
-document
-.getElementById(
-'adminPasswordScreen'
-)
-.classList
-.remove('hidden');
-
-document
-.getElementById(
-'adminPasswordInput'
-)
-.value = '';
-
-clearStatus(
-'adminPasswordStatus'
-);
-
-document
-.getElementById(
-'adminPasswordInput'
-)
-.focus();
-
-}
-
-
-// ============================================================
-// 26. 관리자 비밀번호 확인
-// ============================================================
-
-function checkAdminPassword() {
-
-const password =
-document
-.getElementById(
-'adminPasswordInput'
-)
-.value
-.trim();
-
-if (!password) {
-
-setAdminPasswordStatus(
-'error',
-'관리자 비밀번호를 입력해주세요.'
-);
-
-return;
-
-}
-
-adminPasswordSession =
-password;
-
-showAdminModeScreen();
-
-}
-
-
-// ============================================================
-// 27. 관리자 바코드 화면
-// ============================================================
-
-function showAdminBarcodeScreen() {
-
-hideAllScreens();
-
-document
-.getElementById(
-'adminBarcodeScreen'
-)
-.classList
-.remove('hidden');
-
-document
-.getElementById(
-'adminBarcodeText'
-)
-.textContent =
-'아직 스캔되지 않았습니다.';
-
-document
-.getElementById(
-'adminPartNo'
-)
-.value = '';
-
-clearStatus(
-'adminRegisterStatus'
-);
-
-}
-
-
-// ============================================================
-// 28. 관리자 카메라 시작
+// 25. 관리자 카메라 시작
 // ============================================================
 
 async function startAdminScan() {
@@ -4126,6 +3823,8 @@ decodedText
 
 function(errorMessage) {
 
+// 정상적인 스캔 실패는 무시
+
 }
 
 );
@@ -4157,9 +3856,7 @@ err && err.message
 );
 
 if (
-errorText.includes(
-'NotAllowedError'
-)
+errorText.includes('NotAllowedError')
 ) {
 
 message =
@@ -4168,9 +3865,7 @@ message =
 }
 
 else if (
-errorText.includes(
-'NotFoundError'
-)
+errorText.includes('NotFoundError')
 ) {
 
 message =
@@ -4179,9 +3874,7 @@ message =
 }
 
 else if (
-errorText.includes(
-'HTTPS'
-)
+errorText.includes('HTTPS')
 ) {
 
 message =
@@ -4212,7 +3905,7 @@ message
 
 
 // ============================================================
-// 29. 관리자 카메라 종료
+// 26. 관리자 카메라 종료
 // ============================================================
 
 async function stopAdminScan() {
@@ -4283,7 +3976,7 @@ document
 
 
 // ============================================================
-// 30. 관리자 바코드 스캔 성공
+// 27. 관리자 바코드 스캔 성공
 // ============================================================
 
 async function onAdminScanSuccess(
@@ -4327,8 +4020,43 @@ document
 
 
 // ============================================================
-// 31. 관리자 바코드 등록
+// 28. 관리자 바코드 등록
 // ============================================================
+
+function showAdminBarcodeScreen() {
+
+stopScan();
+
+stopAdminScan();
+
+hideAllScreens();
+
+document
+.getElementById(
+'adminBarcodeScreen'
+)
+.classList
+.remove('hidden');
+
+document
+.getElementById(
+'adminBarcodeText'
+)
+.textContent =
+'아직 스캔되지 않았습니다.';
+
+document
+.getElementById(
+'adminPartNo'
+)
+.value = '';
+
+clearStatus(
+'adminRegisterStatus'
+);
+
+}
+
 
 function registerAdminBarcode() {
 
@@ -4485,7 +4213,7 @@ setAdminRegisterStatus(
 
 
 // ============================================================
-// 32. 관리자 화면 초기화
+// 29. 관리자 화면 초기화
 // ============================================================
 
 function resetAdminBarcodeForm() {
@@ -4516,137 +4244,109 @@ clearStatus(
 
 
 // ============================================================
-// ★ 33. 출고 내역 조회
+// 30. 사용자 출고 내역 조회
 // ============================================================
 
-function loadHistory(
-adminMode
+function setUserHistoryPeriod(
+period
 ) {
 
-let period;
-let transfer;
-let list;
-let summary;
+userHistoryPeriod =
+period;
 
-if (adminMode) {
-
-period =
-document
-.getElementById(
-'adminHistoryPeriod'
-)
-.value;
-
-transfer =
-document
-.getElementById(
-'adminHistoryTransfer'
-)
-.value;
-
-list =
-document
-.getElementById(
-'adminHistoryList'
+updateHistoryPeriodButtons(
+'userHistory',
+period
 );
 
-summary =
-document
-.getElementById(
-'adminHistorySummary'
-);
-
-} else {
-
-period =
-document
-.getElementById(
-'historyPeriod'
-)
-.value;
-
-transfer =
-document
-.getElementById(
-'historyTransfer'
-)
-.value;
-
-list =
-document
-.getElementById(
-'historyList'
-);
-
-summary =
-document
-.getElementById(
-'historySummary'
-);
+loadUserHistory();
 
 }
 
 
-list.innerHTML =
-'<div class="history-loading">조회 중...</div>';
+function setUserHistoryTransferFilter(
+filter
+) {
 
-summary.textContent =
-'조회 중...';
+userHistoryTransferFilter =
+filter;
 
+updateHistoryTransferButtons(
+'userHistory',
+filter
+);
+
+loadUserHistory();
+
+}
+
+
+function loadUserHistory() {
 
 const employee =
 localStorage.getItem(
 STORAGE_KEY
 ) || '';
 
+if (!employee) {
+
+return;
+
+}
+
+const list =
+document
+.getElementById(
+'userHistoryList'
+);
+
+const summary =
+document
+.getElementById(
+'userHistorySummary'
+);
+
+list.innerHTML =
+'<div class="history-loading">조회 중...</div>';
+
+summary.textContent =
+'재고기록을 불러오는 중입니다.';
 
 jsonpRequest(
 
 {
 
 action:
-'getInventoryRecords',
+'getHistory',
 
 employee:
 employee,
 
 period:
-period,
+userHistoryPeriod,
 
 transfer:
-transfer,
+userHistoryTransferFilter,
 
-adminMode:
-adminMode
-? 'true'
-: 'false',
-
-adminPassword:
-adminMode
-? adminPasswordSession
-: ''
+token:
+API_TOKEN
 
 },
 
 function(data) {
 
 if (
-
 !data ||
-
-data.success === false
-
+!data.success
 ) {
-
-const message =
-data &&
-data.message
-? data.message
-: '출고 내역을 불러오지 못했습니다.';
 
 list.innerHTML =
 '<div class="history-empty">' +
-escapeHtml(message) +
+escapeHtml(
+data && data.message
+? data.message
+: '재고기록을 불러오지 못했습니다.'
+) +
 '</div>';
 
 summary.textContent =
@@ -4656,9 +4356,11 @@ return;
 
 }
 
-renderHistory(
+renderHistoryList(
+list,
+summary,
 data.records || [],
-adminMode
+employee
 );
 
 },
@@ -4667,7 +4369,8 @@ function() {
 
 list.innerHTML =
 '<div class="history-empty">' +
-'출고 내역을 불러오지 못했습니다.<br>네트워크를 확인해주세요.' +
+'재고기록 조회에 실패했습니다.<br>' +
+'네트워크를 확인해주세요.' +
 '</div>';
 
 summary.textContent =
@@ -4681,28 +4384,265 @@ summary.textContent =
 
 
 // ============================================================
-// ★ 34. 출고 내역 표시
+// 31. 관리자 재고기록 조회
 // ============================================================
 
-function renderHistory(
-records,
-adminMode
+function showAdminHistoryScreen() {
+
+stopScan();
+
+stopAdminScan();
+
+hideAllScreens();
+
+document
+.getElementById(
+'adminHistoryScreen'
+)
+.classList
+.remove('hidden');
+
+setAdminHistoryPeriod(
+adminHistoryPeriod
+);
+
+}
+
+
+function setAdminHistoryPeriod(
+period
 ) {
 
+adminHistoryPeriod =
+period;
+
+updateHistoryPeriodButtons(
+'adminHistory',
+period
+);
+
+loadAdminHistory();
+
+}
+
+
+function setAdminHistoryTransferFilter(
+filter
+) {
+
+adminHistoryTransferFilter =
+filter;
+
+updateHistoryTransferButtons(
+'adminHistory',
+filter
+);
+
+loadAdminHistory();
+
+}
+
+
+function loadAdminHistory() {
+
+if (!adminPasswordSession) {
+
+showMenuScreen();
+
+return;
+
+}
+
 const list =
-document.getElementById(
-adminMode
-? 'adminHistoryList'
-: 'historyList'
+document
+.getElementById(
+'adminHistoryList'
 );
 
 const summary =
-document.getElementById(
-adminMode
-? 'adminHistorySummary'
-: 'historySummary'
+document
+.getElementById(
+'adminHistorySummary'
 );
 
+list.innerHTML =
+'<div class="history-loading">조회 중...</div>';
+
+summary.textContent =
+'전체 재고기록을 불러오는 중입니다.';
+
+jsonpRequest(
+
+{
+
+action:
+'getHistory',
+
+employee:
+'',
+
+period:
+adminHistoryPeriod,
+
+transfer:
+adminHistoryTransferFilter,
+
+adminPassword:
+adminPasswordSession,
+
+token:
+API_TOKEN
+
+},
+
+function(data) {
+
+if (
+!data ||
+!data.success
+) {
+
+list.innerHTML =
+'<div class="history-empty">' +
+escapeHtml(
+data && data.message
+? data.message
+: '재고기록을 불러오지 못했습니다.'
+) +
+'</div>';
+
+summary.textContent =
+'조회 실패';
+
+return;
+
+}
+
+renderHistoryList(
+list,
+summary,
+data.records || [],
+'전체'
+);
+
+},
+
+function() {
+
+list.innerHTML =
+'<div class="history-empty">' +
+'재고기록 조회에 실패했습니다.<br>' +
+'네트워크를 확인해주세요.' +
+'</div>';
+
+summary.textContent =
+'조회 실패';
+
+}
+
+);
+
+}
+
+
+// ============================================================
+// 32. 기간 버튼 표시
+// ============================================================
+
+function updateHistoryPeriodButtons(
+prefix,
+period
+) {
+
+const periods = [
+'today',
+'week',
+'all'
+];
+
+periods.forEach(
+function(item) {
+
+const btn =
+document.getElementById(
+prefix +
+(item === 'today'
+? 'TodayBtn'
+: item === 'week'
+? 'WeekBtn'
+: 'AllBtn')
+);
+
+if (btn) {
+
+btn.classList.toggle(
+'active',
+item === period
+);
+
+}
+
+}
+);
+
+}
+
+
+// ============================================================
+// 33. Transfer 버튼 표시
+// ============================================================
+
+function updateHistoryTransferButtons(
+prefix,
+filter
+) {
+
+const map = {
+
+all:
+'TransferAllBtn',
+
+done:
+'TransferDoneBtn',
+
+pending:
+'TransferPendingBtn'
+
+};
+
+Object.keys(map).forEach(
+function(key) {
+
+const btn =
+document.getElementById(
+prefix + map[key]
+);
+
+if (btn) {
+
+btn.classList.toggle(
+'active',
+key === filter
+);
+
+}
+
+}
+);
+
+}
+
+
+// ============================================================
+// 34. 재고기록 표시
+// ============================================================
+
+function renderHistoryList(
+list,
+summary,
+records,
+employee
+) {
 
 if (
 !records ||
@@ -4711,153 +4651,232 @@ records.length === 0
 
 list.innerHTML =
 '<div class="history-empty">' +
-'조회된 출고 기록이 없습니다.' +
+'조건에 맞는 출고 기록이 없습니다.' +
 '</div>';
 
 summary.textContent =
-'총 0건';
+employee +
+' · 조회 결과 0건';
 
 return;
 
 }
 
+let doneCount = 0;
+
+let pendingCount = 0;
+
+records.forEach(
+function(record) {
+
+if (
+isTransferDone(record.transfer)
+) {
+
+doneCount++;
+
+} else {
+
+pendingCount++;
+
+}
+
+}
+);
+
+summary.textContent =
+
+employee +
+' · 총 ' +
+records.length +
+'건 · ' +
+'Transfer O ' +
+doneCount +
+'건 · ' +
+'미처리 ' +
+pendingCount +
+'건';
 
 let html = '';
 
-
 records.forEach(
-function(item) {
+function(record) {
 
-const transfer =
-String(
-item.transfer || ''
-).trim();
-
-const completed =
-isTransferCompletedClient(
-transfer
+const transferDone =
+isTransferDone(
+record.transfer
 );
+
+const transferText =
+transferDone
+? 'Transfer O'
+: '미처리';
+
+const transferClass =
+transferDone
+? 'done'
+: 'pending';
 
 html +=
 
 '<div class="history-item">' +
 
-'<div class="history-item-date">' +
-escapeHtml(item.date) +
-'</div>' +
-
 '<div class="history-item-title">' +
-escapeHtml(item.name) +
-'</div>' +
 
-'<div class="history-item-info">' +
-
-'담당자: ' +
-escapeHtml(item.employee) +
-
-'<br>' +
-
-'Part No: ' +
-escapeHtml(item.partNo) +
-
-'<br>' +
-
-'바코드: ' +
-escapeHtml(item.barcode) +
-
-'<br>' +
-
-'수량: ' +
-escapeHtml(item.quantity) +
-
-'</div>' +
-
-'<span class="transfer-badge ' +
-(
-completed
-? 'done'
-: ''
+escapeHtml(
+record.name || '(부품명 없음)'
 ) +
+
+'</div>' +
+
+'<div class="history-item-row">' +
+
+'<b>날짜:</b> ' +
+escapeHtml(
+formatHistoryDate(record.date)
+) +
+
+'<br>' +
+
+'<b>이름:</b> ' +
+escapeHtml(
+record.employee || ''
+) +
+
+'<br>' +
+
+'<b>바코드:</b> ' +
+escapeHtml(
+record.barcode || ''
+) +
+
+'<br>' +
+
+'<b>Part No:</b> ' +
+escapeHtml(
+record.partNo || ''
+) +
+
+'<br>' +
+
+'<b>수량:</b> ' +
+escapeHtml(
+record.quantity || ''
+) +
+
+'</div>' +
+
+'<div class="transfer-badge ' +
+transferClass +
 '">' +
 
-(
-completed
-? 'Transfer 완료'
-: 'Transfer 미처리'
-) +
+transferText +
 
-(
-transfer &&
-!completed
-? ' (' +
-escapeHtml(transfer) +
-')'
-: ''
-) +
-
-'</span>' +
+'</div>' +
 
 '</div>';
 
 }
 );
 
-
 list.innerHTML =
 html;
-
-
-summary.textContent =
-'총 ' +
-records.length +
-'건';
 
 }
 
 
 // ============================================================
-// ★ 35. Transfer 완료 여부 - 화면용
+// 35. Transfer 여부 판단
 // ============================================================
 
-function isTransferCompletedClient(
+function isTransferDone(
 value
 ) {
 
-const s =
+const text =
 String(
 value || ''
 )
 .trim()
 .toLowerCase();
 
-if (!s) {
+return (
 
-return false;
+text === 'o' ||
 
-}
+text === '○' ||
 
-const completedValues = [
+text === 'yes' ||
 
-'transfer',
-'완료',
-'처리',
-'처리완료',
-'true',
-'yes',
-'y',
-'1',
-'전송완료'
+text === 'y' ||
 
-];
+text === 'true' ||
 
-return completedValues
-.indexOf(s) !== -1;
+text === 'transfer' ||
+
+text === '완료' ||
+
+text === '처리'
+
+);
 
 }
 
 
 // ============================================================
-// 36. JSONP
+// 36. 날짜 표시
+// ============================================================
+
+function formatHistoryDate(
+value
+) {
+
+if (!value) {
+
+return '';
+
+}
+
+const date =
+new Date(value);
+
+if (
+Number.isNaN(
+date.getTime()
+)
+) {
+
+return String(value);
+
+}
+
+return (
+
+date.getFullYear() +
+'-' +
+String(
+date.getMonth() + 1
+).padStart(2,'0') +
+'-' +
+String(
+date.getDate()
+).padStart(2,'0') +
+' ' +
+String(
+date.getHours()
+).padStart(2,'0') +
+':' +
+String(
+date.getMinutes()
+).padStart(2,'0')
+
+);
+
+}
+
+
+// ============================================================
+// 37. JSONP
 // ============================================================
 
 function jsonpRequest(
@@ -4982,7 +5001,6 @@ document
 script
 );
 
-
 function finish() {
 
 if (finished) {
@@ -5030,7 +5048,7 @@ script
 
 
 // ============================================================
-// 37. 일반 입력 초기화
+// 38. 일반 입력 초기화
 // ============================================================
 
 function resetForm() {
@@ -5083,7 +5101,7 @@ document
 
 
 // ============================================================
-// 38. 상태 표시
+// 39. 상태 표시
 // ============================================================
 
 function setCameraStatus(
@@ -5220,6 +5238,12 @@ document
 id
 );
 
+if (!el) {
+
+return;
+
+}
+
 el.className =
 'status';
 
@@ -5230,7 +5254,7 @@ el.textContent =
 
 
 // ============================================================
-// 39. HTML escape
+// 40. HTML escape
 // ============================================================
 
 function escapeHtml(
@@ -5238,9 +5262,7 @@ value
 ) {
 
 return String(
-value == null
-? ''
-: value
+value == null ? '' : value
 )
 .replace(
 /&/g,
@@ -5267,7 +5289,7 @@ value == null
 
 
 // ============================================================
-// 40. Toast
+// 41. Toast
 // ============================================================
 
 function showToast(
@@ -5302,7 +5324,6 @@ el.classList
 );
 
 }
-
 
 </script>
 
