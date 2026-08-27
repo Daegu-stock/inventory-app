@@ -45,1330 +45,6 @@ sans-serif;
 }
 
 button,
-input {
-
-font: inherit;
-
-}
-
-.container {
-
-width: 100%;
-
-max-width: 480px;
-
-margin: 0 auto;
-
-padding: 18px;
-
-}
-
-h1 {
-
-font-size: 22px;
-
-margin:
-4px 0 6px;
-
-}
-
-.sub {
-
-color: #666;
-
-font-size: 13px;
-
-line-height: 1.5;
-
-margin-bottom: 18px;
-
-}
-
-.card {
-
-background: #fff;
-
-border-radius: 16px;
-
-padding: 18px;
-
-margin-bottom: 14px;
-
-box-shadow:
-0 1px 5px rgba(0,0,0,.08);
-
-}
-
-label {
-
-display: block;
-
-margin-top: 13px;
-
-font-size: 13px;
-
-color: #555;
-
-font-weight: 700;
-
-}
-
-label:first-child {
-
-margin-top: 0;
-
-}
-
-input {
-
-width: 100%;
-
-min-height: 48px;
-
-margin-top: 7px;
-
-padding:
-12px 13px;
-
-border:
-1px solid #d9d9d9;
-
-border-radius: 11px;
-
-background: #fff;
-
-color: #111;
-
-outline: none;
-
-}
-
-input:focus {
-
-border-color: #2563eb;
-
-box-shadow:
-0 0 0 3px
-rgba(37,99,235,.12);
-
-}
-
-button {
-
-width: 100%;
-
-min-height: 50px;
-
-margin-top: 11px;
-
-padding:
-12px 14px;
-
-border: 0;
-
-border-radius: 11px;
-
-background: #2563eb;
-
-color: #fff;
-
-font-weight: 700;
-
-cursor: pointer;
-
--webkit-tap-highlight-color:
-transparent;
-
-}
-
-button:active {
-
-transform:
-scale(.99);
-
-opacity: .88;
-
-}
-
-button.secondary {
-
-background: #ececef;
-
-color: #333;
-
-}
-
-button.manual {
-
-background: #111827;
-
-}
-
-button.admin {
-
-background: #fff;
-
-color: #555;
-
-border:
-1px solid #d5d5d5;
-
-}
-
-button.danger {
-
-background: #f3f3f3;
-
-color: #b42318;
-
-}
-
-button:disabled {
-
-opacity: .5;
-
-cursor: default;
-
-}
-
-.top-bar {
-
-display: flex;
-
-align-items: center;
-
-justify-content:
-space-between;
-
-gap: 12px;
-
-margin:
-3px 2px 14px;
-
-}
-
-.welcome {
-
-font-size: 14px;
-
-font-weight: 700;
-
-}
-
-.switch-user {
-
-border: 0;
-
-background:
-transparent;
-
-color: #777;
-
-font-size: 12px;
-
-padding: 4px;
-
-min-height: auto;
-
-width: auto;
-
-margin: 0;
-
-text-decoration:
-underline;
-
-}
-
-.menu-title {
-
-font-size: 16px;
-
-font-weight: 700;
-
-margin-bottom: 14px;
-
-}
-
-.menu-button {
-
-min-height: 62px;
-
-font-size: 16px;
-
-}
-
-.admin-area {
-
-margin-top: 28px;
-
-padding-top: 18px;
-
-border-top:
-1px solid #eee;
-
-}
-
-.admin-title {
-
-font-size: 12px;
-
-color: #999;
-
-text-align: center;
-
-margin-bottom: 8px;
-
-}
-
-#reader,
-#adminReader {
-
-width: 100%;
-
-margin-top: 13px;
-
-overflow: hidden;
-
-border-radius: 13px;
-
-background: #111;
-
-min-height: 180px;
-
-}
-
-#reader video,
-#adminReader video {
-
-width: 100% !important;
-
-height: auto !important;
-
-display: block;
-
-border-radius: 13px;
-
-object-fit: cover;
-
-}
-
-.scan-guide {
-
-margin-top: 10px;
-
-padding:
-10px 12px;
-
-border-radius: 10px;
-
-background: #f5f7fa;
-
-color: #666;
-
-font-size: 12px;
-
-line-height: 1.5;
-
-text-align: center;
-
-}
-
-.barcode-badge {
-
-margin-top: 6px;
-
-padding:
-12px;
-
-background: #f5f5f7;
-
-border-radius: 9px;
-
-font-family: monospace;
-
-font-size: 13px;
-
-word-break: break-all;
-
-}
-
-.admin-barcode {
-
-margin-top: 8px;
-
-padding:
-14px;
-
-border-radius: 10px;
-
-background: #eef5ff;
-
-color: #175cd3;
-
-font-family: monospace;
-
-font-size: 15px;
-
-font-weight: 700;
-
-word-break: break-all;
-
-text-align: center;
-
-}
-
-.status {
-
-margin-top: 10px;
-
-padding:
-10px 12px;
-
-border-radius: 9px;
-
-font-size: 13px;
-
-line-height: 1.45;
-
-display: none;
-
-white-space: pre-line;
-
-}
-
-.status.info {
-
-display: block;
-
-background: #eef5ff;
-
-color: #175cd3;
-
-}
-
-.status.success {
-
-display: block;
-
-background: #ecfdf3;
-
-color: #027a48;
-
-}
-
-.status.error {
-
-display: block;
-
-background: #fef3f2;
-
-color: #b42318;
-
-}
-
-.hidden {
-
-display: none !important;
-
-}
-
-.batch-item {
-
-border:
-1px solid #e5e5e5;
-
-border-radius: 12px;
-
-padding: 13px;
-
-margin-top: 10px;
-
-background: #fafafa;
-
-}
-
-.batch-item-title {
-
-font-weight: 700;
-
-font-size: 14px;
-
-margin-bottom: 5px;
-
-}
-
-.batch-item-info {
-
-color: #666;
-
-font-size: 12px;
-
-line-height: 1.6;
-
-}
-
-.batch-remove {
-
-min-height: 38px;
-
-margin-top: 8px;
-
-background: #f3f3f3;
-
-color: #b42318;
-
-font-size: 12px;
-
-}
-
-.batch-empty {
-
-padding: 14px;
-
-text-align: center;
-
-color: #999;
-
-font-size: 13px;
-
-background: #f8f8f8;
-
-border-radius: 10px;
-
-}
-
-.batch-count {
-
-margin-top: 8px;
-
-font-size: 12px;
-
-color: #666;
-
-text-align: right;
-
-}
-
-.toast {
-
-position: fixed;
-
-left: 50%;
-
-bottom: 24px;
-
-transform:
-translateX(-50%);
-
-z-index: 1000;
-
-max-width:
-calc(100vw - 40px);
-
-padding:
-12px 18px;
-
-border-radius: 24px;
-
-background: #111;
-
-color: #fff;
-
-font-size: 14px;
-
-text-align: center;
-
-opacity: 0;
-
-pointer-events: none;
-
-transition:
-opacity .2s;
-
-}
-
-.toast.show {
-
-opacity: .95;
-
-}
-
-</style>
-
-</head>
-
-<body>
-
-<div class="container">
-
-<!-- ======================================================
-로그인
-====================================================== -->
-
-<section id="loginScreen">
-
-<div class="card">
-
-<h1>
-부품 재고 관리
-</h1>
-
-<div class="sub">
-이름을 입력하면 다음부터 자동으로 로그인됩니다.
-</div>
-
-<label for="nameInput">
-이름
-</label>
-
-<input
-id="nameInput"
-autocomplete="name"
-placeholder="예: 김현로"
-onkeydown="
-if(event.key==='Enter')
-login();
-"
->
-
-<button
-id="loginBtn"
-onclick="login()"
->
-로그인
-</button>
-
-</div>
-
-</section>
-
-<!-- ======================================================
-메인
-====================================================== -->
-
-<section
-id="mainScreen"
-class="hidden"
->
-
-<div class="top-bar">
-
-<div
-class="welcome"
-id="welcomeText"
-></div>
-
-<button
-class="switch-user"
-onclick="logout()"
->
-다른 사용자로 전환
-</button>
-
-</div>
-
-<!-- ====================================================
-메뉴
-==================================================== -->
-
-<section id="menuScreen">
-
-<div class="card">
-
-<div class="menu-title">
-입력 방법을 선택해주세요
-</div>
-
-<button
-class="menu-button"
-onclick="showScanScreen()"
->
-📷 바코드 스캔하기
-</button>
-
-<button
-class="menu-button manual"
-onclick="showManualScreen()"
->
-✏️ 수동으로 입력하기
-</button>
-
-<button
-class="menu-button"
-onclick="showHistoryScreen()"
->
-📋 출고 내역 확인하기
-</button>
-
-<!-- 관리자 영역 -->
-
-<div class="admin-area">
-
-<div class="admin-title">
-관리자 전용
-</div>
-
-<button
-class="admin"
-onclick="openAdminPassword()"
->
-🔐 관리자 모드
-</button>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ====================================================
-바코드 스캔
-==================================================== -->
-
-<section
-id="scanScreen"
-class="hidden"
->
-
-<div class="card">
-
-<button
-id="scanBtn"
-onclick="startScan()"
->
-📷 바코드 스캔하기
-</button>
-
-<div
-id="reader"
-class="hidden"
-></div>
-
-<div
-id="scanGuide"
-class="scan-guide hidden"
->
-바코드를 화면 가운데 맞춰주세요.<br>
-인식되면 자동으로 부품 정보를 조회합니다.
-</div>
-
-<button
-id="stopScanBtn"
-class="secondary hidden"
-onclick="stopScan()"
->
-스캔 취소
-</button>
-
-<div
-id="cameraStatus"
-class="status"
-></div>
-
-<button
-class="secondary"
-onclick="showMenuScreen()"
->
-⬅️ 입력 방법 선택
-</button>
-
-</div>
-
-<!-- 스캔 결과 -->
-
-<div
-class="card hidden"
-id="resultCard"
->
-
-<label>
-바코드
-</label>
-
-<div
-class="barcode-badge"
-id="barcodeText"
-></div>
-
-<label for="partNo">
-Part No
-</label>
-
-<input
-id="partNo"
-placeholder="Part No"
->
-
-<label for="partName">
-부품명
-</label>
-
-<input
-id="partName"
-placeholder="부품명"
->
-
-<label for="quantity">
-수량
-</label>
-
-<input
-id="quantity"
-type="number"
-inputmode="numeric"
-min="1"
-step="1"
-value="1"
->
-
-<div
-id="lookupStatus"
-class="status"
-></div>
-
-<button
-id="saveBtn"
-onclick="saveRecord()"
->
-저장
-</button>
-
-<button
-id="addScanBatchBtn"
-onclick="addScanItemToBatch()"
->
-➕ 출고 목록에 추가
-</button>
-
-<button
-class="secondary"
-onclick="resetScanResult()"
->
-취소
-</button>
-
-</div>
-
-<!-- ====================================================
-바코드 스캔 출고 목록
-==================================================== -->
-
-<div
-class="card"
-id="scanBatchCard"
->
-
-<div class="menu-title">
-📦 바코드 출고 목록
-</div>
-
-<div
-class="sub"
-style="margin-bottom:10px;"
->
-여러 부품을 추가한 뒤 전체 저장을 한 번만 눌러주세요.
-</div>
-
-<div
-id="scanBatchList"
->
-<div class="batch-empty">
-아직 추가된 부품이 없습니다.
-</div>
-</div>
-
-<div
-class="batch-count"
-id="scanBatchCount"
->
-총 0개
-</div>
-
-<button
-id="scanBatchSaveBtn"
-onclick="saveScanBatch()"
->
-전체 저장
-</button>
-
-<button
-class="secondary"
-onclick="clearScanBatch()"
->
-목록 비우기
-</button>
-
-</div>
-
-</section>
-
-<!-- ====================================================
-수동 입력
-==================================================== -->
-
-<section
-id="manualScreen"
-class="hidden"
->
-
-<div class="card">
-
-<div class="menu-title">
-수동으로 입력
-</div>
-
-<label for="manualPartNo">
-Part No
-</label>
-
-<input
-id="manualPartNo"
-placeholder="Part No를 입력해주세요"
-autocomplete="off"
-onkeydown="
-if(event.key==='Enter')
-lookupManualPart();
-"
->
-
-<button
-id="findPartBtn"
-onclick="lookupManualPart()"
->
-🔍 찾기
-</button>
-
-<div
-id="manualLookupStatus"
-class="status"
-></div>
-
-<label for="manualPartName">
-부품명
-</label>
-
-<input
-id="manualPartName"
-placeholder="찾기 버튼을 누르면 자동으로 표시됩니다"
-readonly
->
-
-<label for="manualQuantity">
-수량
-</label>
-
-<input
-id="manualQuantity"
-type="number"
-inputmode="numeric"
-min="1"
-step="1"
-value="1"
->
-
-<button
-onclick="addManualItem()"
->
-➕ 출고 목록에 추가
-</button>
-
-<div
-id="batchList"
->
-<div class="batch-empty">
-아직 추가된 부품이 없습니다.
-</div>
-</div>
-
-<div
-class="batch-count"
-id="manualBatchCount"
->
-총 0개
-</div>
-
-<button
-id="manualBatchSaveBtn"
-onclick="saveManualBatch()"
->
-전체 저장
-</button>
-
-<button
-class="secondary"
-onclick="resetManualInputOnly()"
->
-입력 초기화
-</button>
-
-<button
-class="secondary"
-onclick="clearManualBatch()"
->
-목록 비우기
-</button>
-
-<button
-class="secondary"
-onclick="showMenuScreen()"
->
-⬅️ 입력 방법 선택
-</button>
-
-</div>
-
-</section>
-
-<!-- ====================================================
-출고 내역 확인
-==================================================== -->
-
-<section
-id="historyScreen"
-class="hidden"
->
-
-<div class="card">
-
-<div class="menu-title">
-📋 출고 내역 확인
-</div>
-
-<div class="sub">
-현재 로그인된 이름의 출고 내역을 확인합니다.
-</div>
-
-<div class="history-filter-row">
-
-<button
-id="historyDateTodayBtn"
-class="history-filter active"
-onclick="setHistoryDateFilter('today')"
->
-오늘
-</button>
-
-<button
-id="historyDateWeekBtn"
-class="history-filter"
-onclick="setHistoryDateFilter('week')"
->
-일주일
-</button>
-
-<button
-id="historyDateAllBtn"
-class="history-filter"
-onclick="setHistoryDateFilter('all')"
->
-전체
-</button>
-
-</div>
-
-<div class="history-filter-row">
-
-<button
-id="historyTransferAllBtn"
-class="history-filter active"
-onclick="setHistoryTransferFilter('all')"
->
-전체
-</button>
-
-<button
-id="historyTransferPendingBtn"
-class="history-filter"
-onclick="setHistoryTransferFilter('pending')"
->
-미처리
-</button>
-
-<button
-id="historyTransferDoneBtn"
-class="history-filter"
-onclick="setHistoryTransferFilter('done')"
->
-Transfer O
-</button>
-
-</div>
-
-<div
-id="historyStatus"
-class="status"
-></div>
-
-<div
-id="historyList"
->
-<div class="batch-empty">
-출고 내역을 불러오는 중입니다.
-</div>
-</div>
-
-<button
-class="secondary"
-onclick="showMenuScreen()"
->
-⬅️ 입력 방법 선택
-</button>
-
-</div>
-
-</section>
-
-<!-- ====================================================
-관리자 비밀번호
-==================================================== -->
-
-<section
-id="adminPasswordScreen"
-class="hidden"
->
-
-<div class="card">
-
-<div class="menu-title">
-🔐 관리자 모드
-</div>
-
-<div class="sub">
-관리자 기능을 사용하려면 비밀번호를 입력해주세요.
-</div>
-
-<label for="adminPasswordInput">
-관리자 비밀번호
-</label>
-
-<input
-id="adminPasswordInput"
-type="password"
-placeholder="비밀번호"
-onkeydown="
-if(event.key==='Enter')
-checkAdminPassword();
-"
->
-
-<div
-id="adminPasswordStatus"
-class="status"
-></div>
-
-<button
-onclick="checkAdminPassword()"
->
-확인
-</button>
-
-<button
-class="secondary"
-onclick="showMenuScreen()"
->
-취소
-</button>
-
-</div>
-
-</section>
-
-<!-- ====================================================
-관리자 모드
-==================================================== -->
-
-<section
-id="adminModeScreen"
-class="hidden"
->
-
-<div class="card">
-
-<div class="menu-title">
-🔐 관리자 모드
-</div>
-
-<div class="sub">
-관리자 전용 기능입니다.
-</div>
-
-<button
-class="menu-button"
-onclick="showAdminBarcodeScreen()"
->
-📷 바코드 등록하기
-</button>
-
-<button
-class="menu-button"
-onclick="showAdminHistoryScreen()"
->
-📋 재고기록
-</button>
-
-<button
-class="secondary"
-onclick="showMenuScreen()"
->
-⬅️ 메인 메뉴
-</button>
-
-</div>
-
-</section>
-
-<!-- ====================================================
-관리자 바코드 등록
-==================================================== -->
-
-<section
-id="adminBarcodeScreen"
-class="hidden"
->
-
-<div class="card">
-
-<div class="menu-title">
-🔐 바코드 등록하기
-</div>
-
-<div class="sub">
-바코드를 스캔한 후 해당 부품의 Part No를 입력해주세요.
-</div>
-
-<button
-id="adminScanBtn"
-onclick="startAdminScan()"
->
-📷 바코드 스캔하기
-</button>
-
-<div
-id="adminReader"
-class="hidden"
-></div>
-
-<div
-id="adminScanGuide"
-class="scan-guide hidden"
->
-등록할 바코드를 화면 가운데 맞춰주세요.
-</div>
-
-<button
-id="adminStopScanBtn"
-class="secondary hidden"
-onclick="stopAdminScan()"
->
-스캔 취소
-</button>
-
-<div
-id="adminCameraStatus"
-class="status"
-></div>
-
-<label>
-스캔된 바코드
-</label>
-
-<div
-id="adminBarcodeText"
-class="admin-barcode"
->
-아직 스캔되지 않았습니다.
-</div>
-
-<label for="adminPartNo">
-Part No
-</label>
-
-<input
-id="adminPartNo"
-placeholder="등록할 Part No"
-onkeydown="
-if(event.key==='Enter')
-registerAdminBarcode();
-"
->
-
-<div
-id="adminRegisterStatus"
-class="status"
-></div>
-
-<button
-id="adminRegisterBtn"
-onclick="registerAdminBarcode()"
->
-저장하기
-</button>
-
-<button
-class="secondary"
-onclick="resetAdminBarcodeForm()"
->
-입력 초기화
-</button>
-
-<button
-class="secondary"
-onclick="showAdminModeScreen()"
->
-⬅️ 관리자 모드
-</button>
-
-</div>
-
-</section>
-
-<!DOCTYPE html>
-<html lang="ko">
-
-<head>
-
-<meta charset="UTF-8">
-
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
->
-
-<meta
-name="theme-color"
-content="#2563eb"
->
-
-<title>부품 재고 관리</title>
-
-<script
-src="https://cdn.jsdelivr.net/npm/html5-qrcode@2.3.8/html5-qrcode.min.js"
-></script>
-
-<style>
-
-* {
-box-sizing: border-box;
-}
-
-body {
-
-margin: 0;
-
-background: #f4f5f7;
-
-color: #1d1d1f;
-
-font-family:
--apple-system,
-BlinkMacSystemFont,
-"Apple SD Gothic Neo",
-"Malgun Gothic",
-sans-serif;
-
-}
-
-button,
 input,
 select {
 
@@ -1920,6 +596,7 @@ opacity: .95;
 
 }
 
+
 /* ============================================================
    출고 내역
 ============================================================ */
@@ -1933,134 +610,79 @@ grid-template-columns:
 
 gap: 8px;
 
-margin-top: 12px;
+margin-top: 10px;
 
 }
 
-.history-filter button {
+.history-filter select {
 
 margin-top: 0;
 
-min-height: 43px;
-
-background: #f0f0f2;
-
-color: #555;
-
-font-size: 13px;
-
-}
-
-.history-filter button.active {
-
-background: #2563eb;
-
-color: #fff;
-
-}
-
-.transfer-filter {
-
-display: grid;
-
-grid-template-columns:
-1fr 1fr;
-
-gap: 8px;
-
-margin-top: 8px;
-
-}
-
-.transfer-filter button {
-
-margin-top: 0;
-
-min-height: 43px;
-
-background: #f0f0f2;
-
-color: #555;
-
-font-size: 13px;
-
-}
-
-.transfer-filter button.active {
-
-background: #111827;
-
-color: #fff;
+min-height: 44px;
 
 }
 
 .history-summary {
 
-margin-top: 14px;
+margin-top: 12px;
 
 padding:
-12px;
-
-background: #f5f7fa;
+11px 12px;
 
 border-radius: 10px;
+
+background: #f5f7fa;
 
 font-size: 13px;
 
 color: #555;
 
-line-height: 1.5;
-
-}
-
-.history-list {
-
-margin-top: 12px;
+text-align: center;
 
 }
 
 .history-item {
+
+margin-top: 10px;
+
+padding: 14px;
 
 border:
 1px solid #e5e5e5;
 
 border-radius: 12px;
 
-padding: 13px;
-
-margin-top: 10px;
-
 background: #fff;
 
 }
 
-.history-date {
+.history-item-date {
 
-font-size: 12px;
+font-size: 11px;
 
-color: #888;
-
-margin-bottom: 6px;
-
-}
-
-.history-name {
-
-font-size: 15px;
-
-font-weight: 700;
+color: #999;
 
 margin-bottom: 5px;
 
 }
 
-.history-info {
+.history-item-title {
+
+font-size: 15px;
+
+font-weight: 700;
+
+margin-bottom: 6px;
+
+}
+
+.history-item-info {
 
 font-size: 12px;
 
-color: #666;
+line-height: 1.7;
 
-line-height: 1.65;
+color: #666;
 
 }
 
@@ -2079,6 +701,10 @@ font-size: 11px;
 
 font-weight: 700;
 
+background: #fff4e5;
+
+color: #b54708;
+
 }
 
 .transfer-badge.done {
@@ -2089,45 +715,31 @@ color: #027a48;
 
 }
 
-.transfer-badge.pending {
+.history-empty {
 
-background: #fef3f2;
+padding: 25px 10px;
 
-color: #b42318;
+text-align: center;
 
-}
+color: #999;
 
-/* ============================================================
-   관리자 기록
-============================================================ */
+font-size: 13px;
 
-.admin-history-title {
+background: #f8f8f8;
 
-font-size: 16px;
+border-radius: 10px;
 
-font-weight: 700;
+margin-top: 10px;
 
 }
 
-.admin-history-sub {
-
-font-size: 12px;
-
-color: #888;
-
-margin-top: 5px;
-
-line-height: 1.5;
-
-}
-
-.loading-box {
+.history-loading {
 
 padding: 20px;
 
 text-align: center;
 
-color: #888;
+color: #777;
 
 font-size: 13px;
 
@@ -2137,9 +749,12 @@ font-size: 13px;
 
 </head>
 
+
 <body>
 
+
 <div class="container">
+
 
 <!-- ======================================================
 로그인
@@ -2237,18 +852,18 @@ onclick="showManualScreen()"
 
 <button
 class="menu-button"
-onclick="showMyHistoryScreen()"
+onclick="showHistoryScreen(false)"
 >
 📋 출고 내역 확인하기
 </button>
 
 
-<!-- 관리자 -->
+<!-- 관리자 영역 -->
 
 <div class="admin-area">
 
 <div class="admin-title">
-관리자 모드
+관리자 전용
 </div>
 
 <button
@@ -2395,7 +1010,7 @@ onclick="resetScanResult()"
 </div>
 
 
-<!-- 바코드 출고 목록 -->
+<!-- 바코드 스캔 출고 목록 -->
 
 <div
 class="card"
@@ -2566,103 +1181,77 @@ onclick="showMenuScreen()"
 
 
 <!-- ====================================================
-내 출고 내역
+일반 사용자 출고 내역
 ==================================================== -->
 
 <section
-id="myHistoryScreen"
+id="historyScreen"
 class="hidden"
 >
 
 <div class="card">
 
 <div class="menu-title">
-📋 내 출고 내역
+📋 출고 내역 확인
 </div>
 
 <div class="sub">
-현재 로그인한 이름의 출고 기록만 표시합니다.
+현재 로그인한 이름의 출고 기록입니다.
 </div>
 
+<div class="history-filter">
 
-<!-- 기간 -->
-
-<div
-class="history-filter"
+<select
+id="historyPeriod"
+onchange="loadHistory(false)"
 >
 
-<button
-id="myPeriodToday"
-onclick="setMyHistoryPeriod('today')"
->
+<option value="today">
 오늘
-</button>
+</option>
 
-<button
-id="myPeriodWeek"
-onclick="setMyHistoryPeriod('week')"
->
+<option value="week">
 일주일
-</button>
+</option>
 
-<button
-id="myPeriodAll"
-onclick="setMyHistoryPeriod('all')"
->
+<option value="all">
 전체
-</button>
+</option>
+
+</select>
+
+
+<select
+id="historyTransfer"
+onchange="loadHistory(false)"
+>
+
+<option value="pending">
+Transfer 미처리
+</option>
+
+<option value="all">
+전체
+</option>
+
+</select>
 
 </div>
 
-
-<!-- Transfer -->
-
 <div
-class="transfer-filter"
->
-
-<button
-id="myTransferAll"
-onclick="setMyHistoryTransfer('all')"
->
-전체
-</button>
-
-<button
-id="myTransferDone"
-onclick="setMyHistoryTransfer('done')"
->
-Transfer O
-</button>
-
-<button
-id="myTransferPending"
-onclick="setMyHistoryTransfer('pending')"
->
-미처리
-</button>
-
-</div>
-
-
-<div
-id="myHistorySummary"
+id="historySummary"
 class="history-summary"
 >
 조회 중...
 </div>
 
 <div
-id="myHistoryList"
-class="history-list"
+id="historyList"
 >
-
-<div class="loading-box">
-출고 내역을 불러오는 중입니다...
+<div class="history-loading">
+조회 중...
 </div>
-
 </div>
-
 
 <button
 class="secondary"
@@ -2688,11 +1277,11 @@ class="hidden"
 <div class="card">
 
 <div class="menu-title">
-🔐 관리자 모드
+🔐 관리자 확인
 </div>
 
 <div class="sub">
-관리자 비밀번호를 입력해주세요.
+관리자 모드에 들어가려면 비밀번호를 입력해주세요.
 </div>
 
 <label for="adminPasswordInput">
@@ -2733,11 +1322,11 @@ onclick="showMenuScreen()"
 
 
 <!-- ====================================================
-관리자 메뉴
+관리자 모드
 ==================================================== -->
 
 <section
-id="adminMenuScreen"
+id="adminModeScreen"
 class="hidden"
 >
 
@@ -2760,7 +1349,7 @@ onclick="showAdminBarcodeScreen()"
 
 <button
 class="menu-button"
-onclick="showAdminHistoryScreen()"
+onclick="showHistoryScreen(true)"
 >
 📋 재고기록
 </button>
@@ -2873,9 +1462,9 @@ onclick="resetAdminBarcodeForm()"
 
 <button
 class="secondary"
-onclick="showAdminMenuScreen()"
+onclick="showAdminModeScreen()"
 >
-⬅️ 관리자 메뉴
+⬅️ 관리자 모드
 </button>
 
 </div>
@@ -2894,74 +1483,52 @@ class="hidden"
 
 <div class="card">
 
-<div class="admin-history-title">
-📋 재고기록
+<div class="menu-title">
+📋 관리자 재고기록
 </div>
 
-<div class="admin-history-sub">
-재고기록 시트의 Transfer 여부를 기준으로 조회합니다.
+<div class="sub">
+전체 사용자의 출고 기록을 확인합니다.
 </div>
 
+<div class="history-filter">
 
-<!-- 기간 -->
-
-<div
-class="history-filter"
+<select
+id="adminHistoryPeriod"
+onchange="loadHistory(true)"
 >
 
-<button
-id="adminPeriodToday"
-onclick="setAdminHistoryPeriod('today')"
->
+<option value="today">
 오늘
-</button>
+</option>
 
-<button
-id="adminPeriodWeek"
-onclick="setAdminHistoryPeriod('week')"
->
+<option value="week">
 일주일
-</button>
+</option>
 
-<button
-id="adminPeriodAll"
-onclick="setAdminHistoryPeriod('all')"
->
+<option value="all">
 전체
-</button>
+</option>
+
+</select>
+
+
+<select
+id="adminHistoryTransfer"
+onchange="loadHistory(true)"
+>
+
+<option value="pending">
+Transfer 미처리
+</option>
+
+<option value="all">
+전체
+</option>
+
+</select>
 
 </div>
-
-
-<!-- Transfer -->
-
-<div
-class="transfer-filter"
->
-
-<button
-id="adminTransferAll"
-onclick="setAdminHistoryTransfer('all')"
->
-전체
-</button>
-
-<button
-id="adminTransferDone"
-onclick="setAdminHistoryTransfer('done')"
->
-Transfer O
-</button>
-
-<button
-id="adminTransferPending"
-onclick="setAdminHistoryTransfer('pending')"
->
-미처리
-</button>
-
-</div>
-
 
 <div
 id="adminHistorySummary"
@@ -2972,26 +1539,23 @@ class="history-summary"
 
 <div
 id="adminHistoryList"
-class="history-list"
 >
-
-<div class="loading-box">
-재고기록을 불러오는 중입니다...
+<div class="history-loading">
+조회 중...
 </div>
-
 </div>
-
 
 <button
 class="secondary"
-onclick="showAdminMenuScreen()"
+onclick="showAdminModeScreen()"
 >
-⬅️ 관리자 메뉴
+⬅️ 관리자 모드
 </button>
 
 </div>
 
 </section>
+
 
 </section>
 
@@ -3005,6 +1569,7 @@ class="toast"
 
 
 <script>
+
 
 // ============================================================
 // 1. 설정
@@ -3036,29 +1601,20 @@ let selectedAdminCameraId = null;
 
 let jsonpCounter = 0;
 
+
+// 수동 입력 목록
+
 let manualBatchItems = [];
+
+
+// 바코드 스캔 목록
 
 let scanBatchItems = [];
 
+
+// 관리자 비밀번호 세션
+
 let adminPasswordSession = '';
-
-
-// 내 출고내역 필터
-
-let myHistoryPeriod =
-'all';
-
-let myHistoryTransfer =
-'all';
-
-
-// 관리자 재고기록 필터
-
-let adminHistoryPeriod =
-'all';
-
-let adminHistoryTransfer =
-'all';
 
 
 // ============================================================
@@ -3164,6 +1720,8 @@ resetAdminBarcodeForm();
 
 clearScanBatch();
 
+adminPasswordSession = '';
+
 }
 
 
@@ -3214,11 +1772,11 @@ const screens = [
 
 'manualScreen',
 
-'myHistoryScreen',
+'historyScreen',
 
 'adminPasswordScreen',
 
-'adminMenuScreen',
+'adminModeScreen',
 
 'adminBarcodeScreen',
 
@@ -3234,7 +1792,9 @@ document.getElementById(id);
 
 if (el) {
 
-el.classList.add('hidden');
+el.classList.add(
+'hidden'
+);
 
 }
 
@@ -3260,7 +1820,7 @@ document
 
 resetForm();
 
-resetManualForm();
+resetManualInputOnly();
 
 resetAdminBarcodeForm();
 
@@ -3314,10 +1874,12 @@ document
 
 
 // ============================================================
-// 6. 내 출고 내역
+// ★ 출고 내역 화면
 // ============================================================
 
-function showMyHistoryScreen() {
+function showHistoryScreen(
+adminMode
+) {
 
 stopScan();
 
@@ -3325,358 +1887,8 @@ stopAdminScan();
 
 hideAllScreens();
 
-document
-.getElementById(
-'myHistoryScreen'
-)
-.classList
-.remove('hidden');
 
-setMyHistoryPeriod(
-'all'
-);
-
-setMyHistoryTransfer(
-'all'
-);
-
-loadMyHistory();
-
-}
-
-
-function setMyHistoryPeriod(
-period
-) {
-
-myHistoryPeriod =
-period;
-
-document
-.getElementById(
-'myPeriodToday'
-)
-.classList
-.toggle(
-'active',
-period === 'today'
-);
-
-document
-.getElementById(
-'myPeriodWeek'
-)
-.classList
-.toggle(
-'active',
-period === 'week'
-);
-
-document
-.getElementById(
-'myPeriodAll'
-)
-.classList
-.toggle(
-'active',
-period === 'all'
-);
-
-if (
-!document
-.getElementById(
-'myHistoryScreen'
-)
-.classList
-.contains('hidden')
-) {
-
-loadMyHistory();
-
-}
-
-}
-
-
-function setMyHistoryTransfer(
-transfer
-) {
-
-myHistoryTransfer =
-transfer;
-
-document
-.getElementById(
-'myTransferAll'
-)
-.classList
-.toggle(
-'active',
-transfer === 'all'
-);
-
-document
-.getElementById(
-'myTransferDone'
-)
-.classList
-.toggle(
-'active',
-transfer === 'done'
-);
-
-document
-.getElementById(
-'myTransferPending'
-)
-.classList
-.toggle(
-'active',
-transfer === 'pending'
-);
-
-if (
-!document
-.getElementById(
-'myHistoryScreen'
-)
-.classList
-.contains('hidden')
-) {
-
-loadMyHistory();
-
-}
-
-}
-
-
-function loadMyHistory() {
-
-const employee =
-localStorage.getItem(
-STORAGE_KEY
-) || '';
-
-if (!employee) {
-
-return;
-
-}
-
-const list =
-document
-.getElementById(
-'myHistoryList'
-);
-
-const summary =
-document
-.getElementById(
-'myHistorySummary'
-);
-
-list.innerHTML =
-'<div class="loading-box">출고 내역을 불러오는 중입니다...</div>';
-
-summary.textContent =
-'조회 중...';
-
-jsonpRequest(
-
-{
-
-action:
-'getHistory',
-
-employee:
-employee,
-
-period:
-myHistoryPeriod,
-
-transfer:
-myHistoryTransfer,
-
-token:
-API_TOKEN
-
-},
-
-function(data) {
-
-if (
-!data ||
-data.success === false
-) {
-
-list.innerHTML =
-'<div class="loading-box">출고 내역을 불러오지 못했습니다.</div>';
-
-summary.textContent =
-data && data.message
-? data.message
-: '조회에 실패했습니다.';
-
-return;
-
-}
-
-renderHistoryList(
-list,
-summary,
-data.records || [],
-employee
-);
-
-},
-
-function() {
-
-list.innerHTML =
-'<div class="loading-box">네트워크 오류가 발생했습니다.</div>';
-
-summary.textContent =
-'조회에 실패했습니다.';
-
-}
-
-);
-
-}
-
-
-// ============================================================
-// 7. 관리자 모드
-// ============================================================
-
-function openAdminPassword() {
-
-stopScan();
-
-stopAdminScan();
-
-hideAllScreens();
-
-document
-.getElementById(
-'adminPasswordScreen'
-)
-.classList
-.remove('hidden');
-
-document
-.getElementById(
-'adminPasswordInput'
-)
-.value = '';
-
-clearStatus(
-'adminPasswordStatus'
-);
-
-document
-.getElementById(
-'adminPasswordInput'
-)
-.focus();
-
-}
-
-
-function checkAdminPassword() {
-
-const password =
-document
-.getElementById(
-'adminPasswordInput'
-)
-.value
-.trim();
-
-if (!password) {
-
-setAdminPasswordStatus(
-'error',
-'관리자 비밀번호를 입력해주세요.'
-);
-
-return;
-
-}
-
-adminPasswordSession =
-password;
-
-showAdminMenuScreen();
-
-}
-
-
-function showAdminMenuScreen() {
-
-stopScan();
-
-stopAdminScan();
-
-hideAllScreens();
-
-document
-.getElementById(
-'adminMenuScreen'
-)
-.classList
-.remove('hidden');
-
-}
-
-
-// ============================================================
-// 8. 관리자 바코드 등록 화면
-// ============================================================
-
-function showAdminBarcodeScreen() {
-
-hideAllScreens();
-
-document
-.getElementById(
-'adminBarcodeScreen'
-)
-.classList
-.remove('hidden');
-
-document
-.getElementById(
-'adminBarcodeText'
-)
-.textContent =
-'아직 스캔되지 않았습니다.';
-
-document
-.getElementById(
-'adminPartNo'
-)
-.value = '';
-
-clearStatus(
-'adminRegisterStatus'
-);
-
-}
-
-
-// ============================================================
-// 9. 관리자 재고기록
-// ============================================================
-
-function showAdminHistoryScreen() {
-
-stopScan();
-
-stopAdminScan();
-
-hideAllScreens();
+if (adminMode) {
 
 document
 .getElementById(
@@ -3685,399 +1897,48 @@ document
 .classList
 .remove('hidden');
 
-setAdminHistoryPeriod(
-'all'
-);
-
-setAdminHistoryTransfer(
-'all'
-);
-
-loadAdminHistory();
-
-}
-
-
-function setAdminHistoryPeriod(
-period
-) {
-
-adminHistoryPeriod =
-period;
-
-document
-.getElementById(
-'adminPeriodToday'
-)
-.classList
-.toggle(
-'active',
-period === 'today'
-);
-
-document
-.getElementById(
-'adminPeriodWeek'
-)
-.classList
-.toggle(
-'active',
-period === 'week'
-);
-
-document
-.getElementById(
-'adminPeriodAll'
-)
-.classList
-.toggle(
-'active',
-period === 'all'
-);
-
-if (
-!document
-.getElementById(
-'adminHistoryScreen'
-)
-.classList
-.contains('hidden')
-) {
-
-loadAdminHistory();
-
-}
-
-}
-
-
-function setAdminHistoryTransfer(
-transfer
-) {
-
-adminHistoryTransfer =
-transfer;
-
-document
-.getElementById(
-'adminTransferAll'
-)
-.classList
-.toggle(
-'active',
-transfer === 'all'
-);
-
-document
-.getElementById(
-'adminTransferDone'
-)
-.classList
-.toggle(
-'active',
-transfer === 'done'
-);
-
-document
-.getElementById(
-'adminTransferPending'
-)
-.classList
-.toggle(
-'active',
-transfer === 'pending'
-);
-
-if (
-!document
-.getElementById(
-'adminHistoryScreen'
-)
-.classList
-.contains('hidden')
-) {
-
-loadAdminHistory();
-
-}
-
-}
-
-
-function loadAdminHistory() {
-
-const list =
-document
-.getElementById(
-'adminHistoryList'
-);
-
-const summary =
-document
-.getElementById(
-'adminHistorySummary'
-);
-
-list.innerHTML =
-'<div class="loading-box">재고기록을 불러오는 중입니다...</div>';
-
-summary.textContent =
-'조회 중...';
-
-jsonpRequest(
-
-{
-
-action:
-'getHistory',
-
-period:
-adminHistoryPeriod,
-
-transfer:
-adminHistoryTransfer,
-
-adminPassword:
-adminPasswordSession,
-
-token:
-API_TOKEN
-
-},
-
-function(data) {
-
-if (
-!data ||
-data.success === false
-) {
-
-list.innerHTML =
-'<div class="loading-box">재고기록을 불러오지 못했습니다.</div>';
-
-summary.textContent =
-data && data.message
-? data.message
-: '조회에 실패했습니다.';
-
-return;
-
-}
-
-renderHistoryList(
-list,
-summary,
-data.records || [],
-''
-);
-
-},
-
-function() {
-
-list.innerHTML =
-'<div class="loading-box">네트워크 오류가 발생했습니다.</div>';
-
-summary.textContent =
-'조회에 실패했습니다.';
-
-}
-
-);
-
-}
-
-
-// ============================================================
-// 10. 재고기록 표시
-// ============================================================
-
-function renderHistoryList(
-list,
-summary,
-records,
-employee
-) {
-
-if (!records || records.length === 0) {
-
-list.innerHTML =
-'<div class="batch-empty">조건에 맞는 출고 기록이 없습니다.</div>';
-
-summary.textContent =
-'조회된 기록이 없습니다.';
-
-return;
-
-}
-
-let html = '';
-
-let totalQuantity = 0;
-
-let transferDoneCount = 0;
-
-let pendingCount = 0;
-
-
-records.forEach(
-function(record) {
-
-const date =
-record.date ||
-record.datetime ||
-record.createdAt ||
-'';
-
-const name =
-record.employee ||
-record.name ||
-'';
-
-const barcode =
-record.barcode ||
-'';
-
-const partName =
-record.partName ||
-record.namePart ||
-record.partNameText ||
-'';
-
-const partNo =
-record.partNo ||
-'';
-
-const quantity =
-Number(
-record.quantity || 0
-);
-
-const transfer =
-String(
-record.transfer || ''
-).trim();
-
-const isDone =
-isTransferDone(
-transfer
-);
-
-totalQuantity +=
-Number.isFinite(quantity)
-? quantity
-: 0;
-
-if (isDone) {
-
-transferDoneCount++;
+loadHistory(true);
 
 } else {
 
-pendingCount++;
+document
+.getElementById(
+'historyScreen'
+)
+.classList
+.remove('hidden');
+
+loadHistory(false);
 
 }
-
-html +=
-
-'<div class="history-item">' +
-
-'<div class="history-date">' +
-
-escapeHtml(
-formatDateTime(date)
-) +
-
-'</div>';
-
-
-if (!employee) {
-
-html +=
-
-'<div class="history-name">' +
-
-escapeHtml(
-name
-) +
-
-'</div>';
-
-}
-
-
-html +=
-
-'<div class="history-name">' +
-
-escapeHtml(
-partName || '부품명 없음'
-) +
-
-'</div>' +
-
-'<div class="history-info">' +
-
-'Part No: ' +
-escapeHtml(partNo) +
-
-'<br>' +
-
-'수량: ' +
-escapeHtml(quantity) +
-
-'<br>' +
-
-'바코드: ' +
-escapeHtml(barcode) +
-
-'</div>';
-
-
-if (isDone) {
-
-html +=
-
-'<span class="transfer-badge done">' +
-'Transfer O' +
-'</span>';
-
-} else {
-
-html +=
-
-'<span class="transfer-badge pending">' +
-'미처리' +
-'</span>';
-
-}
-
-html +=
-'</div>';
-
-});
-
-
-list.innerHTML =
-html;
-
-summary.textContent =
-
-'총 ' +
-records.length +
-'건 · 수량 ' +
-totalQuantity +
-'개 · Transfer O ' +
-transferDoneCount +
-'건 · 미처리 ' +
-pendingCount +
-'건';
 
 }
 
 
 // ============================================================
-// 11. 일반 카메라 시작
+// ★ 관리자 모드 화면
+// ============================================================
+
+function showAdminModeScreen() {
+
+stopScan();
+
+stopAdminScan();
+
+hideAllScreens();
+
+document
+.getElementById(
+'adminModeScreen'
+)
+.classList
+.remove('hidden');
+
+}
+
+
+// ============================================================
+// 6. 일반 카메라 시작
 // ============================================================
 
 async function startScan() {
@@ -4331,7 +2192,9 @@ decodedText
 
 },
 
-function(errorMessage) {}
+function(errorMessage) {
+
+}
 
 );
 
@@ -4370,7 +2233,9 @@ if (
 
 errorName === 'NotAllowedError' ||
 
-errorText.includes('NotAllowedError')
+errorText.includes(
+'NotAllowedError'
+)
 
 ) {
 
@@ -4383,7 +2248,9 @@ else if (
 
 errorName === 'NotFoundError' ||
 
-errorText.includes('NotFoundError')
+errorText.includes(
+'NotFoundError'
+)
 
 ) {
 
@@ -4396,12 +2263,14 @@ else if (
 
 errorName === 'NotReadableError' ||
 
-errorText.includes('NotReadableError')
+errorText.includes(
+'NotReadableError'
+)
 
 ) {
 
 message =
-'카메라가 다른 앱에서 사용 중일 수 있습니다.';
+'카메라가 다른 앱에서 사용 중일 수 있습니다.\n카메라를 사용하는 앱을 종료한 후 다시 시도해주세요.';
 
 }
 
@@ -4417,9 +2286,7 @@ message =
 }
 
 else if (
-
 errorText.includes('HTTPS')
-
 ) {
 
 message =
@@ -4456,7 +2323,7 @@ message
 
 
 // ============================================================
-// 12. 일반 카메라 종료
+// 7. 일반 카메라 종료
 // ============================================================
 
 async function stopScan() {
@@ -4527,7 +2394,7 @@ document
 
 
 // ============================================================
-// 13. 일반 바코드 스캔 성공
+// 8. 일반 바코드 스캔 성공
 // ============================================================
 
 async function onScanSuccess(
@@ -4594,7 +2461,7 @@ currentBarcode
 
 
 // ============================================================
-// 14. 바코드 조회
+// 9. 바코드 조회
 // ============================================================
 
 function lookupPart(
@@ -4700,7 +2567,7 @@ setLookupStatus(
 
 
 // ============================================================
-// 15. 일반 바코드 즉시 저장
+// 10. 일반 바코드 즉시 저장
 // ============================================================
 
 function saveRecord() {
@@ -4890,7 +2757,7 @@ showToast(
 
 
 // ============================================================
-// 16. 바코드 스캔 부품을 출고 목록에 추가
+// 11. 바코드 스캔 부품을 출고 목록에 추가
 // ============================================================
 
 function addScanItemToBatch() {
@@ -4997,7 +2864,7 @@ resetScanResult();
 
 
 // ============================================================
-// 17. 바코드 스캔 목록 표시
+// 12. 바코드 스캔 목록 표시
 // ============================================================
 
 function renderScanBatchList() {
@@ -5043,6 +2910,7 @@ return;
 let html = '';
 
 scanBatchItems.forEach(
+
 function(item, index) {
 
 html +=
@@ -5089,6 +2957,7 @@ index +
 '</div>';
 
 }
+
 );
 
 list.innerHTML =
@@ -5107,7 +2976,7 @@ scanBatchItems.length +
 
 
 // ============================================================
-// 18. 바코드 목록 삭제
+// 13. 바코드 출고 목록 삭제
 // ============================================================
 
 function removeScanBatchItem(
@@ -5141,7 +3010,7 @@ showToast(
 
 
 // ============================================================
-// 19. 바코드 전체 저장
+// 14. 바코드 출고 목록 전체 저장
 // ============================================================
 
 function saveScanBatch() {
@@ -5154,7 +3023,7 @@ STORAGE_KEY
 if (!employee) {
 
 alert(
-'로그인 정보가 없습니다.'
+'로그인 정보가 없습니다. 다시 로그인해주세요.'
 );
 
 return;
@@ -5214,6 +3083,7 @@ saveBtn.textContent =
 if (
 
 data &&
+
 data.success
 
 ) {
@@ -5251,7 +3121,7 @@ saveBtn.textContent =
 '전체 저장';
 
 showToast(
-'저장 요청에 실패했습니다.'
+'저장 요청에 실패했습니다. 네트워크를 확인해주세요.'
 );
 
 }
@@ -5262,7 +3132,7 @@ showToast(
 
 
 // ============================================================
-// 20. 바코드 목록 비우기
+// 15. 바코드 출고 목록 비우기
 // ============================================================
 
 function clearScanBatch() {
@@ -5275,7 +3145,7 @@ renderScanBatchList();
 
 
 // ============================================================
-// 21. 스캔 결과 초기화
+// 16. 스캔 결과 초기화
 // ============================================================
 
 function resetScanResult() {
@@ -5326,7 +3196,7 @@ document
 
 
 // ============================================================
-// 22. 수동 Part No 조회
+// 17. 수동 Part No 조회
 // ============================================================
 
 function lookupManualPart() {
@@ -5448,7 +3318,7 @@ document
 
 setManualLookupStatus(
 'error',
-'등록되지 않은 Part No입니다.'
+'등록되지 않은 Part No입니다. 정확하게 입력했는지 확인해주세요.'
 );
 
 }
@@ -5464,7 +3334,7 @@ findBtn.textContent =
 
 setManualLookupStatus(
 'error',
-'네트워크를 확인해주세요.'
+'부품 조회에 실패했습니다. 네트워크를 확인해주세요.'
 );
 
 }
@@ -5475,7 +3345,7 @@ setManualLookupStatus(
 
 
 // ============================================================
-// 23. 수동 부품 추가
+// 18. 수동 부품을 목록에 추가
 // ============================================================
 
 function addManualItem() {
@@ -5575,7 +3445,7 @@ document
 
 
 // ============================================================
-// 24. 수동 목록 표시
+// 19. 수동 입력 목록 표시
 // ============================================================
 
 function renderManualBatchList() {
@@ -5591,12 +3461,6 @@ document
 .getElementById(
 'manualBatchCount'
 );
-
-if (!list) {
-
-return;
-
-}
 
 if (
 manualBatchItems.length === 0
@@ -5621,6 +3485,7 @@ return;
 let html = '';
 
 manualBatchItems.forEach(
+
 function(item, index) {
 
 html +=
@@ -5662,6 +3527,7 @@ index +
 '</div>';
 
 }
+
 );
 
 list.innerHTML =
@@ -5680,7 +3546,7 @@ manualBatchItems.length +
 
 
 // ============================================================
-// 25. 수동 목록 삭제
+// 20. 수동 목록 삭제
 // ============================================================
 
 function removeManualBatchItem(
@@ -5714,7 +3580,7 @@ showToast(
 
 
 // ============================================================
-// 26. 수동 전체 저장
+// 21. 수동 일괄 저장
 // ============================================================
 
 function saveManualBatch() {
@@ -5727,7 +3593,7 @@ STORAGE_KEY
 if (!employee) {
 
 alert(
-'로그인 정보가 없습니다.'
+'로그인 정보가 없습니다. 다시 로그인해주세요.'
 );
 
 return;
@@ -5787,6 +3653,7 @@ saveBtn.textContent =
 if (
 
 data &&
+
 data.success
 
 ) {
@@ -5808,6 +3675,11 @@ data.message
 ? data.message
 : '저장에 실패했습니다.';
 
+setManualLookupStatus(
+'error',
+message
+);
+
 showToast(
 message
 );
@@ -5824,7 +3696,7 @@ saveBtn.textContent =
 '전체 저장';
 
 showToast(
-'저장 요청에 실패했습니다.'
+'저장 요청에 실패했습니다. 네트워크를 확인해주세요.'
 );
 
 }
@@ -5835,7 +3707,7 @@ showToast(
 
 
 // ============================================================
-// 27. 수동 입력 초기화
+// 22. 수동 입력값 초기화
 // ============================================================
 
 function resetManualInputOnly() {
@@ -5868,6 +3740,10 @@ clearStatus(
 }
 
 
+// ============================================================
+// 23. 수동 목록 전체 초기화
+// ============================================================
+
 function clearManualBatch() {
 
 manualBatchItems = [];
@@ -5883,6 +3759,10 @@ showToast(
 }
 
 
+// ============================================================
+// 24. 수동 화면 전체 초기화
+// ============================================================
+
 function resetManualForm() {
 
 manualBatchItems = [];
@@ -5890,6 +3770,112 @@ manualBatchItems = [];
 resetManualInputOnly();
 
 renderManualBatchList();
+
+}
+
+
+// ============================================================
+// 25. 관리자 비밀번호 화면
+// ============================================================
+
+function openAdminPassword() {
+
+stopScan();
+
+stopAdminScan();
+
+hideAllScreens();
+
+document
+.getElementById(
+'adminPasswordScreen'
+)
+.classList
+.remove('hidden');
+
+document
+.getElementById(
+'adminPasswordInput'
+)
+.value = '';
+
+clearStatus(
+'adminPasswordStatus'
+);
+
+document
+.getElementById(
+'adminPasswordInput'
+)
+.focus();
+
+}
+
+
+// ============================================================
+// 26. 관리자 비밀번호 확인
+// ============================================================
+
+function checkAdminPassword() {
+
+const password =
+document
+.getElementById(
+'adminPasswordInput'
+)
+.value
+.trim();
+
+if (!password) {
+
+setAdminPasswordStatus(
+'error',
+'관리자 비밀번호를 입력해주세요.'
+);
+
+return;
+
+}
+
+adminPasswordSession =
+password;
+
+showAdminModeScreen();
+
+}
+
+
+// ============================================================
+// 27. 관리자 바코드 화면
+// ============================================================
+
+function showAdminBarcodeScreen() {
+
+hideAllScreens();
+
+document
+.getElementById(
+'adminBarcodeScreen'
+)
+.classList
+.remove('hidden');
+
+document
+.getElementById(
+'adminBarcodeText'
+)
+.textContent =
+'아직 스캔되지 않았습니다.';
+
+document
+.getElementById(
+'adminPartNo'
+)
+.value = '';
+
+clearStatus(
+'adminRegisterStatus'
+);
 
 }
 
@@ -6004,6 +3990,7 @@ function(track) {
 track.stop();
 
 }
+
 );
 
 }
@@ -6137,7 +4124,9 @@ decodedText
 
 },
 
-function(errorMessage) {}
+function(errorMessage) {
+
+}
 
 );
 
@@ -6168,7 +4157,9 @@ err && err.message
 );
 
 if (
-errorText.includes('NotAllowedError')
+errorText.includes(
+'NotAllowedError'
+)
 ) {
 
 message =
@@ -6177,7 +4168,9 @@ message =
 }
 
 else if (
-errorText.includes('NotFoundError')
+errorText.includes(
+'NotFoundError'
+)
 ) {
 
 message =
@@ -6186,7 +4179,9 @@ message =
 }
 
 else if (
-errorText.includes('HTTPS')
+errorText.includes(
+'HTTPS'
+)
 ) {
 
 message =
@@ -6246,7 +4241,7 @@ adminHtml5QrCode.clear();
 } catch (err) {
 
 console.log(
-'admin reader clear:',
+'관리자 reader clear:',
 err
 );
 
@@ -6421,6 +4416,7 @@ registerBtn.textContent =
 if (
 
 data &&
+
 data.success
 
 ) {
@@ -6478,7 +4474,7 @@ registerBtn.textContent =
 
 setAdminRegisterStatus(
 'error',
-'등록 요청에 실패했습니다.'
+'등록 요청에 실패했습니다. 네트워크를 확인해주세요.'
 );
 
 }
@@ -6489,7 +4485,7 @@ setAdminRegisterStatus(
 
 
 // ============================================================
-// 32. 관리자 바코드 초기화
+// 32. 관리자 화면 초기화
 // ============================================================
 
 function resetAdminBarcodeForm() {
@@ -6510,8 +4506,7 @@ document
 .getElementById(
 'adminPartNo'
 )
-.value =
-'';
+.value = '';
 
 clearStatus(
 'adminRegisterStatus'
@@ -6521,7 +4516,348 @@ clearStatus(
 
 
 // ============================================================
-// 33. JSONP
+// ★ 33. 출고 내역 조회
+// ============================================================
+
+function loadHistory(
+adminMode
+) {
+
+let period;
+let transfer;
+let list;
+let summary;
+
+if (adminMode) {
+
+period =
+document
+.getElementById(
+'adminHistoryPeriod'
+)
+.value;
+
+transfer =
+document
+.getElementById(
+'adminHistoryTransfer'
+)
+.value;
+
+list =
+document
+.getElementById(
+'adminHistoryList'
+);
+
+summary =
+document
+.getElementById(
+'adminHistorySummary'
+);
+
+} else {
+
+period =
+document
+.getElementById(
+'historyPeriod'
+)
+.value;
+
+transfer =
+document
+.getElementById(
+'historyTransfer'
+)
+.value;
+
+list =
+document
+.getElementById(
+'historyList'
+);
+
+summary =
+document
+.getElementById(
+'historySummary'
+);
+
+}
+
+
+list.innerHTML =
+'<div class="history-loading">조회 중...</div>';
+
+summary.textContent =
+'조회 중...';
+
+
+const employee =
+localStorage.getItem(
+STORAGE_KEY
+) || '';
+
+
+jsonpRequest(
+
+{
+
+action:
+'getInventoryRecords',
+
+employee:
+employee,
+
+period:
+period,
+
+transfer:
+transfer,
+
+adminMode:
+adminMode
+? 'true'
+: 'false',
+
+adminPassword:
+adminMode
+? adminPasswordSession
+: ''
+
+},
+
+function(data) {
+
+if (
+
+!data ||
+
+data.success === false
+
+) {
+
+const message =
+data &&
+data.message
+? data.message
+: '출고 내역을 불러오지 못했습니다.';
+
+list.innerHTML =
+'<div class="history-empty">' +
+escapeHtml(message) +
+'</div>';
+
+summary.textContent =
+'조회 실패';
+
+return;
+
+}
+
+renderHistory(
+data.records || [],
+adminMode
+);
+
+},
+
+function() {
+
+list.innerHTML =
+'<div class="history-empty">' +
+'출고 내역을 불러오지 못했습니다.<br>네트워크를 확인해주세요.' +
+'</div>';
+
+summary.textContent =
+'조회 실패';
+
+}
+
+);
+
+}
+
+
+// ============================================================
+// ★ 34. 출고 내역 표시
+// ============================================================
+
+function renderHistory(
+records,
+adminMode
+) {
+
+const list =
+document.getElementById(
+adminMode
+? 'adminHistoryList'
+: 'historyList'
+);
+
+const summary =
+document.getElementById(
+adminMode
+? 'adminHistorySummary'
+: 'historySummary'
+);
+
+
+if (
+!records ||
+records.length === 0
+) {
+
+list.innerHTML =
+'<div class="history-empty">' +
+'조회된 출고 기록이 없습니다.' +
+'</div>';
+
+summary.textContent =
+'총 0건';
+
+return;
+
+}
+
+
+let html = '';
+
+
+records.forEach(
+function(item) {
+
+const transfer =
+String(
+item.transfer || ''
+).trim();
+
+const completed =
+isTransferCompletedClient(
+transfer
+);
+
+html +=
+
+'<div class="history-item">' +
+
+'<div class="history-item-date">' +
+escapeHtml(item.date) +
+'</div>' +
+
+'<div class="history-item-title">' +
+escapeHtml(item.name) +
+'</div>' +
+
+'<div class="history-item-info">' +
+
+'담당자: ' +
+escapeHtml(item.employee) +
+
+'<br>' +
+
+'Part No: ' +
+escapeHtml(item.partNo) +
+
+'<br>' +
+
+'바코드: ' +
+escapeHtml(item.barcode) +
+
+'<br>' +
+
+'수량: ' +
+escapeHtml(item.quantity) +
+
+'</div>' +
+
+'<span class="transfer-badge ' +
+(
+completed
+? 'done'
+: ''
+) +
+'">' +
+
+(
+completed
+? 'Transfer 완료'
+: 'Transfer 미처리'
+) +
+
+(
+transfer &&
+!completed
+? ' (' +
+escapeHtml(transfer) +
+')'
+: ''
+) +
+
+'</span>' +
+
+'</div>';
+
+}
+);
+
+
+list.innerHTML =
+html;
+
+
+summary.textContent =
+'총 ' +
+records.length +
+'건';
+
+}
+
+
+// ============================================================
+// ★ 35. Transfer 완료 여부 - 화면용
+// ============================================================
+
+function isTransferCompletedClient(
+value
+) {
+
+const s =
+String(
+value || ''
+)
+.trim()
+.toLowerCase();
+
+if (!s) {
+
+return false;
+
+}
+
+const completedValues = [
+
+'transfer',
+'완료',
+'처리',
+'처리완료',
+'true',
+'yes',
+'y',
+'1',
+'전송완료'
+
+];
+
+return completedValues
+.indexOf(s) !== -1;
+
+}
+
+
+// ============================================================
+// 36. JSONP
 // ============================================================
 
 function jsonpRequest(
@@ -6694,7 +5030,7 @@ script
 
 
 // ============================================================
-// 34. 일반 입력 초기화
+// 37. 일반 입력 초기화
 // ============================================================
 
 function resetForm() {
@@ -6747,7 +5083,7 @@ document
 
 
 // ============================================================
-// 35. 상태 표시
+// 38. 상태 표시
 // ============================================================
 
 function setCameraStatus(
@@ -6884,12 +5220,6 @@ document
 id
 );
 
-if (!el) {
-
-return;
-
-}
-
 el.className =
 'status';
 
@@ -6900,106 +5230,7 @@ el.textContent =
 
 
 // ============================================================
-// 36. Transfer 상태 확인
-// ============================================================
-
-function isTransferDone(
-value
-) {
-
-const s =
-String(
-value || ''
-)
-.trim()
-.toLowerCase();
-
-return (
-
-s === 'o' ||
-
-s === '○' ||
-
-s === 'transfer o' ||
-
-s === 'transfer' ||
-
-s === '완료' ||
-
-s === '처리완료' ||
-
-s === 'yes' ||
-
-s === 'true'
-
-);
-
-}
-
-
-// ============================================================
-// 37. 날짜 표시
-// ============================================================
-
-function formatDateTime(
-value
-) {
-
-if (!value) {
-
-return '';
-
-}
-
-const date =
-new Date(value);
-
-if (
-isNaN(date.getTime())
-) {
-
-return String(value);
-
-}
-
-return (
-
-date.getFullYear() +
-'.' +
-
-String(
-date.getMonth() + 1
-)
-.padStart(2,'0') +
-
-'.' +
-
-String(
-date.getDate()
-)
-.padStart(2,'0') +
-
-' ' +
-
-String(
-date.getHours()
-)
-.padStart(2,'0') +
-
-':' +
-
-String(
-date.getMinutes()
-)
-.padStart(2,'0')
-
-);
-
-}
-
-
-// ============================================================
-// 38. HTML escape
+// 39. HTML escape
 // ============================================================
 
 function escapeHtml(
@@ -7007,32 +5238,26 @@ value
 ) {
 
 return String(
-value === undefined ||
-value === null
+value == null
 ? ''
 : value
 )
-
 .replace(
 /&/g,
 '&amp;'
 )
-
 .replace(
 /</g,
 '&lt;'
 )
-
 .replace(
 />/g,
 '&gt;'
 )
-
 .replace(
 /"/g,
 '&quot;'
 )
-
 .replace(
 /'/g,
 '&#039;'
@@ -7042,7 +5267,7 @@ value === null
 
 
 // ============================================================
-// 39. Toast
+// 40. Toast
 // ============================================================
 
 function showToast(
@@ -7078,3389 +5303,9 @@ el.classList
 
 }
 
+
 </script>
 
 </body>
 
 </html>
-
-<script>
-
-// ============================================================
-// 1. 설정
-// ============================================================
-
-const APPS_SCRIPT_URL =
-'https://script.google.com/macros/s/AKfycbx9LCuPz6c07KDJWNnv7xwl-VQIjj4tV_p62K6dF-SNYj5KWR-glgdfO4gP6IP32-Y6/exec';
-
-const API_TOKEN = '';
-
-const STORAGE_KEY =
-'inventoryEmployeeName';
-
-let html5QrCode = null;
-let adminHtml5QrCode = null;
-
-let isScanning = false;
-let isAdminScanning = false;
-
-let currentBarcode = '';
-let currentAdminBarcode = '';
-
-let selectedCameraId = null;
-let selectedAdminCameraId = null;
-
-let jsonpCounter = 0;
-
-// 수동 입력 목록
-let manualBatchItems = [];
-
-// 바코드 스캔 목록
-let scanBatchItems = [];
-
-// 관리자 비밀번호 세션
-let adminPasswordSession = '';
-
-
-// ============================================================
-// 2. 초기화
-// ============================================================
-
-window.addEventListener(
-'load',
-function() {
-
-const savedName =
-localStorage.getItem(
-STORAGE_KEY
-);
-
-if (savedName) {
-
-showMain(savedName);
-
-} else {
-
-document
-.getElementById(
-'nameInput'
-)
-.focus();
-
-}
-
-}
-);
-
-
-// ============================================================
-// 3. 로그인
-// ============================================================
-
-function login() {
-
-const name =
-document
-.getElementById(
-'nameInput'
-)
-.value
-.trim();
-
-if (!name) {
-
-alert(
-'이름을 입력해주세요.'
-);
-
-return;
-
-}
-
-localStorage.setItem(
-STORAGE_KEY,
-name
-);
-
-showMain(name);
-
-}
-
-function logout() {
-
-stopScan();
-
-stopAdminScan();
-
-localStorage.removeItem(
-STORAGE_KEY
-);
-
-document
-.getElementById(
-'mainScreen'
-)
-.classList
-.add('hidden');
-
-document
-.getElementById(
-'loginScreen'
-)
-.classList
-.remove('hidden');
-
-document
-.getElementById(
-'nameInput'
-)
-.value = '';
-
-resetForm();
-
-resetManualForm();
-
-resetAdminBarcodeForm();
-
-clearScanBatch();
-
-}
-
-
-// ============================================================
-// 4. 메인 화면
-// ============================================================
-
-function showMain(name) {
-
-document
-.getElementById(
-'loginScreen'
-)
-.classList
-.add('hidden');
-
-document
-.getElementById(
-'mainScreen'
-)
-.classList
-.remove('hidden');
-
-document
-.getElementById(
-'welcomeText'
-)
-.textContent =
-name +
-'님 안녕하세요';
-
-showMenuScreen();
-
-}
-
-
-// ============================================================
-// 5. 화면 전환
-// ============================================================
-
-function hideAllScreens() {
-
-document
-.getElementById(
-'menuScreen'
-)
-.classList
-.add('hidden');
-
-document
-.getElementById(
-'scanScreen'
-)
-.classList
-.add('hidden');
-
-document
-.getElementById(
-'manualScreen'
-)
-.classList
-.add('hidden');
-
-document
-.getElementById(
-'historyScreen'
-)
-.classList
-.add('hidden');
-
-document
-.getElementById(
-'adminPasswordScreen'
-)
-.classList
-.add('hidden');
-
-document
-.getElementById(
-'adminModeScreen'
-)
-.classList
-.add('hidden');
-
-document
-.getElementById(
-'adminBarcodeScreen'
-)
-.classList
-.add('hidden');
-
-}
-
-function showMenuScreen() {
-
-stopScan();
-
-stopAdminScan();
-
-hideAllScreens();
-
-document
-.getElementById(
-'menuScreen'
-)
-.classList
-.remove('hidden');
-
-resetForm();
-
-resetManualForm();
-
-resetAdminBarcodeForm();
-
-renderScanBatchList();
-
-}
-
-function showScanScreen() {
-
-stopAdminScan();
-
-hideAllScreens();
-
-document
-.getElementById(
-'scanScreen'
-)
-.classList
-.remove('hidden');
-
-renderScanBatchList();
-
-}
-
-function showManualScreen() {
-
-stopScan();
-
-stopAdminScan();
-
-hideAllScreens();
-
-document
-.getElementById(
-'manualScreen'
-)
-.classList
-.remove('hidden');
-
-renderManualBatchList();
-
-document
-.getElementById(
-'manualPartNo'
-)
-.focus();
-
-}
-
-
-// ============================================================
-// 6. 출고 내역 확인
-// ============================================================
-
-function showHistoryScreen() {
-
-stopScan();
-
-stopAdminScan();
-
-hideAllScreens();
-
-document
-.getElementById(
-'historyScreen'
-)
-.classList
-.remove('hidden');
-
-setHistoryStatus(
-'info',
-'출고 내역을 불러오는 중입니다...'
-);
-
-loadHistory();
-
-}
-
-function loadHistory() {
-
-const employee =
-localStorage.getItem(
-STORAGE_KEY
-) || '';
-
-if (!employee) {
-
-setHistoryStatus(
-'error',
-'로그인 정보가 없습니다. 다시 로그인해주세요.'
-);
-
-return;
-
-}
-
-const period =
-document
-.getElementById(
-'historyPeriod'
-)
-.value;
-
-const transfer =
-document
-.getElementById(
-'historyTransfer'
-)
-.value;
-
-jsonpRequest(
-
-{
-
-action:
-'getHistory',
-
-employee:
-employee,
-
-period:
-period,
-
-transfer:
-transfer,
-
-token:
-API_TOKEN
-
-},
-
-function(data) {
-
-if (
-!data ||
-data.success === false
-) {
-
-setHistoryStatus(
-'error',
-data && data.message
-? data.message
-: '출고 내역을 불러오지 못했습니다.'
-);
-
-return;
-
-}
-
-renderHistory(
-data.rows || []
-);
-
-},
-
-function() {
-
-setHistoryStatus(
-'error',
-'출고 내역 조회에 실패했습니다. 네트워크를 확인해주세요.'
-);
-
-}
-
-);
-
-}
-
-function renderHistory(rows) {
-
-const list =
-document
-.getElementById(
-'historyList'
-);
-
-const count =
-document
-.getElementById(
-'historyCount'
-);
-
-if (!list) {
-return;
-}
-
-if (!rows || rows.length === 0) {
-
-list.innerHTML =
-'<div class="batch-empty">' +
-'조건에 맞는 출고 내역이 없습니다.' +
-'</div>';
-
-if (count) {
-count.textContent = '총 0건';
-}
-
-setHistoryStatus(
-'success',
-'출고 내역을 확인했습니다.'
-);
-
-return;
-
-}
-
-let html = '';
-
-rows.forEach(
-function(row, index) {
-
-let transferText =
-String(
-row.transfer || ''
-)
-.trim();
-
-let transferClass =
-'';
-
-if (
-transferText === 'O' ||
-transferText.toUpperCase() === 'TRANSFER O'
-) {
-
-transferText = 'Transfer O';
-transferClass = 'transfer-ok';
-
-} else {
-
-transferText = '미처리';
-transferClass = 'transfer-pending';
-
-}
-
-html +=
-
-'<div class="history-item">' +
-
-'<div class="history-title">' +
-
-(index + 1) +
-'. ' +
-escapeHtml(row.name) +
-
-'</div>' +
-
-'<div class="history-info">' +
-
-'날짜: ' +
-escapeHtml(row.date) +
-
-'<br>' +
-
-'Part No: ' +
-escapeHtml(row.partNo) +
-
-'<br>' +
-
-'바코드: ' +
-escapeHtml(row.barcode) +
-
-'<br>' +
-
-'수량: ' +
-escapeHtml(row.quantity) +
-
-'</div>' +
-
-'<div class="history-transfer ' +
-transferClass +
-'">' +
-
-transferText +
-
-'</div>' +
-
-'</div>';
-
-}
-);
-
-list.innerHTML =
-html;
-
-if (count) {
-
-count.textContent =
-'총 ' +
-rows.length +
-'건';
-
-}
-
-setHistoryStatus(
-'success',
-'총 ' +
-rows.length +
-'건의 출고 내역입니다.'
-);
-
-}
-
-
-// ============================================================
-// 7. 일반 카메라 시작
-// ============================================================
-
-async function startScan() {
-
-if (isScanning) {
-return;
-}
-
-clearStatus(
-'cameraStatus'
-);
-
-document
-.getElementById(
-'resultCard'
-)
-.classList
-.add('hidden');
-
-document
-.getElementById(
-'reader'
-)
-.classList
-.remove('hidden');
-
-document
-.getElementById(
-'scanGuide'
-)
-.classList
-.remove('hidden');
-
-document
-.getElementById(
-'stopScanBtn'
-)
-.classList
-.remove('hidden');
-
-setCameraStatus(
-'info',
-'카메라를 준비하고 있습니다...'
-);
-
-try {
-
-if (
-location.protocol !== 'https:' &&
-location.hostname !== 'localhost' &&
-location.hostname !== '127.0.0.1'
-) {
-
-throw new Error(
-'카메라를 사용하려면 HTTPS 주소로 접속해야 합니다.'
-);
-
-}
-
-if (
-!navigator.mediaDevices ||
-!navigator.mediaDevices.getUserMedia
-) {
-
-throw new Error(
-'현재 브라우저에서 카메라 기능을 사용할 수 없습니다.'
-);
-
-}
-
-setCameraStatus(
-'info',
-'카메라 권한을 확인하고 있습니다...'
-);
-
-let permissionStream = null;
-
-try {
-
-permissionStream =
-await navigator
-.mediaDevices
-.getUserMedia({
-
-video: {
-facingMode: {
-ideal: 'environment'
-}
-},
-
-audio: false
-
-});
-
-} finally {
-
-if (permissionStream) {
-
-permissionStream
-.getTracks()
-.forEach(
-function(track) {
-track.stop();
-}
-);
-
-}
-
-}
-
-const cameras =
-await Html5Qrcode
-.getCameras();
-
-if (
-!cameras ||
-cameras.length === 0
-) {
-
-throw new Error(
-'사용 가능한 카메라를 찾을 수 없습니다.'
-);
-
-}
-
-const backCamera =
-cameras.find(
-function(camera) {
-
-const label =
-String(
-camera.label || ''
-).toLowerCase();
-
-return (
-
-label.includes('back') ||
-label.includes('rear') ||
-label.includes('environment') ||
-label.includes('후면')
-
-);
-
-}
-);
-
-selectedCameraId =
-backCamera
-? backCamera.id
-: cameras[0].id;
-
-html5QrCode =
-new Html5Qrcode(
-'reader'
-);
-
-isScanning = true;
-
-await html5QrCode.start(
-
-selectedCameraId,
-
-{
-
-fps: 10,
-
-qrbox:
-function(
-viewfinderWidth,
-viewfinderHeight
-) {
-
-const width =
-Math.floor(
-viewfinderWidth * 0.86
-);
-
-const height =
-Math.floor(
-viewfinderHeight * 0.28
-);
-
-return {
-
-width:
-Math.max(
-220,
-Math.min(width, 360)
-),
-
-height:
-Math.max(
-100,
-Math.min(height, 180)
-)
-
-};
-
-},
-
-aspectRatio:
-1.777778,
-
-disableFlip:
-false
-
-},
-
-function(decodedText) {
-
-if (!isScanning) {
-return;
-}
-
-onScanSuccess(decodedText);
-
-},
-
-function(errorMessage) {}
-
-);
-
-setCameraStatus(
-'success',
-'카메라가 실행되었습니다. 바코드를 맞춰주세요.'
-);
-
-} catch (err) {
-
-console.error(
-'CAMERA ERROR:',
-err
-);
-
-isScanning = false;
-
-cleanupScanner();
-
-let message =
-'카메라를 시작할 수 없습니다.';
-
-const errorName =
-err && err.name
-? err.name
-: '';
-
-const errorText =
-String(
-err && err.message
-? err.message
-: err
-);
-
-if (
-errorName === 'NotAllowedError' ||
-errorText.includes('NotAllowedError')
-) {
-
-message =
-'카메라 권한이 차단되어 있습니다.\nChrome의 사이트 권한에서 카메라를 허용해주세요.';
-
-}
-else if (
-errorName === 'NotFoundError' ||
-errorText.includes('NotFoundError')
-) {
-
-message =
-'사용 가능한 카메라를 찾을 수 없습니다.';
-
-}
-else if (
-errorName === 'NotReadableError' ||
-errorText.includes('NotReadableError')
-) {
-
-message =
-'카메라가 다른 앱에서 사용 중일 수 있습니다.\n카메라를 사용하는 앱을 종료한 후 다시 시도해주세요.';
-
-}
-else if (
-errorName === 'SecurityError'
-) {
-
-message =
-'브라우저 보안 설정 때문에 카메라에 접근할 수 없습니다.';
-
-}
-else if (
-errorText.includes('HTTPS')
-) {
-
-message =
-'카메라를 사용하려면 HTTPS 주소로 접속해야 합니다.';
-
-}
-else if (
-errorText &&
-errorText !== 'undefined'
-) {
-
-message =
-'카메라 오류: ' +
-errorText;
-
-}
-
-setCameraStatus(
-'error',
-message
-);
-
-showToast(
-message
-);
-
-}
-
-}
-
-
-// ============================================================
-// 8. 일반 카메라 종료
-// ============================================================
-
-async function stopScan() {
-
-isScanning = false;
-
-if (html5QrCode) {
-
-try {
-await html5QrCode.stop();
-} catch (err) {
-console.log('카메라 stop:', err);
-}
-
-try {
-html5QrCode.clear();
-} catch (err) {
-console.log('reader clear:', err);
-}
-
-html5QrCode = null;
-
-}
-
-cleanupScanner();
-
-}
-
-function cleanupScanner() {
-
-document
-.getElementById(
-'reader'
-)
-.classList
-.add('hidden');
-
-document
-.getElementById(
-'scanGuide'
-)
-.classList
-.add('hidden');
-
-document
-.getElementById(
-'stopScanBtn'
-)
-.classList
-.add('hidden');
-
-}
-
-
-// ============================================================
-// 9. 일반 바코드 스캔 성공
-// ============================================================
-
-async function onScanSuccess(barcode) {
-
-if (!isScanning) {
-return;
-}
-
-isScanning = false;
-
-currentBarcode =
-String(
-barcode || ''
-).trim();
-
-await stopScan();
-
-document
-.getElementById(
-'barcodeText'
-)
-.textContent =
-currentBarcode;
-
-document
-.getElementById(
-'quantity'
-)
-.value = 1;
-
-document
-.getElementById(
-'partNo'
-)
-.value = '';
-
-document
-.getElementById(
-'partName'
-)
-.value = '';
-
-document
-.getElementById(
-'resultCard'
-)
-.classList
-.remove('hidden');
-
-setLookupStatus(
-'info',
-'부품 정보를 조회하고 있습니다...'
-);
-
-lookupPart(
-currentBarcode
-);
-
-}
-
-
-// ============================================================
-// 10. 바코드 조회
-// ============================================================
-
-function lookupPart(barcode) {
-
-jsonpRequest(
-
-{
-
-action:
-'lookup',
-
-barcode:
-barcode,
-
-token:
-API_TOKEN
-
-},
-
-function(data) {
-
-if (
-!data ||
-data.success === false
-) {
-
-setLookupStatus(
-'error',
-'부품 조회에 실패했습니다.'
-);
-
-return;
-
-}
-
-if (data.found) {
-
-document
-.getElementById(
-'partName'
-)
-.value =
-data.name || '';
-
-document
-.getElementById(
-'partNo'
-)
-.value =
-data.partNo || '';
-
-setLookupStatus(
-'success',
-'등록된 부품을 찾았습니다.'
-);
-
-document
-.getElementById(
-'quantity'
-)
-.focus();
-
-} else {
-
-document
-.getElementById(
-'partName'
-)
-.value = '';
-
-document
-.getElementById(
-'partNo'
-)
-.value = '';
-
-setLookupStatus(
-'error',
-'등록되지 않은 바코드입니다.'
-);
-
-}
-
-},
-
-function() {
-
-setLookupStatus(
-'error',
-'부품명 조회에 실패했습니다. 네트워크를 확인해주세요.'
-);
-
-}
-
-);
-
-}
-
-
-// ============================================================
-// 11. 일반 바코드 즉시 저장
-// ============================================================
-
-function saveRecord() {
-
-const employee =
-localStorage.getItem(
-STORAGE_KEY
-) || '';
-
-const name =
-document
-.getElementById(
-'partName'
-)
-.value
-.trim();
-
-const partNo =
-document
-.getElementById(
-'partNo'
-)
-.value
-.trim();
-
-const quantity =
-Number(
-document
-.getElementById(
-'quantity'
-)
-.value
-);
-
-if (!employee) {
-
-alert(
-'로그인 정보가 없습니다. 다시 로그인해주세요.'
-);
-
-return;
-
-}
-
-if (!currentBarcode) {
-
-alert(
-'바코드가 없습니다. 다시 스캔해주세요.'
-);
-
-return;
-
-}
-
-if (!name) {
-
-alert(
-'부품명을 입력해주세요.'
-);
-
-return;
-
-}
-
-if (!partNo) {
-
-alert(
-'Part No가 없습니다.'
-);
-
-return;
-
-}
-
-if (
-!Number.isInteger(quantity) ||
-quantity <= 0
-) {
-
-alert(
-'수량은 1 이상의 정수로 입력해주세요.'
-);
-
-return;
-
-}
-
-const saveBtn =
-document
-.getElementById(
-'saveBtn'
-);
-
-saveBtn.disabled = true;
-
-saveBtn.textContent =
-'저장 중...';
-
-jsonpRequest(
-
-{
-
-action:
-'save',
-
-employee:
-employee,
-
-barcode:
-currentBarcode,
-
-name:
-name,
-
-partNo:
-partNo,
-
-quantity:
-quantity,
-
-token:
-API_TOKEN
-
-},
-
-function(data) {
-
-saveBtn.disabled = false;
-
-saveBtn.textContent =
-'저장';
-
-if (
-data &&
-data.success
-) {
-
-showToast(
-'저장되었습니다 ✓'
-);
-
-resetForm();
-
-} else {
-
-const message =
-data &&
-data.message
-? data.message
-: '저장에 실패했습니다.';
-
-setLookupStatus(
-'error',
-message
-);
-
-showToast(
-message
-);
-
-}
-
-},
-
-function() {
-
-saveBtn.disabled = false;
-
-saveBtn.textContent =
-'저장';
-
-showToast(
-'저장 요청에 실패했습니다. 네트워크를 확인해주세요.'
-);
-
-}
-
-);
-
-}
-
-
-// ============================================================
-// 12. 바코드 스캔 부품을 출고 목록에 추가
-// ============================================================
-
-function addScanItemToBatch() {
-
-const barcode =
-currentBarcode;
-
-const partNo =
-document
-.getElementById(
-'partNo'
-)
-.value
-.trim();
-
-const name =
-document
-.getElementById(
-'partName'
-)
-.value
-.trim();
-
-const quantity =
-Number(
-document
-.getElementById(
-'quantity'
-)
-.value
-);
-
-if (!barcode) {
-
-alert(
-'바코드가 없습니다. 다시 스캔해주세요.'
-);
-
-return;
-
-}
-
-if (!partNo) {
-
-alert(
-'Part No가 없습니다.'
-);
-
-return;
-
-}
-
-if (!name) {
-
-alert(
-'부품명이 없습니다.'
-);
-
-return;
-
-}
-
-if (
-!Number.isInteger(quantity) ||
-quantity <= 0
-) {
-
-alert(
-'수량은 1 이상의 정수로 입력해주세요.'
-);
-
-return;
-
-}
-
-scanBatchItems.push({
-
-barcode:
-barcode,
-
-partNo:
-partNo,
-
-name:
-name,
-
-quantity:
-quantity
-
-});
-
-renderScanBatchList();
-
-showToast(
-'출고 목록에 추가되었습니다.'
-);
-
-resetScanResult();
-
-}
-
-
-// ============================================================
-// 13. 바코드 스캔 목록 표시
-// ============================================================
-
-function renderScanBatchList() {
-
-const list =
-document
-.getElementById(
-'scanBatchList'
-);
-
-const count =
-document
-.getElementById(
-'scanBatchCount'
-);
-
-if (!list) {
-return;
-}
-
-if (
-scanBatchItems.length === 0
-) {
-
-list.innerHTML =
-'<div class="batch-empty">' +
-'아직 추가된 부품이 없습니다.' +
-'</div>';
-
-if (count) {
-count.textContent = '총 0개';
-}
-
-return;
-
-}
-
-let html = '';
-
-scanBatchItems.forEach(
-function(item, index) {
-
-html +=
-
-'<div class="batch-item">' +
-
-'<div class="batch-item-title">' +
-
-(index + 1) +
-'. ' +
-escapeHtml(item.name) +
-
-'</div>' +
-
-'<div class="batch-item-info">' +
-
-'Part No: ' +
-escapeHtml(item.partNo) +
-
-'<br>' +
-
-'바코드: ' +
-escapeHtml(item.barcode) +
-
-'<br>' +
-
-'수량: ' +
-item.quantity +
-
-'</div>' +
-
-'<button ' +
-'class="batch-remove" ' +
-'onclick="removeScanBatchItem(' +
-index +
-')">' +
-
-'삭제' +
-
-'</button>' +
-
-'</div>';
-
-}
-);
-
-list.innerHTML =
-html;
-
-if (count) {
-
-count.textContent =
-'총 ' +
-scanBatchItems.length +
-'개';
-
-}
-
-}
-
-
-// ============================================================
-// 14. 바코드 출고 목록 삭제
-// ============================================================
-
-function removeScanBatchItem(index) {
-
-if (
-index < 0 ||
-index >= scanBatchItems.length
-) {
-return;
-}
-
-scanBatchItems.splice(
-index,
-1
-);
-
-renderScanBatchList();
-
-showToast(
-'목록에서 삭제했습니다.'
-);
-
-}
-
-
-// ============================================================
-// 15. 바코드 출고 목록 전체 저장
-// ============================================================
-
-function saveScanBatch() {
-
-const employee =
-localStorage.getItem(
-STORAGE_KEY
-) || '';
-
-if (!employee) {
-
-alert(
-'로그인 정보가 없습니다. 다시 로그인해주세요.'
-);
-
-return;
-
-}
-
-if (
-scanBatchItems.length === 0
-) {
-
-alert(
-'출고할 부품을 먼저 추가해주세요.'
-);
-
-return;
-
-}
-
-const saveBtn =
-document
-.getElementById(
-'scanBatchSaveBtn'
-);
-
-saveBtn.disabled = true;
-
-saveBtn.textContent =
-'전체 저장 중...';
-
-jsonpRequest(
-
-{
-
-action:
-'saveBatch',
-
-employee:
-employee,
-
-items:
-JSON.stringify(
-scanBatchItems
-),
-
-token:
-API_TOKEN
-
-},
-
-function(data) {
-
-saveBtn.disabled = false;
-
-saveBtn.textContent =
-'전체 저장';
-
-if (
-data &&
-data.success
-) {
-
-showToast(
-data.count +
-'개 부품이 저장되었습니다 ✓'
-);
-
-clearScanBatch();
-
-} else {
-
-const message =
-data &&
-data.message
-? data.message
-: '저장에 실패했습니다.';
-
-showToast(
-message
-);
-
-}
-
-},
-
-function() {
-
-saveBtn.disabled = false;
-
-saveBtn.textContent =
-'전체 저장';
-
-showToast(
-'저장 요청에 실패했습니다. 네트워크를 확인해주세요.'
-);
-
-}
-
-);
-
-}
-
-
-// ============================================================
-// 16. 바코드 출고 목록 비우기
-// ============================================================
-
-function clearScanBatch() {
-
-scanBatchItems = [];
-
-renderScanBatchList();
-
-}
-
-
-// ============================================================
-// 17. 스캔 결과만 초기화
-// ============================================================
-
-function resetScanResult() {
-
-currentBarcode = '';
-
-document
-.getElementById(
-'barcodeText'
-)
-.textContent = '';
-
-document
-.getElementById(
-'partNo'
-)
-.value = '';
-
-document
-.getElementById(
-'partName'
-)
-.value = '';
-
-document
-.getElementById(
-'quantity'
-)
-.value = 1;
-
-clearStatus(
-'lookupStatus'
-);
-
-document
-.getElementById(
-'resultCard'
-)
-.classList
-.add('hidden');
-
-}
-
-
-// ============================================================
-// 18. 수동 Part No 조회
-// ============================================================
-
-function lookupManualPart() {
-
-const partNo =
-document
-.getElementById(
-'manualPartNo'
-)
-.value
-.trim();
-
-if (!partNo) {
-
-setManualLookupStatus(
-'error',
-'Part No를 입력해주세요.'
-);
-
-return;
-
-}
-
-const findBtn =
-document
-.getElementById(
-'findPartBtn'
-);
-
-findBtn.disabled = true;
-
-findBtn.textContent =
-'찾는 중...';
-
-document
-.getElementById(
-'manualPartName'
-)
-.value = '';
-
-setManualLookupStatus(
-'info',
-'부품 정보를 조회하고 있습니다...'
-);
-
-jsonpRequest(
-
-{
-
-action:
-'lookupPartNo',
-
-partNo:
-partNo,
-
-token:
-API_TOKEN
-
-},
-
-function(data) {
-
-findBtn.disabled = false;
-
-findBtn.textContent =
-'🔍 찾기';
-
-if (
-!data ||
-data.success === false
-) {
-
-setManualLookupStatus(
-'error',
-'부품 조회에 실패했습니다.'
-);
-
-return;
-
-}
-
-if (data.found) {
-
-document
-.getElementById(
-'manualPartNo'
-)
-.value =
-data.partNo || partNo;
-
-document
-.getElementById(
-'manualPartName'
-)
-.value =
-data.name || '';
-
-setManualLookupStatus(
-'success',
-'등록된 부품을 찾았습니다.'
-);
-
-document
-.getElementById(
-'manualQuantity'
-)
-.focus();
-
-} else {
-
-document
-.getElementById(
-'manualPartName'
-)
-.value = '';
-
-setManualLookupStatus(
-'error',
-'등록되지 않은 Part No입니다. 정확하게 입력했는지 확인해주세요.'
-);
-
-}
-
-},
-
-function() {
-
-findBtn.disabled = false;
-
-findBtn.textContent =
-'🔍 찾기';
-
-setManualLookupStatus(
-'error',
-'부품 조회에 실패했습니다. 네트워크를 확인해주세요.'
-);
-
-}
-
-);
-
-}
-
-
-// ============================================================
-// 19. 수동 부품을 목록에 추가
-// ============================================================
-
-function addManualItem() {
-
-const partNo =
-document
-.getElementById(
-'manualPartNo'
-)
-.value
-.trim();
-
-const name =
-document
-.getElementById(
-'manualPartName'
-)
-.value
-.trim();
-
-const quantity =
-Number(
-document
-.getElementById(
-'manualQuantity'
-)
-.value
-);
-
-if (!partNo) {
-
-alert(
-'먼저 Part No를 입력해주세요.'
-);
-
-return;
-
-}
-
-if (!name) {
-
-alert(
-'먼저 Part No를 찾아주세요.'
-);
-
-return;
-
-}
-
-if (
-!Number.isInteger(quantity) ||
-quantity <= 0
-) {
-
-alert(
-'수량은 1 이상의 정수로 입력해주세요.'
-);
-
-return;
-
-}
-
-manualBatchItems.push({
-
-barcode:
-'수동입력',
-
-partNo:
-partNo,
-
-name:
-name,
-
-quantity:
-quantity
-
-});
-
-renderManualBatchList();
-
-showToast(
-'출고 목록에 추가되었습니다.'
-);
-
-resetManualInputOnly();
-
-document
-.getElementById(
-'manualPartNo'
-)
-.focus();
-
-}
-
-
-// ============================================================
-// 20. 수동 입력 목록 표시
-// ============================================================
-
-function renderManualBatchList() {
-
-const list =
-document
-.getElementById(
-'batchList'
-);
-
-const count =
-document
-.getElementById(
-'manualBatchCount'
-);
-
-if (
-manualBatchItems.length === 0
-) {
-
-list.innerHTML =
-'<div class="batch-empty">' +
-'아직 추가된 부품이 없습니다.' +
-'</div>';
-
-if (count) {
-count.textContent = '총 0개';
-}
-
-return;
-
-}
-
-let html = '';
-
-manualBatchItems.forEach(
-function(item, index) {
-
-html +=
-
-'<div class="batch-item">' +
-
-'<div class="batch-item-title">' +
-
-(index + 1) +
-'. ' +
-escapeHtml(item.name) +
-
-'</div>' +
-
-'<div class="batch-item-info">' +
-
-'Part No: ' +
-escapeHtml(item.partNo) +
-
-'<br>' +
-
-'수량: ' +
-item.quantity +
-
-'</div>' +
-
-'<button ' +
-'class="batch-remove" ' +
-'onclick="removeManualBatchItem(' +
-index +
-')">' +
-
-'삭제' +
-
-'</button>' +
-
-'</div>';
-
-}
-);
-
-list.innerHTML =
-html;
-
-if (count) {
-
-count.textContent =
-'총 ' +
-manualBatchItems.length +
-'개';
-
-}
-
-}
-
-
-// ============================================================
-// 21. 수동 목록 삭제
-// ============================================================
-
-function removeManualBatchItem(index) {
-
-if (
-index < 0 ||
-index >= manualBatchItems.length
-) {
-return;
-}
-
-manualBatchItems.splice(
-index,
-1
-);
-
-renderManualBatchList();
-
-showToast(
-'목록에서 삭제했습니다.'
-);
-
-}
-
-
-// ============================================================
-// 22. 수동 일괄 저장
-// ============================================================
-
-function saveManualBatch() {
-
-const employee =
-localStorage.getItem(
-STORAGE_KEY
-) || '';
-
-if (!employee) {
-
-alert(
-'로그인 정보가 없습니다. 다시 로그인해주세요.'
-);
-
-return;
-
-}
-
-if (
-manualBatchItems.length === 0
-) {
-
-alert(
-'출고할 부품을 먼저 추가해주세요.'
-);
-
-return;
-
-}
-
-const saveBtn =
-document
-.getElementById(
-'manualBatchSaveBtn'
-);
-
-saveBtn.disabled = true;
-
-saveBtn.textContent =
-'전체 저장 중...';
-
-jsonpRequest(
-
-{
-
-action:
-'saveBatch',
-
-employee:
-employee,
-
-items:
-JSON.stringify(
-manualBatchItems
-),
-
-token:
-API_TOKEN
-
-},
-
-function(data) {
-
-saveBtn.disabled = false;
-
-saveBtn.textContent =
-'전체 저장';
-
-if (
-data &&
-data.success
-) {
-
-showToast(
-data.count +
-'개 부품이 저장되었습니다 ✓'
-);
-
-clearManualBatch();
-
-} else {
-
-const message =
-data &&
-data.message
-? data.message
-: '저장에 실패했습니다.';
-
-setManualLookupStatus(
-'error',
-message
-);
-
-showToast(
-message
-);
-
-}
-
-},
-
-function() {
-
-saveBtn.disabled = false;
-
-saveBtn.textContent =
-'전체 저장';
-
-showToast(
-'저장 요청에 실패했습니다. 네트워크를 확인해주세요.'
-);
-
-}
-
-);
-
-}
-
-
-// ============================================================
-// 23. 수동 입력값만 초기화
-// ============================================================
-
-function resetManualInputOnly() {
-
-document
-.getElementById(
-'manualPartNo'
-)
-.value = '';
-
-document
-.getElementById(
-'manualPartName'
-)
-.value = '';
-
-document
-.getElementById(
-'manualQuantity'
-)
-.value = 1;
-
-clearStatus(
-'manualLookupStatus'
-);
-
-}
-
-
-// ============================================================
-// 24. 수동 목록 전체 초기화
-// ============================================================
-
-function clearManualBatch() {
-
-manualBatchItems = [];
-
-renderManualBatchList();
-
-resetManualInputOnly();
-
-showToast(
-'출고 목록을 비웠습니다.'
-);
-
-}
-
-
-// ============================================================
-// 25. 수동 화면 전체 초기화
-// ============================================================
-
-function resetManualForm() {
-
-manualBatchItems = [];
-
-resetManualInputOnly();
-
-renderManualBatchList();
-
-}
-
-
-// ============================================================
-// 26. 관리자 비밀번호 화면
-// ============================================================
-
-function openAdminPassword() {
-
-stopScan();
-
-stopAdminScan();
-
-hideAllScreens();
-
-document
-.getElementById(
-'adminPasswordScreen'
-)
-.classList
-.remove('hidden');
-
-document
-.getElementById(
-'adminPasswordInput'
-)
-.value = '';
-
-clearStatus(
-'adminPasswordStatus'
-);
-
-document
-.getElementById(
-'adminPasswordInput'
-)
-.focus();
-
-}
-
-
-// ============================================================
-// 27. 관리자 비밀번호 확인
-// ============================================================
-
-function checkAdminPassword() {
-
-const password =
-document
-.getElementById(
-'adminPasswordInput'
-)
-.value
-.trim();
-
-if (!password) {
-
-setAdminPasswordStatus(
-'error',
-'관리자 비밀번호를 입력해주세요.'
-);
-
-return;
-
-}
-
-adminPasswordSession =
-password;
-
-showAdminModeScreen();
-
-}
-
-
-// ============================================================
-// 28. 관리자 모드
-// ============================================================
-
-function showAdminModeScreen() {
-
-hideAllScreens();
-
-document
-.getElementById(
-'adminModeScreen'
-)
-.classList
-.remove('hidden');
-
-}
-
-
-// ============================================================
-// 29. 관리자 바코드 등록 화면
-// ============================================================
-
-function showAdminBarcodeScreen() {
-
-hideAllScreens();
-
-document
-.getElementById(
-'adminBarcodeScreen'
-)
-.classList
-.remove('hidden');
-
-document
-.getElementById(
-'adminBarcodeText'
-)
-.textContent =
-'아직 스캔되지 않았습니다.';
-
-document
-.getElementById(
-'adminPartNo'
-)
-.value = '';
-
-clearStatus(
-'adminRegisterStatus'
-);
-
-}
-
-
-// ============================================================
-// 30. 관리자 카메라 시작
-// ============================================================
-
-async function startAdminScan() {
-
-if (isAdminScanning) {
-return;
-}
-
-clearStatus(
-'adminCameraStatus'
-);
-
-document
-.getElementById(
-'adminReader'
-)
-.classList
-.remove('hidden');
-
-document
-.getElementById(
-'adminScanGuide'
-)
-.classList
-.remove('hidden');
-
-document
-.getElementById(
-'adminStopScanBtn'
-)
-.classList
-.remove('hidden');
-
-setAdminCameraStatus(
-'info',
-'카메라를 준비하고 있습니다...'
-);
-
-try {
-
-if (
-location.protocol !== 'https:' &&
-location.hostname !== 'localhost' &&
-location.hostname !== '127.0.0.1'
-) {
-
-throw new Error(
-'카메라를 사용하려면 HTTPS 주소로 접속해야 합니다.'
-);
-
-}
-
-if (
-!navigator.mediaDevices ||
-!navigator.mediaDevices.getUserMedia
-) {
-
-throw new Error(
-'현재 브라우저에서 카메라 기능을 사용할 수 없습니다.'
-);
-
-}
-
-let permissionStream = null;
-
-try {
-
-permissionStream =
-await navigator
-.mediaDevices
-.getUserMedia({
-
-video: {
-facingMode: {
-ideal: 'environment'
-}
-},
-
-audio: false
-
-});
-
-} finally {
-
-if (permissionStream) {
-
-permissionStream
-.getTracks()
-.forEach(
-function(track) {
-track.stop();
-}
-);
-
-}
-
-}
-
-const cameras =
-await Html5Qrcode
-.getCameras();
-
-if (
-!cameras ||
-cameras.length === 0
-) {
-
-throw new Error(
-'사용 가능한 카메라를 찾을 수 없습니다.'
-);
-
-}
-
-const backCamera =
-cameras.find(
-function(camera) {
-
-const label =
-String(
-camera.label || ''
-).toLowerCase();
-
-return (
-
-label.includes('back') ||
-label.includes('rear') ||
-label.includes('environment') ||
-label.includes('후면')
-
-);
-
-}
-);
-
-selectedAdminCameraId =
-backCamera
-? backCamera.id
-: cameras[0].id;
-
-adminHtml5QrCode =
-new Html5Qrcode(
-'adminReader'
-);
-
-isAdminScanning = true;
-
-await adminHtml5QrCode.start(
-
-selectedAdminCameraId,
-
-{
-
-fps: 10,
-
-qrbox:
-function(
-viewfinderWidth,
-viewfinderHeight
-) {
-
-const width =
-Math.floor(
-viewfinderWidth * 0.86
-);
-
-const height =
-Math.floor(
-viewfinderHeight * 0.28
-);
-
-return {
-
-width:
-Math.max(
-220,
-Math.min(width, 360)
-),
-
-height:
-Math.max(
-100,
-Math.min(height, 180)
-)
-
-};
-
-},
-
-aspectRatio:
-1.777778,
-
-disableFlip:
-false
-
-},
-
-function(decodedText) {
-
-if (!isAdminScanning) {
-return;
-}
-
-onAdminScanSuccess(
-decodedText
-);
-
-},
-
-function(errorMessage) {}
-
-);
-
-setAdminCameraStatus(
-'success',
-'카메라가 실행되었습니다. 바코드를 맞춰주세요.'
-);
-
-} catch (err) {
-
-console.error(
-'ADMIN CAMERA ERROR:',
-err
-);
-
-isAdminScanning = false;
-
-cleanupAdminScanner();
-
-let message =
-'카메라를 시작할 수 없습니다.';
-
-const errorText =
-String(
-err && err.message
-? err.message
-: err
-);
-
-if (
-errorText.includes('NotAllowedError')
-) {
-
-message =
-'카메라 권한이 차단되어 있습니다.';
-
-}
-else if (
-errorText.includes('NotFoundError')
-) {
-
-message =
-'사용 가능한 카메라를 찾을 수 없습니다.';
-
-}
-else if (
-errorText.includes('HTTPS')
-) {
-
-message =
-'카메라를 사용하려면 HTTPS 주소로 접속해야 합니다.';
-
-}
-else if (errorText) {
-
-message =
-'카메라 오류: ' +
-errorText;
-
-}
-
-setAdminCameraStatus(
-'error',
-message
-);
-
-showToast(
-message
-);
-
-}
-
-}
-
-
-// ============================================================
-// 31. 관리자 카메라 종료
-// ============================================================
-
-async function stopAdminScan() {
-
-isAdminScanning = false;
-
-if (adminHtml5QrCode) {
-
-try {
-await adminHtml5QrCode.stop();
-} catch (err) {
-console.log('관리자 카메라 stop:', err);
-}
-
-try {
-adminHtml5QrCode.clear();
-} catch (err) {
-console.log('관리자 reader clear:', err);
-}
-
-adminHtml5QrCode = null;
-
-}
-
-cleanupAdminScanner();
-
-}
-
-function cleanupAdminScanner() {
-
-document
-.getElementById(
-'adminReader'
-)
-.classList
-.add('hidden');
-
-document
-.getElementById(
-'adminScanGuide'
-)
-.classList
-.add('hidden');
-
-document
-.getElementById(
-'adminStopScanBtn'
-)
-.classList
-.add('hidden');
-
-}
-
-
-// ============================================================
-// 32. 관리자 바코드 스캔 성공
-// ============================================================
-
-async function onAdminScanSuccess(barcode) {
-
-if (!isAdminScanning) {
-return;
-}
-
-isAdminScanning = false;
-
-currentAdminBarcode =
-String(
-barcode || ''
-).trim();
-
-await stopAdminScan();
-
-document
-.getElementById(
-'adminBarcodeText'
-)
-.textContent =
-currentAdminBarcode;
-
-setAdminRegisterStatus(
-'info',
-'바코드가 인식되었습니다. Part No를 입력해주세요.'
-);
-
-document
-.getElementById(
-'adminPartNo'
-)
-.focus();
-
-}
-
-
-// ============================================================
-// 33. 관리자 바코드 등록
-// ============================================================
-
-function registerAdminBarcode() {
-
-if (!currentAdminBarcode) {
-
-alert(
-'먼저 바코드를 스캔해주세요.'
-);
-
-return;
-
-}
-
-const partNo =
-document
-.getElementById(
-'adminPartNo'
-)
-.value
-.trim();
-
-if (!partNo) {
-
-alert(
-'Part No를 입력해주세요.'
-);
-
-return;
-
-}
-
-if (!adminPasswordSession) {
-
-alert(
-'관리자 인증이 필요합니다.'
-);
-
-showMenuScreen();
-
-return;
-
-}
-
-const registerBtn =
-document
-.getElementById(
-'adminRegisterBtn'
-);
-
-registerBtn.disabled = true;
-
-registerBtn.textContent =
-'등록 중...';
-
-setAdminRegisterStatus(
-'info',
-'부품마스터에서 Part No를 찾고 있습니다...'
-);
-
-jsonpRequest(
-
-{
-
-action:
-'registerBarcode',
-
-barcode:
-currentAdminBarcode,
-
-partNo:
-partNo,
-
-adminPassword:
-adminPasswordSession
-
-},
-
-function(data) {
-
-registerBtn.disabled = false;
-
-registerBtn.textContent =
-'저장하기';
-
-if (
-data &&
-data.success
-) {
-
-setAdminRegisterStatus(
-
-'success',
-
-'등록 완료!\n' +
-'바코드: ' +
-data.barcode +
-'\n' +
-'Part No: ' +
-data.partNo +
-'\n' +
-'부품명: ' +
-data.name
-
-);
-
-showToast(
-'바코드 등록이 완료되었습니다 ✓'
-);
-
-} else {
-
-const message =
-data &&
-data.message
-? data.message
-: '바코드 등록에 실패했습니다.';
-
-setAdminRegisterStatus(
-'error',
-message
-);
-
-showToast(
-message
-);
-
-}
-
-},
-
-function() {
-
-registerBtn.disabled = false;
-
-registerBtn.textContent =
-'저장하기';
-
-setAdminRegisterStatus(
-'error',
-'등록 요청에 실패했습니다. 네트워크를 확인해주세요.'
-);
-
-}
-
-);
-
-}
-
-
-// ============================================================
-// 34. 관리자 화면 초기화
-// ============================================================
-
-function resetAdminBarcodeForm() {
-
-stopAdminScan();
-
-currentAdminBarcode = '';
-
-document
-.getElementById(
-'adminBarcodeText'
-)
-.textContent =
-'아직 스캔되지 않았습니다.';
-
-document
-.getElementById(
-'adminPartNo'
-)
-.value = '';
-
-clearStatus(
-'adminRegisterStatus'
-);
-
-}
-
-
-// ============================================================
-// 35. JSONP
-// ============================================================
-
-function jsonpRequest(
-params,
-onSuccess,
-onError
-) {
-
-const callbackName =
-'__inventory_jsonp_' +
-Date.now() +
-'_' +
-(++jsonpCounter);
-
-const script =
-document.createElement(
-'script'
-);
-
-let finished = false;
-
-const timeout =
-setTimeout(
-function() {
-
-finish();
-
-if (onError) {
-
-onError(
-new Error(
-'API timeout'
-)
-);
-
-}
-
-},
-15000
-);
-
-window[callbackName] =
-function(data) {
-
-finish();
-
-if (onSuccess) {
-
-onSuccess(
-data
-);
-
-}
-
-};
-
-const query =
-new URLSearchParams();
-
-Object.keys(params)
-.forEach(
-function(key) {
-
-const value =
-params[key];
-
-if (
-value !== undefined &&
-value !== null
-) {
-
-query.set(
-key,
-String(value)
-);
-
-}
-
-}
-);
-
-query.set(
-'callback',
-callbackName
-);
-
-query.set(
-'_',
-String(
-Date.now()
-)
-);
-
-script.src =
-APPS_SCRIPT_URL +
-'?' +
-query.toString();
-
-script.onerror =
-function() {
-
-finish();
-
-if (onError) {
-
-onError(
-new Error(
-'API request failed'
-)
-);
-
-}
-
-};
-
-document
-.body
-.appendChild(
-script
-);
-
-function finish() {
-
-if (finished) {
-return;
-}
-
-finished = true;
-
-clearTimeout(
-timeout
-);
-
-try {
-
-delete window[
-callbackName
-];
-
-} catch (e) {
-
-window[
-callbackName
-] =
-undefined;
-
-}
-
-if (
-script.parentNode
-) {
-
-script
-.parentNode
-.removeChild(
-script
-);
-
-}
-
-}
-
-}
-
-
-// ============================================================
-// 36. 일반 입력 초기화
-// ============================================================
-
-function resetForm() {
-
-stopScan();
-
-currentBarcode = '';
-
-document
-.getElementById(
-'barcodeText'
-)
-.textContent = '';
-
-document
-.getElementById(
-'partNo'
-)
-.value = '';
-
-document
-.getElementById(
-'partName'
-)
-.value = '';
-
-document
-.getElementById(
-'quantity'
-)
-.value = 1;
-
-clearStatus(
-'lookupStatus'
-);
-
-document
-.getElementById(
-'resultCard'
-)
-.classList
-.add('hidden');
-
-}
-
-
-// ============================================================
-// 37. 상태 표시
-// ============================================================
-
-function setCameraStatus(
-type,
-message
-) {
-
-const el =
-document
-.getElementById(
-'cameraStatus'
-);
-
-el.className =
-'status ' +
-type;
-
-el.textContent =
-message;
-
-}
-
-function setLookupStatus(
-type,
-message
-) {
-
-const el =
-document
-.getElementById(
-'lookupStatus'
-);
-
-el.className =
-'status ' +
-type;
-
-el.textContent =
-message;
-
-}
-
-function setManualLookupStatus(
-type,
-message
-) {
-
-const el =
-document
-.getElementById(
-'manualLookupStatus'
-);
-
-el.className =
-'status ' +
-type;
-
-el.textContent =
-message;
-
-}
-
-function setHistoryStatus(
-type,
-message
-) {
-
-const el =
-document
-.getElementById(
-'historyStatus'
-);
-
-el.className =
-'status ' +
-type;
-
-el.textContent =
-message;
-
-}
-
-function setAdminPasswordStatus(
-type,
-message
-) {
-
-const el =
-document
-.getElementById(
-'adminPasswordStatus'
-);
-
-el.className =
-'status ' +
-type;
-
-el.textContent =
-message;
-
-}
-
-function setAdminCameraStatus(
-type,
-message
-) {
-
-const el =
-document
-.getElementById(
-'adminCameraStatus'
-);
-
-el.className =
-'status ' +
-type;
-
-el.textContent =
-message;
-
-}
-
-function setAdminRegisterStatus(
-type,
-message
-) {
-
-const el =
-document
-.getElementById(
-'adminRegisterStatus'
-);
-
-el.className =
-'status ' +
-type;
-
-el.textContent =
-message;
-
-}
-
-function clearStatus(id) {
-
-const el =
-document
-.getElementById(
-id
-);
-
-if (!el) {
-return;
-}
-
-el.className =
-'status';
-
-el.textContent =
-'';
-
-}
-
-
-// ============================================================
-// 38. HTML escape
-// ============================================================
-
-function escapeHtml(value) {
-
-return String(
-value || ''
-)
-.replace(
-/&/g,
-'&amp;'
-)
-.replace(
-/</g,
-'&lt;'
-)
-.replace(
-/>/g,
-'&gt;'
-)
-.replace(
-/"/g,
-'&quot;'
-)
-.replace(
-/'/g,
-'&#039;'
-);
-
-}
-
-
-// ============================================================
-// 39. Toast
-// ============================================================
-
-function showToast(message) {
-
-const el =
-document
-.getElementById(
-'toast'
-);
-
-el.textContent =
-message;
-
-el.classList
-.add('show');
-
-clearTimeout(
-window.__toastTimer
-);
-
-window.__toastTimer =
-setTimeout(
-function() {
-
-el.classList
-.remove('show');
-
-},
-2600
-);
-
-}
-
-</script>
