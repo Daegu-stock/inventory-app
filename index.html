@@ -347,7 +347,8 @@ button:disabled {
 }
 
 
-#reader {
+#reader,
+#adminReader {
 
   width: 100%;
 
@@ -364,7 +365,8 @@ button:disabled {
 }
 
 
-#reader video {
+#reader video,
+#adminReader video {
 
   width: 100% !important;
 
@@ -573,6 +575,19 @@ button:disabled {
   background: #f8f8f8;
 
   border-radius: 10px;
+
+}
+
+
+.batch-count {
+
+  margin-top: 8px;
+
+  font-size: 12px;
+
+  color: #666;
+
+  text-align: right;
 
 }
 
@@ -792,7 +807,7 @@ id="scanGuide"
 class="scan-guide hidden"
 >
 바코드를 화면 가운데 맞춰주세요.<br>
-인식되면 자동으로 다음 단계로 넘어갑니다.
+인식되면 자동으로 부품 정보를 조회합니다.
 </div>
 
 
@@ -821,6 +836,8 @@ onclick="showMenuScreen()"
 </div>
 
 
+
+<!-- 스캔 결과 -->
 
 <div
 class="card hidden"
@@ -890,10 +907,76 @@ onclick="saveRecord()"
 
 
 <button
+id="addScanBatchBtn"
+onclick="addScanItemToBatch()"
+>
+➕ 출고 목록에 추가
+</button>
+
+
+<button
 class="secondary"
-onclick="resetForm()"
+onclick="resetScanResult()"
 >
 취소
+</button>
+
+</div>
+
+
+
+<!-- ====================================================
+     ★ 바코드 스캔 출고 목록
+     ==================================================== -->
+
+<div
+class="card"
+id="scanBatchCard"
+>
+
+<div class="menu-title">
+📦 바코드 출고 목록
+</div>
+
+
+<div
+class="sub"
+style="margin-bottom:10px;"
+>
+여러 부품을 추가한 뒤 전체 저장을 한 번만 눌러주세요.
+</div>
+
+
+<div
+id="scanBatchList"
+>
+<div class="batch-empty">
+아직 추가된 부품이 없습니다.
+</div>
+</div>
+
+
+<div
+class="batch-count"
+id="scanBatchCount"
+>
+총 0개
+</div>
+
+
+<button
+id="scanBatchSaveBtn"
+onclick="saveScanBatch()"
+>
+전체 저장
+</button>
+
+
+<button
+class="secondary"
+onclick="clearScanBatch()"
+>
+목록 비우기
 </button>
 
 </div>
@@ -991,6 +1074,14 @@ id="batchList"
 </div>
 
 
+<div
+class="batch-count"
+id="manualBatchCount"
+>
+총 0개
+</div>
+
+
 <button
 id="manualBatchSaveBtn"
 onclick="saveManualBatch()"
@@ -1001,9 +1092,17 @@ onclick="saveManualBatch()"
 
 <button
 class="secondary"
-onclick="resetManualForm()"
+onclick="resetManualInputOnly()"
 >
 입력 초기화
+</button>
+
+
+<button
+class="secondary"
+onclick="clearManualBatch()"
+>
+목록 비우기
 </button>
 
 
@@ -1143,8 +1242,6 @@ class="status"
 
 
 
-<!-- ★ 스캔된 바코드 표시 -->
-
 <label>
 스캔된 바코드
 </label>
@@ -1258,7 +1355,22 @@ let selectedAdminCameraId = null;
 
 let jsonpCounter = 0;
 
+
+// ------------------------------------------------------------
+// ★ 수동 입력 목록
+// ------------------------------------------------------------
+
 let manualBatchItems = [];
+
+
+// ------------------------------------------------------------
+// ★ 바코드 스캔 목록
+// ------------------------------------------------------------
+
+let scanBatchItems = [];
+
+
+// 관리자 비밀번호 세션
 
 let adminPasswordSession = '';
 
@@ -1376,9 +1488,15 @@ resetManualForm();
 
 resetAdminBarcodeForm();
 
+clearScanBatch();
+
 }
 
 
+
+// ============================================================
+// 4. 메인 화면
+// ============================================================
 
 function showMain(name) {
 
@@ -1414,7 +1532,7 @@ showMenuScreen();
 
 
 // ============================================================
-// 4. 화면 전환
+// 5. 화면 전환
 // ============================================================
 
 function hideAllScreens() {
@@ -1485,11 +1603,15 @@ resetManualForm();
 
 resetAdminBarcodeForm();
 
+renderScanBatchList();
+
 }
 
 
 
 function showScanScreen() {
+
+stopAdminScan();
 
 hideAllScreens();
 
@@ -1501,11 +1623,18 @@ document
 .classList
 .remove('hidden');
 
+
+renderScanBatchList();
+
 }
 
 
 
 function showManualScreen() {
+
+stopScan();
+
+stopAdminScan();
 
 hideAllScreens();
 
@@ -1516,6 +1645,9 @@ document
 )
 .classList
 .remove('hidden');
+
+
+renderManualBatchList();
 
 
 document
@@ -1529,7 +1661,7 @@ document
 
 
 // ============================================================
-// 5. 일반 카메라 시작
+// 6. 일반 카메라 시작
 // ============================================================
 
 async function startScan() {
@@ -1776,6 +1908,7 @@ Math.min(
 height,
 180
 )
+
 )
 
 };
@@ -1950,7 +2083,7 @@ message
 
 
 // ============================================================
-// 6. 일반 카메라 종료
+// 7. 일반 카메라 종료
 // ============================================================
 
 async function stopScan() {
@@ -2029,7 +2162,7 @@ document
 
 
 // ============================================================
-// 7. 일반 바코드 스캔 성공
+// 8. 일반 바코드 스캔 성공
 // ============================================================
 
 async function onScanSuccess(
@@ -2107,7 +2240,7 @@ currentBarcode
 
 
 // ============================================================
-// 8. 바코드 조회
+// 9. 바코드 조회
 // ============================================================
 
 function lookupPart(barcode) {
@@ -2221,7 +2354,7 @@ setLookupStatus(
 
 
 // ============================================================
-// 9. 일반 바코드 저장
+// 10. 일반 바코드 즉시 저장
 // ============================================================
 
 function saveRecord() {
@@ -2286,6 +2419,17 @@ if (!name) {
 
 alert(
 '부품명을 입력해주세요.'
+);
+
+return;
+
+}
+
+
+if (!partNo) {
+
+alert(
+'Part No가 없습니다.'
 );
 
 return;
@@ -2418,7 +2562,493 @@ showToast(
 
 
 // ============================================================
-// 10. 수동 Part No 조회
+// ★ 11. 바코드 스캔 부품을 출고 목록에 추가
+// ============================================================
+
+function addScanItemToBatch() {
+
+const barcode =
+currentBarcode;
+
+
+const partNo =
+document
+.getElementById(
+'partNo'
+)
+.value
+.trim();
+
+
+const name =
+document
+.getElementById(
+'partName'
+)
+.value
+.trim();
+
+
+const quantity =
+Number(
+document
+.getElementById(
+'quantity'
+)
+.value
+);
+
+
+if (!barcode) {
+
+alert(
+'바코드가 없습니다. 다시 스캔해주세요.'
+);
+
+return;
+
+}
+
+
+if (!partNo) {
+
+alert(
+'Part No가 없습니다.'
+);
+
+return;
+
+}
+
+
+if (!name) {
+
+alert(
+'부품명이 없습니다.'
+);
+
+return;
+
+}
+
+
+if (
+
+!Number.isInteger(quantity) ||
+
+quantity <= 0
+
+) {
+
+alert(
+'수량은 1 이상의 정수로 입력해주세요.'
+);
+
+return;
+
+}
+
+
+scanBatchItems.push({
+
+barcode:
+barcode,
+
+partNo:
+partNo,
+
+name:
+name,
+
+quantity:
+quantity
+
+});
+
+
+renderScanBatchList();
+
+
+showToast(
+'출고 목록에 추가되었습니다.'
+);
+
+
+resetScanResult();
+
+}
+
+
+
+// ============================================================
+// ★ 12. 바코드 스캔 목록 표시
+// ============================================================
+
+function renderScanBatchList() {
+
+const list =
+document
+.getElementById(
+'scanBatchList'
+);
+
+
+const count =
+document
+.getElementById(
+'scanBatchCount'
+);
+
+
+if (!list) {
+
+return;
+
+}
+
+
+if (
+scanBatchItems.length === 0
+) {
+
+list.innerHTML =
+'<div class="batch-empty">' +
+'아직 추가된 부품이 없습니다.' +
+'</div>';
+
+if (count) {
+
+count.textContent =
+'총 0개';
+
+}
+
+return;
+
+}
+
+
+let html = '';
+
+
+scanBatchItems.forEach(
+
+function(item, index) {
+
+html +=
+
+'<div class="batch-item">' +
+
+'<div class="batch-item-title">' +
+
+(index + 1) +
+'. ' +
+escapeHtml(item.name) +
+
+'</div>' +
+
+'<div class="batch-item-info">' +
+
+'Part No: ' +
+escapeHtml(item.partNo) +
+
+'<br>' +
+
+'바코드: ' +
+escapeHtml(item.barcode) +
+
+'<br>' +
+
+'수량: ' +
+item.quantity +
+
+'</div>' +
+
+'<button ' +
+
+'class="batch-remove" ' +
+
+'onclick="removeScanBatchItem(' +
+index +
+')">' +
+
+'삭제' +
+
+'</button>' +
+
+'</div>';
+
+}
+
+
+);
+
+
+list.innerHTML =
+html;
+
+
+if (count) {
+
+count.textContent =
+'총 ' +
+scanBatchItems.length +
+'개';
+
+}
+
+}
+
+
+
+// ============================================================
+// ★ 13. 바코드 출고 목록 삭제
+// ============================================================
+
+function removeScanBatchItem(
+index
+) {
+
+if (
+
+index < 0 ||
+
+index >= scanBatchItems.length
+
+) {
+
+return;
+
+}
+
+
+scanBatchItems.splice(
+index,
+1
+);
+
+
+renderScanBatchList();
+
+
+showToast(
+'목록에서 삭제했습니다.'
+);
+
+}
+
+
+
+// ============================================================
+// ★ 14. 바코드 출고 목록 전체 저장
+// ============================================================
+
+function saveScanBatch() {
+
+const employee =
+localStorage.getItem(
+STORAGE_KEY
+) || '';
+
+
+if (!employee) {
+
+alert(
+'로그인 정보가 없습니다. 다시 로그인해주세요.'
+);
+
+return;
+
+}
+
+
+if (
+scanBatchItems.length === 0
+) {
+
+alert(
+'출고할 부품을 먼저 추가해주세요.'
+);
+
+return;
+
+}
+
+
+const saveBtn =
+document
+.getElementById(
+'scanBatchSaveBtn'
+);
+
+
+saveBtn.disabled = true;
+
+saveBtn.textContent =
+'전체 저장 중...';
+
+
+jsonpRequest(
+
+{
+
+action:
+'saveBatch',
+
+employee:
+employee,
+
+items:
+JSON.stringify(
+scanBatchItems
+),
+
+token:
+API_TOKEN
+
+},
+
+
+function(data) {
+
+saveBtn.disabled = false;
+
+saveBtn.textContent =
+'전체 저장';
+
+
+if (
+
+data &&
+
+data.success
+
+) {
+
+showToast(
+
+data.count +
+'개 부품이 저장되었습니다 ✓'
+
+);
+
+
+clearScanBatch();
+
+
+} else {
+
+const message =
+data &&
+data.message
+? data.message
+: '저장에 실패했습니다.';
+
+
+showToast(
+message
+);
+
+}
+
+},
+
+
+function() {
+
+saveBtn.disabled = false;
+
+saveBtn.textContent =
+'전체 저장';
+
+
+showToast(
+'저장 요청에 실패했습니다. 네트워크를 확인해주세요.'
+);
+
+}
+
+);
+
+}
+
+
+
+// ============================================================
+// ★ 15. 바코드 출고 목록 비우기
+// ============================================================
+
+function clearScanBatch() {
+
+scanBatchItems = [];
+
+
+renderScanBatchList();
+
+}
+
+
+
+// ============================================================
+// ★ 16. 스캔 결과만 초기화
+// ============================================================
+
+function resetScanResult() {
+
+currentBarcode =
+'';
+
+
+document
+.getElementById(
+'barcodeText'
+)
+.textContent =
+'';
+
+
+document
+.getElementById(
+'partNo'
+)
+.value =
+'';
+
+
+document
+.getElementById(
+'partName'
+)
+.value =
+'';
+
+
+document
+.getElementById(
+'quantity'
+)
+.value =
+1;
+
+
+clearStatus(
+'lookupStatus'
+);
+
+
+document
+.getElementById(
+'resultCard'
+)
+.classList
+.add('hidden');
+
+}
+
+
+
+// ============================================================
+// 17. 수동 Part No 조회
 // ============================================================
 
 function lookupManualPart() {
@@ -2584,7 +3214,7 @@ setManualLookupStatus(
 
 
 // ============================================================
-// 11. 수동 부품을 목록에 추가
+// 18. 수동 부품을 목록에 추가
 // ============================================================
 
 function addManualItem() {
@@ -2673,7 +3303,7 @@ quantity
 });
 
 
-renderBatchList();
+renderManualBatchList();
 
 
 showToast(
@@ -2681,30 +3311,7 @@ showToast(
 );
 
 
-document
-.getElementById(
-'manualPartNo'
-)
-.value = '';
-
-
-document
-.getElementById(
-'manualPartName'
-)
-.value = '';
-
-
-document
-.getElementById(
-'manualQuantity'
-)
-.value = 1;
-
-
-clearStatus(
-'manualLookupStatus'
-);
+resetManualInputOnly();
 
 
 document
@@ -2718,10 +3325,10 @@ document
 
 
 // ============================================================
-// 12. 일괄 목록 표시
+// 19. 수동 입력 목록 표시
 // ============================================================
 
-function renderBatchList() {
+function renderManualBatchList() {
 
 const list =
 document
@@ -2730,12 +3337,28 @@ document
 );
 
 
+const count =
+document
+.getElementById(
+'manualBatchCount'
+);
+
+
 if (
 manualBatchItems.length === 0
 ) {
 
 list.innerHTML =
-'<div class="batch-empty">아직 추가된 부품이 없습니다.</div>';
+'<div class="batch-empty">' +
+'아직 추가된 부품이 없습니다.' +
+'</div>';
+
+if (count) {
+
+count.textContent =
+'총 0개';
+
+}
 
 return;
 
@@ -2765,6 +3388,7 @@ escapeHtml(item.name) +
 
 'Part No: ' +
 escapeHtml(item.partNo) +
+
 '<br>' +
 
 '수량: ' +
@@ -2776,7 +3400,7 @@ item.quantity +
 
 'class="batch-remove" ' +
 
-'onclick="removeBatchItem(' +
+'onclick="removeManualBatchItem(' +
 index +
 ')">' +
 
@@ -2794,15 +3418,25 @@ index +
 list.innerHTML =
 html;
 
+
+if (count) {
+
+count.textContent =
+'총 ' +
+manualBatchItems.length +
+'개';
+
+}
+
 }
 
 
 
 // ============================================================
-// 13. 목록 삭제
+// 20. 수동 목록 삭제
 // ============================================================
 
-function removeBatchItem(
+function removeManualBatchItem(
 index
 ) {
 
@@ -2825,14 +3459,19 @@ index,
 );
 
 
-renderBatchList();
+renderManualBatchList();
+
+
+showToast(
+'목록에서 삭제했습니다.'
+);
 
 }
 
 
 
 // ============================================================
-// 14. 수동 일괄 저장
+// 21. 수동 일괄 저장
 // ============================================================
 
 function saveManualBatch() {
@@ -2918,12 +3557,14 @@ data.success
 ) {
 
 showToast(
+
 data.count +
 '개 부품이 저장되었습니다 ✓'
+
 );
 
 
-resetManualForm();
+clearManualBatch();
 
 
 } else {
@@ -2970,7 +3611,86 @@ showToast(
 
 
 // ============================================================
-// 15. 관리자 비밀번호 화면
+// 22. 수동 입력값만 초기화
+// ============================================================
+
+function resetManualInputOnly() {
+
+document
+.getElementById(
+'manualPartNo'
+)
+.value =
+'';
+
+
+document
+.getElementById(
+'manualPartName'
+)
+.value =
+'';
+
+
+document
+.getElementById(
+'manualQuantity'
+)
+.value =
+1;
+
+
+clearStatus(
+'manualLookupStatus'
+);
+
+}
+
+
+
+// ============================================================
+// 23. 수동 목록 전체 초기화
+// ============================================================
+
+function clearManualBatch() {
+
+manualBatchItems = [];
+
+
+renderManualBatchList();
+
+
+resetManualInputOnly();
+
+
+showToast(
+'출고 목록을 비웠습니다.'
+);
+
+}
+
+
+
+// ============================================================
+// 24. 수동 화면 전체 초기화
+// ============================================================
+
+function resetManualForm() {
+
+manualBatchItems = [];
+
+
+resetManualInputOnly();
+
+
+renderManualBatchList();
+
+}
+
+
+
+// ============================================================
+// 25. 관리자 비밀번호 화면
 // ============================================================
 
 function openAdminPassword() {
@@ -3013,12 +3733,7 @@ document
 
 
 // ============================================================
-// 16. 관리자 비밀번호 확인
-// ============================================================
-//
-// 실제 비밀번호 확인은 GS에서도 다시 합니다.
-// 따라서 HTML에 비밀번호가 노출되어도
-// 서버에서 최종적으로 한 번 더 확인합니다.
+// 26. 관리자 비밀번호 확인
 // ============================================================
 
 function checkAdminPassword() {
@@ -3044,17 +3759,6 @@ return;
 }
 
 
-// ----------------------------------------------------------
-// 화면 전환용
-// ----------------------------------------------------------
-//
-// 실제 보안 확인은 registerBarcode 요청 시
-// Apps Script에서 다시 확인합니다.
-//
-// 여기서는 관리자 모드 진입을 허용하고,
-// 실제 저장할 때 GS가 비밀번호를 검증합니다.
-// ----------------------------------------------------------
-
 adminPasswordSession =
 password;
 
@@ -3066,7 +3770,7 @@ showAdminBarcodeScreen();
 
 
 // ============================================================
-// 17. 관리자 바코드 화면
+// 27. 관리자 바코드 화면
 // ============================================================
 
 function showAdminBarcodeScreen() {
@@ -3106,7 +3810,7 @@ clearStatus(
 
 
 // ============================================================
-// 18. 관리자 카메라 시작
+// 28. 관리자 카메라 시작
 // ============================================================
 
 async function startAdminScan() {
@@ -3339,6 +4043,7 @@ Math.min(
 height,
 180
 )
+
 )
 
 };
@@ -3466,7 +4171,7 @@ message
 
 
 // ============================================================
-// 19. 관리자 카메라 종료
+// 29. 관리자 카메라 종료
 // ============================================================
 
 async function stopAdminScan() {
@@ -3545,7 +4250,7 @@ document
 
 
 // ============================================================
-// 20. 관리자 바코드 스캔 성공
+// 30. 관리자 바코드 스캔 성공
 // ============================================================
 
 async function onAdminScanSuccess(
@@ -3596,7 +4301,7 @@ document
 
 
 // ============================================================
-// 21. 관리자 바코드 등록
+// 31. 관리자 바코드 등록
 // ============================================================
 
 function registerAdminBarcode() {
@@ -3769,7 +4474,7 @@ setAdminRegisterStatus(
 
 
 // ============================================================
-// 22. 관리자 화면 초기화
+// 32. 관리자 화면 초기화
 // ============================================================
 
 function resetAdminBarcodeForm() {
@@ -3805,7 +4510,7 @@ clearStatus(
 
 
 // ============================================================
-// 23. JSONP
+// 33. JSONP
 // ============================================================
 
 function jsonpRequest(
@@ -3996,7 +4701,7 @@ script
 
 
 // ============================================================
-// 24. 일반 입력 초기화
+// 34. 일반 입력 초기화
 // ============================================================
 
 function resetForm() {
@@ -4057,51 +4762,7 @@ document
 
 
 // ============================================================
-// 25. 수동 입력 초기화
-// ============================================================
-
-function resetManualForm() {
-
-manualBatchItems = [];
-
-
-document
-.getElementById(
-'manualPartNo'
-)
-.value =
-'';
-
-
-document
-.getElementById(
-'manualPartName'
-)
-.value =
-'';
-
-
-document
-.getElementById(
-'manualQuantity'
-)
-.value =
-1;
-
-
-clearStatus(
-'manualLookupStatus'
-);
-
-
-renderBatchList();
-
-}
-
-
-
-// ============================================================
-// 26. 상태 표시
+// 35. 상태 표시
 // ============================================================
 
 function setCameraStatus(
@@ -4269,7 +4930,7 @@ el.textContent =
 
 
 // ============================================================
-// 27. HTML escape
+// 36. HTML escape
 // ============================================================
 
 function escapeHtml(
@@ -4305,7 +4966,7 @@ value || ''
 
 
 // ============================================================
-// 28. Toast
+// 37. Toast
 // ============================================================
 
 function showToast(
